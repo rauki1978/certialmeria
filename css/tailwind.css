@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS that will remain in HTML <style> blocks */
+/* This file only imports Tailwind directives */

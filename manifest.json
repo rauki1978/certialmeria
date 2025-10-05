@@ -1,0 +1,433 @@
+{
+  "_comment": "Archivo: manifest.json - Configuración PWA",
+  "name": "Certificado Energético Almería - Raúl Cañadas",
+  "short_name": "CertificadoAlmería",
+  "description": "Certificados energéticos en Almería. Arquitecto técnico colegiado con 20 años experiencia. Servicio rápido en toda la provincia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2c5aa0",
+  "theme_color": "#2c5aa0",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Llamar ahora",
+      "short_name": "Llamar",
+      "description": "Contactar directamente por teléfono",
+      "url": "tel:+34667451538",
+      "icons": [
+        {
+          "src": "/icon-call-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Contactar por WhatsApp",
+      "url": "https://wa.me/34667451538",
+      "icons": [
+        {
+          "src": "/icon-whatsapp-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Almería Capital",
+      "short_name": "Almería",
+      "description": "Certificado energético en Almería capital",
+      "url": "/certificado-energetico-almeria/",
+      "icons": [
+        {
+          "src": "/icon-location-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+
+---
+
+<!-- Archivo: robots.txt -->
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://certificadoenergeticoalmeria.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Allow: /wp-content/uploads/
+
+# Disallow search and filter pages
+Disallow: /*?s=
+Disallow: /*?p=
+Disallow: /*&
+Disallow: /search/
+
+# Allow important CSS and JS
+Allow: /wp-content/themes/*/style.css
+Allow: /wp-content/themes/*/scripts.js
+Allow: /styles.css
+Allow: /main.js
+
+# Crawl delay (optional, solo si hay problemas de carga del servidor)
+# Crawl-delay: 1
+
+---
+
+<!-- Archivo: .htaccess - Configuración del servidor -->
+# Configuración optimizada para certificadoenergeticoalmeria.com
+
+# Habilitar compresión GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/atom_xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/truetype
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+</IfModule>
+
+# Cache de navegador
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes - 1 año
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # Fuentes - 1 año
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    
+    # CSS y JavaScript - 1 mes
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # HTML - 1 día
+    ExpiresByType text/html "access plus 1 day"
+    
+    # Manifest y Service Worker - inmediato
+    ExpiresByType application/manifest+json "access plus 0 seconds"
+    ExpiresByType text/cache-manifest "access plus 0 seconds"
+    
+    # Por defecto - 1 hora
+    ExpiresDefault "access plus 1 hour"
+</IfModule>
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+    # HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # XSS Protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Content Type Options
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Frame Options
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; connect-src 'self' https://www.google-analytics.com https://wa.me; frame-src 'self' https://www.google.com;"
+    
+    # Cache para recursos estáticos
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+    
+    # Cache para HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+</IfModule>
+
+# Redirecciones 301 (ejemplos)
+RewriteEngine On
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Forzar www (opcional, ajustar según preferencia)
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirecciones específicas (ejemplos para migración)
+# RedirectMatch 301 ^/old-page/$ /new-page/
+# RedirectMatch 301 ^/certificado-energetico$ /certificado-energetico-almeria/
+
+# Páginas de error personalizadas
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Bloquear acceso a archivos sensibles
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "wp-config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "error_log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Optimización adicional
+<IfModule mod_rewrite.c>
+    # Remover trailing slashes de archivos
+    RewriteRule ^([^/]+)/+$ /$1 [R=301,L]
+    
+    # Remover index.php, index.html de URLs
+    RewriteRule ^index\.(php|html?)$ / [R=301,L]
+</IfModule>
+
+---
+
+<!-- Archivo: sitemap.xml (estructura básica) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>https://certificadoenergeticoalmeria.com/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Páginas principales -->
+    <url>
+        <loc>https://certificadoenergeticoalmeria.com/certificado-energetico-almeria/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://certificadoenergeticoalmeria.com/certificado-energetico-roquetas-de-mar/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://certificadoenergeticoalmeria.com/certificado-energetico-el-ejido/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Añadir todas las páginas municipales -->
+    <!-- ... resto de municipios ... -->
+    
+</urlset>
+
+---
+
+<!-- Archivo: 404.html - Página de error personalizada -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada - Certificado Energético Almería</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2c5aa0 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .error-container {
+            max-width: 600px;
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+        .popular-pages {
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .popular-pages h3 {
+            margin-bottom: 1rem;
+        }
+        .popular-pages ul {
+            list-style: none;
+            padding: 0;
+        }
+        .popular-pages li {
+            margin-bottom: 0.5rem;
+        }
+        .popular-pages a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        .popular-pages a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1>Página no encontrada</h1>
+        <p>Lo sentimos, la página que busca no existe. Pero podemos ayudarle con su certificado energético:</p>
+        
+        <div class="cta-buttons">
+            <a href="/" class="btn">🏠 Ir al inicio</a>
+            <a href="tel:+34667451538" class="btn">📞 667 45 15 38</a>
+            <a href="https://wa.me/34667451538" class="btn secondary">💬 WhatsApp</a>
+        </div>
+        
+        <div class="popular-pages">
+            <h3>📍 Páginas más visitadas:</h3>
+            <ul>
+                <li><a href="/certificado-energetico-almeria/">→ Certificado energético Almería</a></li>
+                <li><a href="/certificado-energetico-roquetas-de-mar/">→ Certificado energético Roquetas de Mar</a></li>
+                <li><a href="/certificado-energetico-el-ejido/">→ Certificado energético El Ejido</a></li>
+                <li><a href="/certificado-energetico-nijar/">→ Certificado energético Níjar</a></li>
+            </ul>
+        </div>
+        
+        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.7;">
+            Raúl Cañadas Navarro - Arquitecto Técnico Colegiado COAAT 1.440
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://www.certialmeria.es/sitemap.xml
+
+# Permitir indexación completa de contenido público
+Allow: /blog/
+Allow: /images/
+Allow: /certificado-energetico/
+Allow: /certificado-energetico-barato/
+Allow: /vs-certicalia/
+Allow: /vs-tinsa/
+
+# Prevenir indexación de archivos técnicos
+Disallow: /sw.js
+Disallow: /manifest.json
+Disallow: /*.json
+Disallow: /temp*
+Disallow: /*SPECS.md
+Disallow: /*AUDITORIA*
+Disallow: /*ESTADO*
+
+# Crawl-delay para bots agresivos
+Crawl-delay: 1

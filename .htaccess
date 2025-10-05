@@ -1,0 +1,135 @@
+# CertiAlmería - Configuración de Producción
+# Archivo .htaccess para optimización SEO y rendimiento
+
+# ============================================================================
+# REESCRITURA DE URLS Y REDIRECCIONES
+# ============================================================================
+
+RewriteEngine On
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Forzar www (opcional - descomenta si usas www)
+# RewriteCond %{HTTP_HOST} !^www\.
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remover trailing slash de URLs (excepto directorios)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# ============================================================================
+# CORRECCIÓN DE ENLACES ROTOS IDENTIFICADOS
+# ============================================================================
+
+# Redireccionar URL incorrecta de zona climática
+Redirect 301 /zona-climatica-b3-almeria/ /blog/zona-climatica-a4-que-significa/
+
+
+# Redireccionar /contacto/ a homepage si se accede directamente
+Redirect 301 /contacto/ /
+
+# ============================================================================
+# OPTIMIZACIÓN DE RENDIMIENTO
+# ============================================================================
+
+# Habilitar compresión GZIP
+<IfModule mod_deflate.c>
+    # Comprimir HTML, CSS, JavaScript, Text, XML y fuentes
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+</IfModule>
+
+# Cache de archivos estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Imágenes
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+
+    # CSS y JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+
+    # Fuentes
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+
+    # HTML (cache más corto para contenido dinámico)
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ============================================================================
+# SEGURIDAD
+# ============================================================================
+
+# Ocultar información del servidor
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Habilitar HSTS (HTTPS obligatorio)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Proteger archivos sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteger archivos de configuración
+<Files ~ "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# ============================================================================
+# SEO Y CONTENIDO
+# ============================================================================
+
+# Establecer charset por defecto
+AddDefaultCharset UTF-8
+
+# Habilitar seguimiento de enlaces simbólicos (si es necesario)
+Options +FollowSymLinks
+
+# ============================================================================
+# PROTECCIÓN DE ARCHIVOS DEL PROYECTO
+# ============================================================================
+
+# Evitar acceso directo a archivos de scripts Python
+<FilesMatch "\.py$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteger archivos markdown y documentación
+<FilesMatch "\.(md|txt)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ============================================================================
+# FIN DE CONFIGURACIÓN
+# ============================================================================

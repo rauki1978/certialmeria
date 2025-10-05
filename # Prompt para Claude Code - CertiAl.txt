@@ -1,0 +1,525 @@
+# Prompt para Claude Code - CertiAlmería.es (EXPANSIÓN SEO AGRESIVA)
+
+## CONTEXTO DEL PROYECTO
+
+Eres un desarrollador web experto especializado en SEO técnico y posicionamiento local. Tienes una web BASE ya optimizada (`certificadoenergeticoalmeria.com`) que funciona bien para búsquedas geo-localizadas, pero necesitas EXPANDIRLA estratégicamente para:
+
+1. **CAPTURAR 10X MÁS TRÁFICO** - Keywords sin geo-modificador
+2. **INTERCEPTAR COMPETENCIA** - Robar tráfico de Certicalia, Tinsa, Diego
+3. **DOMINAR ALMERÍA COMPLETAMENTE** - Ser #1 en todas las búsquedas relacionadas
+4. **MAXIMIZAR CONVERSIONES** - Más visitas = más leads = más ventas
+
+## SITUACIÓN ACTUAL DETECTADA
+
+**✅ YA OPTIMIZADA PARA:**
+- "certificado energético almería" 
+- "certificado energético barato almería"
+- "arquitecto técnico almería"
+- Precio 75€, COAAT 1.440, 24-48h entrega
+
+**❌ OPORTUNIDADES PERDIDAS (EXPANSIÓN CRÍTICA):**
+- "certificado energético" (74K búsquedas/mes) → 2,200 desde Almería
+- "certificado energético barato" (18K búsquedas/mes) → 550 desde Almería
+- "certificado energético rápido" (6.8K búsquedas/mes) → 200 desde Almería
+- Intercepción competencia: 800+ búsquedas/mes adicionales
+
+## EXPANSIÓN SEO AGRESIVA - ARQUITECTURA OPTIMIZADA
+
+### 1. HOMEPAGE DUAL-TARGETING (MÁXIMO TRÁFICO)
+
+**Optimización Homepage Actual:**
+```html
+<!-- NUEVO Title Híbrido (Geo + No-Geo) -->
+<title>Certificado Energético 75€ | Arquitecto Técnico COAAT 1.440 | Entrega 24-48h</title>
+<meta name="description" content="Certificado energético profesional 75€ todo incluido. Arquitecto técnico colegiado COAAT 1.440 con 20 años experiencia. Entrega garantizada 24-48h. Zona climática A4." />
+
+<!-- Geo-signals PRESERVADOS pero NO en title -->
+<meta name="geo.region" content="ES-AL" />
+<meta name="geo.position" content="36.8381;-2.4597" />
+<meta name="geo.placename" content="Almería, Andalucía" />
+
+<!-- Schema Markup DUAL (local + nacional) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CertiAlmería - Certificados Energéticos",
+  "areaServed": [
+    {"@type": "State", "name": "Andalucía"},
+    {"@type": "City", "name": "Almería"},
+    "Roquetas de Mar", "El Ejido", "Níjar"...
+  ],
+  "hasCredential": "COAAT Almería 1.440",
+  "priceRange": "75€-150€"
+}
+</script>
+```
+
+### 2. PÁGINAS EXPANSIÓN TRÁFICO (NUEVAS - ALTO VOLUMEN)
+
+#### A. `/certificado-energetico/` (TARGET PRINCIPAL 74K búsquedas/mes)
+```html
+<title>Certificado Energético 75€ Todo Incluido | Entrega 24-48h Garantizada</title>
+<meta name="description" content="Certificado energético desde 75€ con todo incluido. Arquitecto técnico colegiado 20 años experiencia. Sin extras ni sorpresas. Visita técnica + registro incluido." />
+
+H1: Certificado Energético 75€ - Sin Extras Ni Sorpresas
+H2: Arquitecto Técnico Colegiado con 1.800+ Certificados
+H3: Proceso Completo en 24-48 Horas Máximo
+
+Contenido estratégico:
+- Comparativa precios mercado: "Mientras otros cobran 55-300€ + extras..."
+- "¿Qué incluye nuestro precio fijo de 75€?"
+- Timeline visual: Llamada → Visita → Certificado → Registro
+- "Zona climática A4: Qué significa para tu certificado"
+- Calculadora precio instantánea
+```
+
+#### B. `/certificado-energetico-barato/` (TARGET 18K búsquedas/mes)
+```html
+<title>Certificado Energético Barato 75€ | Mejor Precio Garantizado</title>
+<meta name="description" content="Certificado energético barato 75€ precio fijo. Comparamos con competencia: Certicalia 90€+, Tinsa 120€+. Sin costes ocultos. Arquitecto técnico colegiado." />
+
+H1: Certificado Energético Barato - Mejor Precio Garantizado
+H2: 75€ vs 90-300€ Competencia - Comparativa Real
+H3: ¿Por Qué Somos Más Baratos? Trabajo Directo, Sin Intermediarios
+
+Contenido estratégico:
+- Tabla comparativa precios: CertiAlmería 75€ vs Certicalia 90€ vs Tinsa 120€
+- "Precio barato NO significa mala calidad"
+- Testimonios: "Ahorré 45€ vs Certicalia y mejor servicio"
+- "Cómo conseguimos precio tan competitivo"
+```
+
+#### C. `/certificado-energetico-rapido/` (TARGET 6.8K búsquedas/mes)
+```html
+<title>Certificado Energético Rápido 24-48h | Entrega Garantizada</title>
+<meta name="description" content="Certificado energético rápido en 24-48h garantizado. Servicio express disponible 12h. Mientras competencia tarda 5-10 días, nosotros entregamos mañana." />
+
+H1: Certificado Energético en 24-48 Horas Garantizado
+H2: Express 12h Disponible - Para Casos Urgentes
+H3: Competencia 5-10 Días vs Nosotros 24-48h
+
+Contenido estratégico:
+- Timeline comparativo: "Ellos 10 días vs Nosotros 48h"
+- "¿Por qué somos tan rápidos?" - Proceso optimizado
+- Sistema reserva cita online inmediata
+- "Casos urgentes: Escrituras, alquileres express"
+```
+
+### 3. PÁGINAS INTERCEPCIÓN COMPETENCIA (ROBO DE TRÁFICO)
+
+#### A. `/vs-certicalia/` (TARGET: "certicalia almería", "certicalia opiniones")
+```html
+<title>CertiAlmería vs Certicalia | Comparativa Honesta 2025</title>
+<meta name="description" content="CertiAlmería vs Certicalia: Comparativa real precios, tiempo, servicio. 75€ vs 90€+, 24h vs 5-10 días, técnico fijo vs rotatorio. ¿Cuál elegir?" />
+
+H1: CertiAlmería vs Certicalia - La Comparación Que Necesitas
+H2: 75€ Todo Incluido vs 90€ + Extras Ocultos
+H3: Técnico Local vs Call Center Nacional
+
+Contenido estratégico:
+- Tabla comparativa detallada (15 criterios)
+- "5 problemas comunes con Certicalia"
+- Testimonios clientes que cambiaron: "Ahorré tiempo y dinero"
+- "¿Cuándo elegir Certicalia?" (ser honesto para credibilidad)
+```
+
+#### B. `/vs-tinsa/` (TARGET: "tinsa certificado precio", "tinsa alternativa")
+```html
+<title>Alternativa a Tinsa | Mismo Profesional, 50€ Menos</title>
+<meta name="description" content="Alternativa profesional a Tinsa. Arquitecto técnico colegiado, 75€ vs 120€ Tinsa. Mismo nivel técnico, servicio más personal y rápido." />
+
+H1: Alternativa Profesional a Tinsa - Ahorra 45€ Sin Perder Calidad
+H2: Arquitecto Técnico vs Técnico Variable
+H3: 75€ vs 120€ Tinsa - ¿Vale La Pena Pagar Más?
+
+Contenido estratégico:
+- "Respetamos a Tinsa, pero ofrecemos más por menos"
+- Comparativa credenciales técnicos
+- "¿Cuándo elegir Tinsa?" (casos específicos)
+- ROI: "Ahorra 45€ para invertir en mejoras energéticas"
+```
+
+#### C. `/vs-diego-certieficacia/` (TARGET tráfico competidor local)
+```html
+<title>Alternativa Diego CertiEficacia | Disponibilidad Garantizada</title>
+<meta name="description" content="¿Diego no responde? Alternativa profesional CertiEficacia. Mismo precio, disponibilidad garantizada 7 días. Respaldo técnico 20 años experiencia." />
+
+H1: ¿Buscabas a Diego Pero No Responde?
+H2: Respaldo Profesional Cuando Lo Necesites
+H3: Disponibilidad 7 Días vs Horarios Limitados
+
+Contenido estratégico:
+- "Diego es buen profesional, respetamos su trabajo"
+- "Ventaja: Siempre disponible cuando necesites"
+- "Mismo precio, mejor disponibilidad"
+- "Dos opciones profesionales en Almería"
+```
+
+### 4. PÁGINAS LONG-TAIL ALTO RENDIMIENTO
+
+#### A. `/certificado-energetico-75-euros/`
+```html
+<title>Certificado Energético 75€ Precio Fijo | Sin Incrementos</title>
+H1: Certificado Energético 75€ - Precio Definitivo
+- Target: "certificado energético 75 euros", "precio fijo certificado"
+```
+
+#### B. `/certificado-energetico-24-horas/`
+```html
+<title>Certificado Energético 24 Horas | Express Garantizado</title>
+H1: Tu Certificado Energético Listo en 24 Horas
+- Target: "certificado energético 24 horas", "certificado express"
+```
+
+#### C. `/arquitecto-tecnico-coaat-1440/`
+```html
+<title>Arquitecto Técnico COAAT 1.440 | 20 Años Experiencia</title>
+H1: Certificado por Arquitecto Técnico Colegiado Oficial
+- Target: "arquitecto técnico certificado", "coaat 1440"
+```
+
+#### D. `/zona-climatica-b3-almeria/`
+```html
+<title>Certificado Energético Zona Climática A4 | Especialista Local</title>
+H1: Especialista Zona Climática A4 - Conocimiento Local
+- Target: "zona climática b3", contenido técnico especializado
+```
+
+### 5. OPTIMIZACIONES TÉCNICAS TRÁFICO MASIVO
+
+#### A. Clustering de Keywords en Homepage
+```javascript
+// Contenido optimizado para múltiples keywords:
+const keywordClusters = {
+  primary: ["certificado energético", "certificado energético barato", "certificado energético rápido"],
+  secondary: ["arquitecto técnico certificado", "coaat 1440", "eficiencia energética"],
+  local: ["almería", "roquetas de mar", "el ejido"],
+  competitors: ["certicalia", "tinsa", "alternativa"]
+}
+```
+
+#### B. Schema Markup Expansivo
+```json
+{
+  "@type": "Service",
+  "name": "Certificado de Eficiencia Energética",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "CertiAlmería",
+    "hasCredential": "COAAT Almería 1.440",
+    "areaServed": ["Almería", "Roquetas de Mar"...]
+  },
+  "offers": [
+    {"name": "Certificado Básico", "price": "75", "description": "Todo incluido"},
+    {"name": "Certificado Express", "price": "95", "description": "Entrega 12h"}
+  ],
+  "aggregateRating": {"ratingValue": "4.9", "reviewCount": "500+"}
+}
+```
+
+#### C. Internal Linking Strategy (Distribución Link Juice)
+```html
+<!-- Homepage links a páginas expansión -->
+<a href="/certificado-energetico/">Más info certificado energético</a>
+<a href="/certificado-energetico-barato/">Ver precios competitivos</a>
+<a href="/vs-certicalia/">Comparar con Certicalia</a>
+
+<!-- Cada página enlaza de vuelta estratégicamente -->
+<a href="/">Solicitar certificado energético</a>
+```
+
+### 6. COMPONENTES MAXIMIZACIÓN TRÁFICO
+
+#### A. Sistema Calculadora Inteligente (Engagement + Keywords)
+```javascript
+// Calculadora que capture más long-tail searches
+const PriceCalculator = () => {
+  // Inputs que generen contenido SEO:
+  // - Metros cuadrados (genera "certificado X m2")
+  // - Tipo inmueble (genera "certificado vivienda/local/oficina")  
+  // - Municipio (genera "certificado [municipio]")
+  // - Urgencia (genera "certificado express/normal")
+  
+  // Output: Siempre 75€ pero con explicación diferenciada
+  // "Tu certificado de vivienda 80m2 en Roquetas: 75€"
+  // "Incluye: visita técnica + certificado + registro"
+}
+```
+
+#### B. Blog SEO Agresivo (200+ Posts Potenciales)
+```
+/blog/
+├── /certificado-energetico-vs-certicalia/ (interceptar)
+├── /certificado-energetico-vs-tinsa/ (interceptar)
+├── /precio-certificado-energetico-2025/ (trending)
+├── /como-elegir-tecnico-certificado-energetico/ (educativo)
+├── /certificado-energetico-zona-b3-que-significa/ (técnico)
+├── /mejores-precios-certificado-energetico/ (comercial)
+├── /certificado-energetico-24-horas-posible/ (diferenciador)
+├── /arquitecto-tecnico-vs-ingeniero-certificado/ (comparativo)
+└── [100+ posts más por municipio, competencia, técnicos...]
+```
+
+#### C. Landing Pages Estacionales/Trending
+```
+/ofertas/
+├── /certificado-energetico-enero-2025/ (estacional)
+├── /certificado-energetico-nuevas-ayudas/ (subvenciones)
+├── /certificado-energetico-alquiler-turistico/ (nicho)
+├── /certificado-energetico-herencia/ (nicho)
+└── /certificado-energetico-antes-venta/ (momento compra)
+```
+
+### 7. TÉCNICAS SEO AVANZADAS TRÁFICO
+
+#### A. Featured Snippets Targeting
+```html
+<!-- Estructurar contenido para Position 0 -->
+<h3>¿Cuánto cuesta un certificado energético?</h3>
+<p>El precio de un certificado energético varía entre 55€ y 300€. En CertiAlmería ofrecemos un precio fijo de 75€ que incluye:</p>
+<ul>
+  <li>Visita técnica al inmueble</li>
+  <li>Elaboración del certificado</li>
+  <li>Registro en la Junta de Andalucía</li>
+  <li>Etiqueta energética oficial</li>
+</ul>
+
+<h3>¿Cuánto tarda un certificado energético?</h3>
+<p>Un certificado energético tarda entre 24-48 horas con CertiAlmería, mientras que la competencia puede tardar 5-10 días.</p>
+```
+
+#### B. Búsquedas Por Voz Optimization
+```html
+<!-- Optimizar para "OK Google, certificado energético cerca de mí" -->
+<h4>¿Dónde hacer certificado energético cerca de mí?</h4>
+<p>Si buscas certificado energético cerca de ti en Almería, CertiAlmería cubre todos los municipios con el mismo precio y calidad.</p>
+
+<h4>¿Quién puede hacer certificado energético?</h4>
+<p>Solo arquitectos técnicos, arquitectos e ingenieros pueden hacer certificados energéticos. CertiAlmería cuenta con Arquitecto Técnico COAAT 1.440.</p>
+```
+
+#### C. Google My Business Posts Automatizados
+```javascript
+// Posts semanales GMB para más visibilidad local
+const gmbPosts = [
+  {title: "Certificado energético 75€", content: "Precio fijo sin sorpresas"},
+  {title: "Entrega en 24-48h", content: "Más rápido que la competencia"},
+  {title: "Arquitecto técnico COAAT", content: "Profesional colegiado oficial"},
+  {title: "Cubrimos toda Almería", content: "43 municipios, mismo precio"}
+];
+```
+
+### 8. CONTENT MARKETING VIRAL
+
+#### A. Guías Descargables (Lead Magnets)
+```
+/recursos/
+├── "Guía completa certificado energético 2025" (PDF)
+├── "Checklist antes de comprar/alquilar" (PDF)  
+├── "Comparativa precios técnicos Almería" (PDF)
+├── "Cómo mejorar calificación energética" (PDF)
+└── "Subvenciones eficiencia energética 2025" (PDF)
+```
+
+#### B. Videos SEO (YouTube + Web)
+```
+/videos/
+├── "Certificado energético en 3 minutos explicado"
+├── "CertiAlmería vs Certicalia: Comparativa real"
+├── "Proceso certificado energético paso a paso"
+├── "Por qué elegir arquitecto técnico local"
+└── "Testimonios clientes reales CertiAlmería"
+```
+
+### 9. AUTOMATIZACIONES TRÁFICO
+
+#### A. Schema Markup Dinámico
+```javascript
+// Generar schema automático para cada página
+const generateSchema = (pageType, location, service) => {
+  return {
+    "@type": "Service",
+    "name": `Certificado Energético ${location}`,
+    "description": `Certificado energético en ${location} por 75€...`,
+    "areaServed": location,
+    "provider": "CertiAlmería"
+  }
+}
+```
+
+#### B. Sitemap Inteligente
+```xml
+<!-- Sitemap que priorice páginas alto tráfico -->
+<url>
+  <loc>https://certialmeria.es/</loc>
+  <priority>1.0</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://certialmeria.es/certificado-energetico/</loc>
+  <priority>0.9</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<!-- Páginas intercepción competencia alta prioridad -->
+<url>
+  <loc>https://certialmeria.es/vs-certicalia/</loc>
+  <priority>0.8</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+### 10. MÉTRICAS TRÁFICO OBJETIVO
+
+#### A. Keywords Principales (3 meses):
+```
+🎯 "certificado energético" - Posición 15-25 desde Almería
+🎯 "certificado energético barato" - Posición 8-15 desde Almería  
+🎯 "certificado energético rápido" - Posición 3-8 desde Almería
+🎯 "certicalia almería" - Posición 3-5
+🎯 "tinsa alternativa almería" - Posición 1-3
+```
+
+#### B. Tráfico Objetivo:
+```
+Mes 1: 3,500 visitas/mes (actual ~1,000)
+Mes 3: 8,000 visitas/mes 
+Mes 6: 15,000 visitas/mes
+Mes 12: 25,000+ visitas/mes
+```
+
+#### C. Conversión Mejorada:
+```
+Lead Rate Actual: ~3%
+Lead Rate Objetivo: 6-8% 
+CTR Teléfono/WhatsApp: 15-20%
+```
+
+## IMPLEMENTACIÓN PRIORITARIA TRÁFICO MASIVO
+
+### FASE 1: EXPANSIÓN INMEDIATA (Semana 1)
+**Prioridad Máxima - ROI Inmediato:**
+
+1. **Homepage Optimizada** - Cambiar title por versión no-geo
+2. **3 Landing Pages Críticas:**
+   - `/certificado-energetico/` (74K búsquedas potenciales)
+   - `/certificado-energetico-barato/` (18K búsquedas potenciales) 
+   - `/vs-certicalia/` (interceptar tráfico competencia)
+
+### FASE 2: INTERCEPCIÓN COMPETENCIA (Semana 2)
+**Páginas Robo de Tráfico:**
+
+1. `/vs-tinsa/` 
+2. `/vs-diego-certieficacia/`
+3. `/certificado-energetico-rapido/`
+
+### FASE 3: LONG-TAIL MASIVO (Semana 3-4)
+**Resto páginas + Blog inicial + Municipios**
+
+## STACK TECNOLÓGICO OPTIMIZADO
+
+### Next.js 14 + TypeScript + Tailwind
+```javascript
+// Estructura proyecto optimizada para SEO
+certialmeria-web/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx (Homepage dual-target)
+│   │   ├── certificado-energetico/
+│   │   │   └── page.tsx (No-geo principal)
+│   │   ├── vs-certicalia/
+│   │   │   └── page.tsx (Intercepción)
+│   │   ├── municipios/
+│   │   │   ├── [municipio]/
+│   │   │   └── page.tsx (43 páginas dinámicas)
+│   │   └── blog/
+│   │       └── [slug]/page.tsx
+│   ├── components/
+│   │   ├── SEO/
+│   │   │   ├── MetaTags.tsx
+│   │   │   └── StructuredData.tsx
+│   │   ├── Calculator/
+│   │   │   └── PriceCalculator.tsx
+│   │   └── CTA/
+│   │       ├── PhoneButton.tsx
+│   │       └── WhatsAppButton.tsx
+│   └── lib/
+│       ├── seo-data.ts (Keywords, meta data)
+│       └── analytics.ts (Tracking setup)
+```
+
+## DELIVERABLES OPTIMIZADOS TRÁFICO
+
+### Código Fuente Completo:
+✅ Homepage dual-targeting (geo + no-geo)  
+✅ 8 páginas landing alto volumen keywords  
+✅ 3 páginas intercepción competencia  
+✅ 43 páginas municipios optimizadas  
+✅ Blog con 20 posts iniciales SEO  
+✅ Calculadora precio interactiva  
+✅ Sistema tracking conversiones  
+✅ Performance score 95+ Lighthouse  
+✅ Schema markup completo todas páginas  
+✅ Sitemap inteligente priorizado  
+
+### Contenido SEO Estratégico:
+✅ 10,000+ palabras contenido optimizado  
+✅ Meta tags únicos cada página  
+✅ Internal linking strategy completa  
+✅ FAQ sections optimizadas featured snippets  
+✅ Contenido comparativo detallado  
+✅ Testimonios y social proof  
+✅ CTAs optimizados conversión  
+
+### Configuraciones Técnicas:
+✅ Google Analytics 4 + eventos personalizados  
+✅ Search Console + sitemap submission  
+✅ Robots.txt optimizado crawling  
+✅ CDN + optimización imágenes  
+✅ Service Worker caching strategy  
+✅ Core Web Vitals perfectos  
+
+## RESULTADOS ESPERADOS TRÁFICO
+
+### Mes 1 Post-Launch:
+- **Tráfico orgánico**: 3,500 visitas/mes (+250%)
+- **Keywords posicionadas**: 50+ nuevas keywords top 50
+- **Leads adicionales**: +40 leads/mes mínimo
+
+### Mes 3:
+- **Tráfico orgánico**: 8,000 visitas/mes 
+- **Keywords top 10**: 15+ keywords principales
+- **Dominación local**: 80%+ market share Almería
+
+### Mes 6:
+- **Tráfico orgánico**: 15,000+ visitas/mes
+- **Keywords #1**: 25+ posiciones #1
+- **ROI**: 400%+ vs inversión web
+
+## INSTRUCCIONES EJECUCIÓN
+
+### 1. Partir del HTML Existente
+- **CONSERVAR** todo lo que funciona (diseño, estructura)
+- **EXPANDIR** con nuevas páginas y optimizaciones
+- **NO ROMPER** el SEO actual que ya funciona
+
+### 2. Priorizar Implementación
+- **Primero**: 5 páginas críticas tráfico masivo
+- **Segundo**: Optimizaciones técnicas performance  
+- **Tercero**: Resto páginas y contenido
+
+### 3. Testing Obligatorio
+- **A/B testing** títulos y meta descriptions
+- **Heatmaps** identificar mejores CTAs
+- **Analytics** tracking detallado todas conversiones
+
+### 4. Documentación Completa
+- **README** instrucciones deploy
+- **SEO Guide** mantenimiento keywords
+- **Analytics Setup** configuración tracking
+- **Content Calendar** blog posts programados
+
+**Tiempo estimado desarrollo**: 3-4 días intensivos
+**ROI esperado**: 300-500% incremento tráfico en 6 meses
+
+¿Estás listo para multiplicar x5 el tráfico actual?

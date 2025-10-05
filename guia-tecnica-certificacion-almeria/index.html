@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Guía Técnica Completa Certificación Energética Almería | CertiAlmería</title>
+    <meta name="description" content="Información técnica detallada sobre certificación energética en Almería: normativa RD 390/2021, software CE3X/CERMA, zonas climáticas, proceso completo y mucho más.">
+    <meta name="keywords" content="guía técnica certificado energético, RD 390/2021, CE3X, CERMA, zona climática A4, certificación energética almería, proceso técnico certificado">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="ES-AL">
+    <meta name="geo.placename" content="Almería, Andalucía, España">
+    <meta name="geo.position" content="36.8381;-2.4597">
+    <meta name="ICBM" content="36.8381, -2.4597">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Guía Técnica Completa Certificación Energética Almería">
+    <meta property="og:description" content="Información técnica detallada sobre certificación energética: normativa, software, zonas climáticas y proceso completo.">
+    <meta property="og:url" content="https://www.certialmeria.es/guia-tecnica-certificacion-almeria/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Guía Técnica Completa Certificación Energética Almería">
+    <meta name="twitter:description" content="Información técnica detallada sobre certificación energética en Almería.">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="Raúl Cañadas Navarro - Arquitecto Técnico COAAT Almería 1.440">
+    <meta name="theme-color" content="#8BC34A">
+
+    <link rel="stylesheet" href="/css/tailwind.min.css">
+
+    <!-- Performance & Core Web Vitals -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Critical Resource Hints -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"></noscript>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.certialmeria.es/guia-tecnica-certificacion-almeria/">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8BC34A',
+                        secondary: '#7CB342',
+                        accent: '#689F38',
+                        success: '#8BC34A',
+                        whatsapp: '#25d366',
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['"Montserrat"', 'system-ui', 'sans-serif'],
+                        'display': ['"Montserrat"', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Preload critical images -->
+    <link rel="preload" href="../images/hero-bg.jpg" as="image">
+
+    <!-- Schema.org JSON-LD for FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Qué es exactamente un certificado energético según el RD 390/2021 en Almería?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El certificado energético es un documento técnico oficial regulado por el Real Decreto 390/2021 que evalúa la eficiencia energética de edificios mediante dos indicadores principales: consumo de energía primaria no renovable (kWh/m²año) y emisiones de CO₂ (kgCO₂/m²año)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué software de certificación energética utilizáis en Almería y por qué?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Utilizamos principalmente CE3X y CERMA, software oficiales reconocidos por el Ministerio de Transición Ecológica y homologados por el IDAE. Para edificios terciarios complejos empleamos CALENER GT cuando es requerido por normativa."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo afecta la zona climática A4 de Almería al certificado energético?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La zona climática A4 (costa de Almería) y B4 (interior provincial) según el Apéndice D del DB-HE influyen significativamente en la metodología de certificación. Almería tiene 200-400 grados-día de calefacción y 350-550 grados-día de refrigeración."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué documentación técnica específica necesito para mi certificado en Almería?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Para viviendas necesitamos planos de distribución y alzados, superficie útil y construida, año de construcción, y características de instalaciones térmicas existentes. Para edificios anteriores a 1980 sin documentación realizamos medición in situ."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cuál es el proceso técnico completo de certificación energética en 48 horas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Día 1: Visita técnica con toma de datos. Día 1-2: Modelado energético en software. Día 2: Generación de informe y registro telemático en el Registro Andaluz de Certificados Energéticos."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', system-ui, sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(128, 128, 128, 0.25), rgba(128, 128, 128, 0.25)), url('../images/hero-bg.jpg');
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
+
+        .container-custom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 0;
+            }
+        }
+
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .nav-index {
+            background: linear-gradient(135deg, #8BC34A 0%, #7CB342 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .nav-index a {
+            transition: all 0.3s ease;
+        }
+
+        .nav-index a:hover {
+            transform: translateX(8px);
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50">
+
+<!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="container-custom">
+        <div class="flex justify-between items-center py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="/" class="flex items-center">
+                    <img src="../images/logo.png" alt="CertiAlmería Logo" class="h-12 w-auto">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-neutral-700 hover:text-primary font-medium transition-colors">Inicio</a>
+                <a href="/certificado-energetico/" class="text-neutral-700 hover:text-primary font-medium transition-colors">Certificado Energético</a>
+                <a href="/calculadora-precio-certificado-energetico/" class="text-neutral-700 hover:text-primary font-medium transition-colors">Calculadora</a>
+                <a href="tel:+34667451538" class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-secondary transition-colors">
+                    667 451 538
+                </a>
+                <a href="https://wa.me/34667451538" class="bg-whatsapp text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.56-.01-.188 0-.495.074-.754.371-.26.297-.99.968-.99 2.36 0 1.393 1.015 2.74 1.156 2.93.14.19 2.001 3.055 4.851 4.283.677.292 1.206.465 1.619.594.68.21 1.299.18 1.789.109.546-.082 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden mobile-menu-button">
+                <svg class="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden pb-4">
+            <div class="flex flex-col space-y-3">
+                <a href="/" class="text-neutral-700 hover:text-primary font-medium transition-colors py-2">Inicio</a>
+                <a href="/certificado-energetico/" class="text-neutral-700 hover:text-primary font-medium transition-colors py-2">Certificado Energético</a>
+                <a href="/calculadora-precio-certificado-energetico/" class="text-neutral-700 hover:text-primary font-medium transition-colors py-2">Calculadora</a>
+                <a href="tel:+34667451538" class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-secondary transition-colors text-center">
+                    667 451 538
+                </a>
+                <a href="https://wa.me/34667451538" class="bg-whatsapp text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.56-.01-.188 0-.495.074-.754.371-.26.297-.99.968-.99 2.36 0 1.393 1.015 2.74 1.156 2.93.14.19 2.001 3.055 4.851 4.283.677.292 1.206.465 1.619.594.68.21 1.299.18 1.789.109.546-.082 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-bg text-white section-padding relative">
+    <div class="wave-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#fafafa"></path>
+        </svg>
+    </div>
+
+    <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-black mb-6">
+                Guía Técnica Completa
+            </h1>
+            <p class="text-xl md:text-2xl mb-4 font-light">
+                Certificación Energética en Almería
+            </p>
+            <p class="text-lg md:text-xl mb-8 opacity-90">
+                Información técnica detallada sobre normativa RD 390/2021, software CE3X/CERMA, zonas climáticas y proceso completo
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+34667451538" class="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors shadow-xl inline-flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    667 451 538
+                </a>
+                <a href="https://wa.me/34667451538" class="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity shadow-xl inline-flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.56-.01-.188 0-.495.074-.754.371-.26.297-.99.968-.99 2.36 0 1.393 1.015 2.74 1.156 2.93.14.19 2.001 3.055 4.851 4.283.677.292 1.206.465 1.619.594.68.21 1.299.18 1.789.109.546-.082 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                    WhatsApp Directo
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Navigation Index -->
+<section class="bg-neutral-50 py-12">
+    <div class="container-custom max-w-4xl">
+        <div class="nav-index">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">Índice de Contenidos Técnicos</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="#faq-1" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Certificado energético según RD 390/2021</span>
+                </a>
+                <a href="#faq-2" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Software CE3X y CERMA</span>
+                </a>
+                <a href="#faq-3" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Zona climática A4 de Almería</span>
+                </a>
+                <a href="#faq-4" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Documentación técnica necesaria</span>
+                </a>
+                <a href="#faq-5" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Proceso técnico en 48 horas</span>
+                </a>
+                <a href="#faq-6" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Qué incluye el precio de 75€</span>
+                </a>
+                <a href="#faq-7" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Calificación G e implicaciones</span>
+                </a>
+                <a href="#faq-8" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Normativa alquiler en Andalucía</span>
+                </a>
+                <a href="#faq-9" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Viviendas costera vs interior</span>
+                </a>
+                <a href="#faq-10" class="text-white hover:text-neutral-100 flex items-center gap-2 bg-white/10 p-3 rounded-lg">
+                    <span class="text-xl">→</span>
+                    <span>Calidad técnica garantizada</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technical FAQ Content -->
+<section class="bg-white section-padding">
+    <div class="container-custom max-w-4xl">
+        <div class="space-y-6">
+
+            <!-- FAQ Item 1 -->
+            <div id="faq-1" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Qué es exactamente un certificado energético según el RD 390/2021 en Almería?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>El certificado energético es un documento técnico oficial regulado por el Real Decreto 390/2021 que evalúa la eficiencia energética de edificios mediante dos indicadores principales: <strong>consumo de energía primaria no renovable</strong> (kWh/m²año) y <strong>emisiones de CO₂</strong> (kgCO₂/m²año).</p>
+                        <p>En las zonas climáticas A4, B3, B4, C3 y D3 de Almería según CTE DB-HE1 (modificación 2013), el certificado considera las condiciones específicas del clima mediterráneo semiárido: 2.800 horas de sol anuales, temperaturas medias de 18.5°C, y la necesidad prioritaria de refrigeración frente a calefacción. El técnico certificador evalúa la <strong>envolvente térmica</strong> (muros, cubiertas, carpinterías), los <strong>sistemas térmicos</strong> (climatización y ACS), y las <strong>condiciones de funcionamiento</strong> del edificio.</p>
+                        <p>La calificación resultante va de la <strong>letra A</strong> (consumo < 40 kWh/m²año) hasta la <strong>letra G</strong> (consumo > 250 kWh/m²año), siendo obligatorio para cualquier operación de venta, alquiler o promoción inmobiliaria desde el RD 235/2013. El certificado debe ser realizado por un <strong>técnico competente</strong> según el artículo 3 del RD 390/2021, como nuestro Arquitecto Técnico Colegiado COAAT 1.440.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div id="faq-2" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Qué software de certificación energética utilizáis en Almería y por qué?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>Utilizamos principalmente <strong>CE3X</strong> y <strong>CERMA</strong>, software oficiales reconocidos por el Ministerio de Transición Ecológica y homologados por el IDAE. Para edificios terciarios complejos empleamos <strong>CALENER GT</strong> cuando es requerido por normativa.</p>
+                        <p><strong>CE3X</strong> es ideal para viviendas unifamiliares y pequeños edificios residenciales en Almería porque incorpora la <strong>base de datos climática específica</strong> de nuestra provincia, considera los materiales constructivos típicos de la zona (bloque de hormigón, ladrillos cerámicos, cubiertas planas), y permite modelar sistemas de climatización comunes como split, centralizada por conductos, y calderas de gas natural.</p>
+                        <p><strong>CERMA</strong> lo empleamos para edificios plurifamiliares y casos complejos, ya que permite un modelado más detallado de la <strong>geometría 3D</strong>, zonificación térmica avanzada, y análisis más precisos de puentes térmicos característicos de edificios de los años 70-90 predominantes en Almería capital.</p>
+                        <p>Ambos software calculan automáticamente los factores de corrección por las <strong>zonas climáticas A4, B3, B4, C3 y D3</strong> presentes en Almería según el documento oficial del CTE DB-HE1 (actualización 2013), aplicando los coeficientes térmicos específicos establecidos para cada altitud y ubicación geográfica de nuestra provincia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div id="faq-3" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Cómo afecta la zona climática A4 de Almería al certificado energético?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>La zona climática <strong>A4</strong> (costa de Almería) y <strong>B4</strong> (interior provincial) según el Apéndice D del DB-HE influyen significativamente en la metodología de certificación. Almería tiene <strong>200-400 grados-día de calefacción</strong> (base 20°C) y <strong>350-550 grados-día de refrigeración</strong>, lo que determina que la demanda energética para refrigeración sea proporcionalmente mayor que en otras zonas peninsulares.</p>
+                        <p>En nuestro clima, el certificado energético evalúa especialmente la <strong>protección solar</strong> de las carpinterías (orientaciones Sur, Este y Oeste), la <strong>inercia térmica</strong> de la envolvente para aprovechar el diferencial térmico día-noche, y los <strong>sistemas de ventilación natural</strong> que aprovechan las brisas costeras.</p>
+                        <p>Los factores de conversión de energía final a primaria aplicados son: <strong>electricidad 1,954</strong>, <strong>gas natural 1,190</strong>, y <strong>biomasa 1,113</strong>. Esto significa que las viviendas con climatización eléctrica (muy comunes en Almería) tienen penalizaciones significativas, mientras que sistemas de gas natural o energías renovables mejoran sustancialmente la calificación.</p>
+                        <p>Específicamente en Almería, incorporamos en el modelado las características constructivas locales: <strong>orientaciones predominantes</strong> de edificios (aprovechando vientos de Levante), <strong>tipologías de cubierta plana</strong> mayoritarias, y <strong>carpinterías de aluminio sin rotura de puente térmico</strong> habituales en construcciones hasta los años 2000.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div id="faq-4" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Qué documentación técnica específica necesito para mi certificado en Almería?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>Para realizar un certificado energético técnicamente riguroso en Almería necesitamos documentación específica según el tipo de inmueble. Para <strong>viviendas</strong>: planos de distribución y alzados (si los tiene), superficie útil y construida, año de construcción, y características de instalaciones térmicas existentes (tipo de caldera, potencia, antigüedad).</p>
+                        <p>Para <strong>edificios anteriores a 1980</strong> sin documentación técnica (muy comunes en el centro histórico de Almería), realizamos <strong>medición in situ</strong> de espesores de muros, tipo de carpinterías, características de cubierta, y sistemas de climatización. Aplicamos los valores por defecto del <strong>Catálogo de Elementos Constructivos</strong> del CTE para edificios de la época.</p>
+                        <p>Para <strong>viviendas de protección oficial</strong> (numerosas en barrios como Nueva Andalucía, Los Almendros), que tienen características constructivas específicas reguladas por normativa autonómica, aplicamos los parámetros térmicos definidos en los pliegos de condiciones técnicas de la Consejería de Fomento de la Junta de Andalucía.</p>
+                        <p>En caso de <strong>reforma o rehabilitación energética</strong>, requerimos además: proyecto de obra (si existe), facturas de materiales aislantes instalados, certificados de eficiencia de equipos térmicos, y documentación de sistemas de energías renovables (paneles solares, calderas de biomasa). Esta documentación permite aplicar correctamente las mejoras en el modelado energético y obtener una calificación que refleje la realidad post-reforma.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div id="faq-5" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Cuál es el proceso técnico completo de certificación energética en 48 horas?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p><strong>Día 1 - Visita técnica (2-3 horas):</strong> Realizamos <strong>toma de datos de envolvente térmica</strong> (medición de muros, ventanas, orientaciones), <strong>caracterización de sistemas térmicos</strong> (tipo, potencia, antigüedad de calderas/climatización), <strong>evaluación de puentes térmicos</strong> (encuentros forjado-fachada, carpinterías), y <strong>documentación fotográfica</strong> de elementos relevantes.</p>
+                        <p><strong>Día 1-2 - Modelado energético (4-6 horas):</strong> Introducción de geometría en software CE3X/CERMA, definición de <strong>composiciones constructivas</strong> según catálogo CTE o mediciones específicas, modelado de <strong>instalaciones térmicas</strong> con rendimientos reales, y cálculo de <strong>demandas energéticas</strong> considerando las condiciones climáticas A4 de Almería.</p>
+                        <p><strong>Día 2 - Generación y registro (2-4 horas):</strong> Elaboración del <strong>informe técnico</strong> con medidas de mejora específicas para el clima almeriense, generación de la <strong>etiqueta energética oficial</strong>, y registro telemático en el <strong>Registro Andaluz de Certificados Energéticos</strong> de la Consejería de Sostenibilidad.</p>
+                        <p>Todo el proceso cumple estrictamente la <strong>metodología del IDAE</strong>, los procedimientos del <strong>Real Decreto 390/2021</strong>, y las especificaciones técnicas de la <strong>Orden de 11 de abril de 2013</strong> de la Junta de Andalucía para el registro de certificados energéticos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div id="faq-6" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Qué incluye técnicamente el precio de 75€ según normativa vigente?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>El precio de 75€ incluye todos los trabajos técnicos obligatorios según el Real Decreto 390/2021: <strong>visita técnica</strong> con toma de datos de envolvente térmica e instalaciones, <strong>modelado energético</strong> en software oficial homologado por IDAE, <strong>cálculo de demandas</strong> según metodología UNE-EN ISO 13790, y <strong>generación de calificación</strong> conforme a la escala del Anexo II.</p>
+                        <p>Incluye la elaboración completa del <strong>certificado oficial</strong> con formato XML según especificaciones técnicas del Ministerio, el <strong>informe de medidas de mejora</strong> con análisis coste-eficacia adaptado a las condiciones climáticas de Almería, y la <strong>etiqueta energética</strong> con el formato gráfico oficial establecido.</p>
+                        <p>El precio incorpora también el <strong>registro telemático</strong> en el Registro Andaluz de Certificados Energéticos (tasas incluidas), la <strong>asignación del número de registro oficial</strong>, y el <strong>sellado digital</strong> con firma electrónica del técnico competente según normativa del Colegio Oficial de Arquitectos Técnicos.</p>
+                        <p>Adicionalmente, incluimos sin coste adicional: <strong>asesoramiento técnico personalizado</strong> sobre mejoras energéticas específicas para el clima de Almería, <strong>cálculo estimativo de ahorros</strong> económicos y energéticos de las medidas propuestas, y <strong>orientación sobre subvenciones</strong> autonómicas y estatales disponibles (Plan Renove, fondos Next Generation EU).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 7 -->
+            <div id="faq-7" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Cómo se determina técnicamente una calificación G y cuáles son sus implicaciones?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>Una calificación G se asigna cuando el <strong>consumo de energía primaria no renovable</strong> supera 1,75 veces el consumo del edificio de referencia calculado según el Anexo II del RD 390/2021. En Almería, esto típicamente ocurre en viviendas con <strong>consumos superiores a 250 kWh/m²año</strong>, comunes en edificios anteriores a 1980 sin aislamiento térmico y con sistemas de climatización ineficientes.</p>
+                        <p>Las principales causas técnicas de calificación G en nuestra zona son: <strong>envolvente térmica deficiente</strong> (transmitancia de muros > 1,2 W/m²K), <strong>carpinterías de aluminio sin RPT</strong> (transmitancia > 5,7 W/m²K), <strong>ausencia de aislamiento en cubierta</strong>, y <strong>sistemas de climatización eléctrica de bajo rendimiento</strong> (aparatos antiguos con EER < 2,5).</p>
+                        <p>Según el artículo 9 del RD 390/2021, los certificados con calificación G tienen una <strong>validez de 5 años</strong> frente a los 10 años de las calificaciones A-F. Esto implica mayor frecuencia de renovación y coste administrativo adicional. Sin embargo, la calificación G es perfectamente <strong>válida para operaciones inmobiliarias</strong> y no impide venta ni alquiler.</p>
+                        <p>Incluimos en todos los certificados G un <strong>plan de mejoras técnico específico</strong> con propuestas graduales: mejoras de bajo coste (burletes, termostatos programables), medias (aislamiento cubierta, cambio de caldera), y integrales (SATE, aerotermia, fotovoltaica) con <strong>análisis de retorno de inversión</strong> adaptado a las condiciones económicas y climáticas locales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div id="faq-8" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Qué normativa específica regula la obligatoriedad del certificado energético para alquiler en Andalucía?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>La obligatoriedad se establece en el <strong>artículo 12 del RD 390/2021</strong> que transpone la Directiva 2010/31/UE de eficiencia energética de edificios. En Andalucía, la <strong>Orden de 11 de abril de 2013</strong> desarrolla el procedimiento de registro, y el <strong>Decreto 169/2011</strong> regula las competencias autonómicas en materia energética.</p>
+                        <p>Específicamente para <strong>contratos de arrendamiento</strong>, el artículo 12.1.a establece que es obligatorio <strong>"poner a disposición del arrendatario una copia del certificado"</strong>, mientras que el artículo 13.1 obliga a <strong>"incluir la calificación energética en toda publicidad"</strong> dirigida a la venta o alquiler.</p>
+                        <p>El régimen sancionador se regula en el <strong>Capítulo IV del RD 390/2021</strong> (artículos 25-30), clasificando como <strong>infracciones graves</strong> (751€-1.250€) no disponer del certificado para alquiler, no entregarlo al arrendatario, o no incluir la calificación en anuncios. Las <strong>infracciones muy graves</strong> (1.251€-7.500€) incluyen falsificar certificados o actuar sin habilitación técnica.</p>
+                        <p>En Andalucía, la competencia sancionadora corresponde a la <strong>Consejería de Sostenibilidad, Medio Ambiente y Economía Azul</strong>, que tramita expedientes a través de las Delegaciones Territoriales. Los portales inmobiliarios (Idealista, Fotocasa, Milanuncios) tienen <strong>responsabilidad subsidiaria</strong> según la jurisprudencia del Tribunal Supremo en materia de verificación de anuncios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 9 -->
+            <div id="faq-9" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Qué diferencias técnicas existen entre certificar una vivienda costera vs interior en Almería?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>Las diferencias principales radican en la <strong>zonificación climática oficial</strong> según CTE DB-HE1: la costa de Almería (Almería capital 0m, Roquetas 10m, El Ejido 80m, Garrucha 24m) pertenece a zona <strong>A4</strong>; zonas bajas como Huércal-Overa (280m), Níjar (356m) son <strong>B3/B4</strong>; municipios de altitud media como Albox (420m), Purchena (555m) son <strong>C3</strong>; y zonas altas como Vélez-Blanco (1.070m), Chirivel (1.034m) son <strong>D3</strong>.</p>
+                        <p>En <strong>viviendas costeras</strong>, el modelado energético considera la <strong>influencia marítima</strong>: menor oscilación térmica día-noche, mayor humedad relativa (70-80% vs 50-60% interior), y aprovechamiento de <strong>brisas térmicas</strong> para ventilación natural nocturna. Los sistemas de climatización costera tienen menores demandas absolutas pero mayor uso estacional concentrado.</p>
+                        <p>Para <strong>zonas de interior</strong>, aplicamos factores de corrección por <strong>altitud</strong> (Vélez-Blanco a 1.070m, Chirivel a 1.034m) según UNE 100001, consideramos la <strong>mayor radiación solar directa</strong> (menor nubosidad), y evaluamos específicamente la <strong>demanda de calefacción</strong> que en costa es prácticamente inexistente.</p>
+                        <p>Las <strong>tipologías constructivas</strong> también varían: en costa predominan apartamentos con <strong>orientaciones mar-montaña</strong> aprovechando vientos dominantes, mientras en interior son comunes viviendas unifamiliares con <strong>orientaciones sur-sureste</strong> para captación solar pasiva. Estas diferencias se reflejan en los coeficientes de transmisión térmica aplicados y las estrategias de mejora energética recomendadas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 10 -->
+            <div id="faq-10" class="border border-neutral-200 rounded-2xl">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-200" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg font-semibold text-neutral-900">¿Cómo garantizamos la calidad técnica frente a certificadores online o low-cost?</h3>
+                    <svg class="w-6 h-6 text-neutral-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                    <div class="text-neutral-600 leading-relaxed space-y-3">
+                        <p>Nuestra <strong>metodología técnica</strong> cumple escrupulosamente la UNE-EN ISO 52016-1 de cálculo de demandas energéticas y la UNE-EN 15378 de inspección de sistemas térmicos. Realizamos <strong>visita técnica presencial obligatoria</strong> con toma de datos real frente a certificadores online que usan datos estimados o fotointerpretación, lo que genera errores del 20-40% en el cálculo final.</p>
+                        <p>Aplicamos <strong>bases de datos actualizadas</strong> de materiales constructivos específicos de Almería: bloques de hormigón Pórex (muy comunes en los 80-90), baldosas catalanas tradicionales, carpinterías Technal y Cortizo predominantes en la zona. Los certificadores generalistas usan librerías estándar que no reflejan las características térmicas reales de nuestros materiales locales.</p>
+                        <p>Nuestro <strong>control de calidad interno</strong> incluye verificación de coherencia entre demandas calculadas y consumos reales (facturación energética), revisión de medidas de mejora mediante análisis coste-eficacia con precios locales de instaladores, y validación de orientaciones mediante herramientas GIS y verificación in situ con brújula digital.</p>
+                        <p>Como <strong>Arquitecto Técnico Colegiado COAAT 1.440</strong> con 20 años de experiencia local, estamos sujetos a <strong>responsabilidad civil profesional</strong>, régimen deontológico colegial, y formación continua obligatoria. Los certificadores low-cost frecuentemente subcontratan a técnicos sin vinculación local ni conocimiento específico de las características constructivas y climáticas de Almería, generando certificados genéricos que no reflejan la realidad energética del inmueble.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA Bottom -->
+        <div class="mt-16 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl p-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">¿Necesitas tu certificado energético en Almería?</h2>
+            <p class="text-lg mb-6 opacity-90">Precio fijo 75€ todo incluido. Entrega garantizada en 24-48h. Arquitecto técnico colegiado COAAT 1.440.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+34667451538" class="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 transition-colors inline-flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    667 451 538
+                </a>
+                <a href="https://wa.me/34667451538" class="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.56-.01-.188 0-.495.074-.754.371-.26.297-.99.968-.99 2.36 0 1.393 1.015 2.74 1.156 2.93.14.19 2.001 3.055 4.851 4.283.677.292 1.206.465 1.619.594.68.21 1.299.18 1.789.109.546-.082 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                    WhatsApp Directo
+                </a>
+            </div>
+        </div>
+
+        <!-- Back to Homepage Link -->
+        <div class="mt-12 text-center">
+            <a href="/" class="text-primary hover:text-secondary font-semibold inline-flex items-center gap-2 text-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Volver a la página principal
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-neutral-900 text-white section-padding">
+    <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+
+            <!-- Contact Info -->
+            <div class="lg:col-span-1">
+                <div class="mb-4">
+                    <img src="../images/logo.png" alt="CertiAlmería" class="h-16 w-auto object-contain">
+                </div>
+                <p class="text-gray-300 mb-4">Certificados energéticos profesionales exclusivamente en la provincia de Almería desde 2013</p>
+                <div class="space-y-3">
+                    <a href="tel:+34667451538" class="flex items-center gap-3 bg-neutral-800 hover:bg-primary/10 border border-neutral-700 hover:border-primary p-3 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-300">Llamar gratis</div>
+                            <div class="font-bold text-white">667 451 538</div>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/34667451538" class="flex items-center gap-3 bg-neutral-800 hover:bg-whatsapp/10 border border-neutral-700 hover:border-whatsapp p-3 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-whatsapp rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.56-.01-.188 0-.495.074-.754.371-.26.297-.99.968-.99 2.36 0 1.393 1.015 2.74 1.156 2.93.14.19 2.001 3.055 4.851 4.283.677.292 1.206.465 1.619.594.68.21 1.299.18 1.789.109.546-.082 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-300">Escríbenos</div>
+                            <div class="font-bold text-white">WhatsApp</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Servicios</h3>
+                <ul class="space-y-2">
+                    <li><a href="/certificado-energetico/" class="text-gray-300 hover:text-primary transition-colors">Certificado Energético</a></li>
+                    <li><a href="/certificado-energetico-barato/" class="text-gray-300 hover:text-primary transition-colors">Certificado Barato</a></li>
+                    <li><a href="/certificado-energetico-rapido/" class="text-gray-300 hover:text-primary transition-colors">Certificado Rápido</a></li>
+                    <li><a href="/calculadora-precio-certificado-energetico/" class="text-gray-300 hover:text-primary transition-colors">Calculadora de Precio</a></li>
+                </ul>
+            </div>
+
+            <!-- About -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Sobre Nosotros</h3>
+                <ul class="space-y-2">
+                    <li><a href="/arquitecto-tecnico-coaat-1440/" class="text-gray-300 hover:text-primary transition-colors">Arquitecto Técnico</a></li>
+                    <li><a href="/vs-certicalia/" class="text-gray-300 hover:text-primary transition-colors">vs Certicalia</a></li>
+                    <li><a href="/vs-tinsa/" class="text-gray-300 hover:text-primary transition-colors">vs Tinsa</a></li>
+                    <li><a href="/" class="text-gray-300 hover:text-primary transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Información Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Aviso Legal</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Política de Privacidad</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Política de Cookies</a></li>
+                </ul>
+                <div class="mt-6">
+                    <p class="text-sm text-gray-400">COAAT Almería 1.440</p>
+                    <p class="text-sm text-gray-400">Raúl Cañadas Navarro</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-neutral-800 pt-8">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 CertiAlmería - Raúl Cañadas Navarro. Todos los derechos reservados.</p>
+                <p class="text-sm mt-2">Certificados energéticos profesionales en Almería desde 2013</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+
+    // FAQ Toggle Function
+    function toggleFAQ(button) {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+        const isOpen = !answer.classList.contains('hidden');
+
+        // Close all other FAQs
+        document.querySelectorAll('[onclick="toggleFAQ(this)"]').forEach(otherButton => {
+            if (otherButton !== button) {
+                const otherAnswer = otherButton.nextElementSibling;
+                const otherIcon = otherButton.querySelector('svg');
+                otherAnswer.classList.add('hidden');
+                otherIcon.classList.remove('rotate-180');
+            }
+        });
+
+        // Toggle current FAQ
+        if (isOpen) {
+            answer.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        } else {
+            answer.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+        }
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Open the FAQ if it's a FAQ anchor
+                const faqButton = target.querySelector('button[onclick="toggleFAQ(this)"]');
+                if (faqButton) {
+                    const answer = faqButton.nextElementSibling;
+                    if (answer.classList.contains('hidden')) {
+                        toggleFAQ(faqButton);
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

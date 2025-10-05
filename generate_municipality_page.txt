@@ -1,0 +1,50 @@
+Municipality Data for HTML Generation:
+
+Bentarique|bentarique|Alpujarra|B4|38 km|12+|pueblo de la Alpujarra Almeriense|arquitectura tradicional alpujarreña y construcciones en pendiente
+Fines|fines|Valle del Almanzora|B3|85 km|18+|municipio del Valle del Almanzora|viviendas rurales y desarrollos residenciales del Valle
+Fondón|fondon|Alpujarra|B4|45 km|22+|pueblo de montaña de la Alpujarra|construcción tradicional de montaña con orientación sur
+Gádor|gador|Zona Metropolitana|A4|12 km|55+|municipio próximo a la capital|construcciones modernas y tradicionales cercanas a Almería
+Los Gallardos|gallardos-los|Valle del Almanzora|B3|75 km|28+|municipio del Valle del Almanzora|viviendas residenciales y segunda residencia
+Gérgal|gergal|Interior|B3|50 km|25+|municipio del interior|arquitectura del interior con influencia desértica
+Huécija|huecija|Alpujarra|B4|32 km|15+|pequeño municipio de la Alpujarra|construcciones alpujarreñas tradicionales
+Huércal de Almería|huercal-de-almeria|Zona Metropolitana|A4|8 km|120+|municipio del área metropolitana de Almería|desarrollos residenciales modernos y zonas urbanas
+Illar|illar|Alpujarra|B4|42 km|8+|pequeño pueblo de la Alpujarra|arquitectura tradicional de montaña
+Instinción|instincion|Alpujarra|B4|35 km|10+|municipio de la Alpujarra Almeriense|construcciones alpujarreñas con orientaciones específicas
+Laroya|laroya|Filabres|B4|65 km|6+|pequeño pueblo de Los Filabres|arquitectura de montaña de Los Filabres
+Láujar de Andarax|laujar-de-andarax|Alpujarra|B4|52 km|45+|capital de la Alpujarra Almeriense|centro neurálgico con variedad arquitectónica alpujarreña
+Líjar|lijar|Valle del Almanzora|B3|92 km|8+|pequeño pueblo del Valle del Almanzora|viviendas tradicionales del Valle
+Lucainena de las Torres|lucainena-de-las-torres|Interior|B3|42 km|18+|pueblo del interior almeriense|arquitectura del interior con influencia minera
+Lúcar|lucar|Valle del Almanzora|B3|95 km|12+|municipio del norte de la provincia|construcciones del norte del Valle
+Lubrín|lubrin|Valle del Almanzora|B3|68 km|22+|municipio del Valle del Almanzora|viviendas tradicionales y residenciales
+María|maria|Norte|C2|120 km|15+|municipio del norte de Almería|arquitectura de montaña del norte provincial
+Nacimiento|nacimiento|Interior|B3|55 km|20+|municipio del interior montañoso|construcciones de montaña del interior
+Ohanes|ohanes|Alpujarra|B4|40 km|28+|municipio de la Alpujarra|arquitectura alpujarreña con cultivos en terrazas
+Oria|oria|Valle del Almanzora|B3|88 km|18+|pueblo del Valle del Almanzora|viviendas tradicionales del Valle
+Padules|padules|Alpujarra|B4|36 km|32+|municipio de la Alpujarra|construcciones alpujarreñas tradicionales
+Partaloa|partaloa|Valle del Almanzora|B3|98 km|10+|pequeño pueblo del Valle del Almanzora|arquitectura rural del Valle
+Paterna del Río|paterna-del-rio|Alpujarra|B4|48 km|16+|municipio de la Alpujarra alta|construcciones de alta montaña alpujarreña
+Pechina|pechina|Zona Metropolitana|A4|10 km|85+|municipio del área metropolitana de Almería|zona metropolitana con desarrollo urbano y tradicional
+Rágol|ragol|Alpujarra|B4|34 km|14+|pueblo de la Alpujarra|arquitectura alpujarreña tradicional
+Rioja|rioja|Poniente|A4|28 km|38+|municipio del Poniente Almeriense|zona del Poniente con clima mediterráneo costero
+Santa Cruz de Marchena|santa-cruz-de-marchena|Alpujarra|B4|44 km|12+|pequeño municipio de la Alpujarra|construcciones alpujarreñas de montaña
+Santa Fe de Mondújar|santa-fe-de-mondujar|Interior|B3|30 km|18+|municipio del interior|arquitectura del interior almeriense
+Senés|senes|Filabres|C2|70 km|5+|pequeño pueblo de montaña|arquitectura de alta montaña de Los Filabres
+Serón|seron|Valle del Almanzora|B3|105 km|32+|municipio del norte del Valle del Almanzora|importante núcleo del norte con variedad constructiva
+Sierro|sierro|Valle del Almanzora|B3|90 km|14+|pueblo del Valle del Almanzora|viviendas tradicionales del Valle
+Somontín|sonontin|Valle del Almanzora|B3|82 km|16+|municipio del Valle del Almanzora|construcciones del Valle del Almanzora
+Sorbas|sorbas|Interior|B3|58 km|42+|municipio del interior conocido por su desierto|arquitectura única adaptada al clima desértico
+Suflí|sufli|Valle del Almanzora|B3|96 km|9+|pequeño pueblo del Valle del Almanzora|viviendas rurales tradicionales
+Taberno|taberno|Valle del Almanzora|B3|78 km|24+|municipio del Valle del Almanzora|construcciones residenciales del Valle
+Tahal|tahal|Filabres|B4|62 km|18+|pueblo de la Sierra de los Filabres|arquitectura de montaña de Los Filabres
+Terque|terque|Alpujarra|B4|28 km|26+|municipio de la Alpujarra baja|construcciones alpujarreñas con proximidad a la capital
+Tíjola|tijola|Valle del Almanzora|B3|95 km|45+|importante municipio del Valle del Almanzora|centro comarcal con variedad arquitectónica
+Las Tres Villas|tres-villas-las|Alpujarra|B4|46 km|14+|agrupación de tres pueblos de la Alpujarra|conjunto de construcciones alpujarreñas tradicionales
+Turre|turre|Valle del Almanzora|B3|72 km|55+|municipio residencial del Valle del Almanzora|gran desarrollo residencial y segunda vivienda
+Turrillas|turrillas|Interior|B3|48 km|10+|pueblo del interior almeriense|arquitectura del interior almeriense
+Uleila del Campo|uleila-del-campo|Valle del Almanzora|B3|80 km|22+|municipio del Valle del Almanzora|viviendas tradicionales y modernas del Valle
+Urrácal|urracal|Valle del Almanzora|B3|92 km|8+|pequeño pueblo del Valle del Almanzora|construcciones rurales tradicionales
+Velefique|velefique|Filabres|C2|55 km|12+|pueblo de montaña de Los Filabres|arquitectura de alta montaña con clima frío
+Vélez-Blanco|velez-blanco|Norte|C2|145 km|28+|municipio del norte de Almería con importante patrimonio|arquitectura histórica y patrimonio monumental
+Vélez-Rubio|velez-rubio|Norte|C2|135 km|52+|importante municipio del norte de Almería|centro comarcal del norte con desarrollo urbano
+Viator|viator|Zona Metropolitana|A4|6 km|95+|municipio del área metropolitana de Almería|zona metropolitana con gran desarrollo residencial
+Zurgena|zurgena|Valle del Almanzora|B3|82 km|48+|municipio residencial del Valle del Almanzora|importante desarrollo residencial y turismo residencial

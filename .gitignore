@@ -1,0 +1,101 @@
+# Archivos de backup
+*.backup
+*.old
+*.bak
+*-backup
+*-old
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Node modules (si se usa en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos temporales
+*.log
+*.temp
+temp/
+tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Archivos de trabajo local
+*.local
+*.draft
+NOTAS_*.md
+TODO_*.txt
+debug_*.py
+
+# Archivos de proceso (scripts de trabajo)
+implementar_blog.py
+debug_extraccion.py
+CONTENIDO_BLOG_*.md
+CONTENIDO_MUNICIPIOS_*.md
+CONTENIDO_47_MUNICIPIOS.md
+CONTENIDO_51_MUNICIPIOS.md
+actualizar_indice_municipios.py
+fix_*.py
+replace_section.py
+standardize_pages*.py
+audit_script.sh
+
+# Documentación de trabajo interno
+AUDITORIA_*.md
+CERTIALMERIA_*.md
+ESTADO_PROYECTO_*.md
+PLAN_*.md
+OPTIMIZACION_*.md
+FLUJO_*.md
+FIX_*.md
+OPENGRAPH_*.md
+PWA_*.md
+README-SEO-EXPANSION.md
+DEPLOYMENT.md
+footer-corregido.html
+optimize-images.md
+auditoria*.md
+"# Prompt para Claude Code - CertiAl.txt"
+
+# Configuración de Claude local
+.claude/settings.local.json
+
+# Certificados y claves (precaución)
+*.pem
+*.key
+*.cert
+.env
+.env.local
+
+# Backups de bases de datos
+*.sql
+*.sqlite
+*.db
