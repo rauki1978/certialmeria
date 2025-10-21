@@ -1,0 +1,13 @@
+# Cloudflare Pages Redirects Configuration
+# Formato: origen destino código_http
+
+# Forzar HTTPS (si no se hace a nivel de Cloudflare Dashboard)
+# http://certificadoenergeticoalmeria.com/* https://certificadoenergeticoalmeria.com/:splat 301
+# http://www.certificadoenergeticoalmeria.com/* https://www.certificadoenergeticoalmeria.com/:splat 301
+
+# Redirecciones específicas del sitio
+/zona-climatica-b3-almeria/ /blog/zona-climatica-a4-que-significa/ 301
+/contacto/ / 301
+
+# Remover trailing slash (opcional, si se prefiere)
+# /* /:splat 301!
