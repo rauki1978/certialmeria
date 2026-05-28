@@ -131,10 +131,13 @@
       pagina: location.pathname
     };
 
+    var fd = new FormData();
+    Object.keys(payload).forEach(function (k) { fd.append(k, payload[k]); });
+
     fetch(ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload)
+      headers: { Accept: "application/json" },
+      body: fd
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
