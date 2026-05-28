@@ -7,8 +7,8 @@
 (function () {
   "use strict";
 
-  var DEST_EMAIL = "atltecnicosalmeria@gmail.com";
-  var ENDPOINT = "https://formsubmit.co/ajax/" + DEST_EMAIL;
+  var ACCESS_KEY = "a87c533f-7c8a-4c12-b190-6b68e0e40cec";
+  var ENDPOINT = "https://api.web3forms.com/submit";
 
   // Evitar doble inyección.
   if (document.getElementById("cae-lead-form")) return;
@@ -119,9 +119,9 @@
     btn.textContent = "Enviando...";
 
     var payload = {
-      _subject: "Nueva solicitud web - " + nombre,
-      _template: "table",
-      _captcha: "false",
+      access_key: ACCESS_KEY,
+      subject: "Nueva solicitud web - " + nombre,
+      from_name: "CertiAlmería Web",
       nombre: nombre,
       telefono: telefono,
       email: val("cae-email"),
@@ -137,11 +137,17 @@
       body: JSON.stringify(payload)
     })
       .then(function (r) { return r.json(); })
-      .then(function () {
-        if (typeof gtag !== "undefined") {
-          gtag("event", "generate_lead", { event_category: "engagement", event_label: "lead_form_email" });
+      .then(function (data) {
+        if (data && data.success) {
+          if (typeof gtag !== "undefined") {
+            gtag("event", "generate_lead", { event_category: "engagement", event_label: "lead_form_web3forms" });
+          }
+          showSuccess(nombre);
+        } else {
+          btn.disabled = false;
+          btn.textContent = "Enviar solicitud";
+          showError(nombre, telefono);
         }
-        showSuccess(nombre);
       })
       .catch(function () {
         btn.disabled = false;
