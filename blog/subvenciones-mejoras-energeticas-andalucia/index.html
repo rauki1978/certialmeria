@@ -594,13 +594,6 @@ padding-right: 2rem;
   @apply opacity-100 visible;
 }</style>
 
-<!-- EmailJS for automatic email sending -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Placeholder - needs real key
-   })();
-</script>
 </head>
 <body>
 
@@ -966,34 +959,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// WhatsApp form submission handler
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const nombre = document.getElementById('nombre').value;
-        const telefono = document.getElementById('telefono').value;
-        const tipoInmueble = document.getElementById('tipo-inmueble').value;
-        const municipio = document.getElementById('municipio').value;
-        const mensaje = document.getElementById('mensaje')?.value || '';
-
-        // WhatsApp message
-        const whatsappMessage = `Hola, me llamo ${nombre}.%0A%0ATipo de inmueble: ${tipoInmueble}%0AMunicipio: ${municipio}%0ATeléfono: ${telefono}%0A%0A${mensaje ? 'Mensaje adicional: ' + mensaje : ''}`;
-
-        // Open WhatsApp
-        window.open(`https://wa.me/34667451538?text=${whatsappMessage}`, '_blank');
-
-        // Track conversion
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'generate_lead', {
-                'event_category': 'engagement',
-                'event_label': 'contact_form_submission',
-                'value': tipoInmueble
-            });
-        }
-    });
-}
 
 // Cookie Consent System
 let cookieSettings = {
@@ -1181,34 +1146,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// WhatsApp form submission handler
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const nombre = document.getElementById('nombre').value;
-        const telefono = document.getElementById('telefono').value;
-        const tipoInmueble = document.getElementById('tipo-inmueble').value;
-        const municipio = document.getElementById('municipio').value;
-        const mensaje = document.getElementById('mensaje')?.value || '';
-
-        // WhatsApp message
-        const whatsappMessage = `Hola, me llamo ${nombre}.%0A%0ATipo de inmueble: ${tipoInmueble}%0AMunicipio: ${municipio}%0ATeléfono: ${telefono}%0A%0A${mensaje ? 'Mensaje adicional: ' + mensaje : ''}`;
-
-        // Open WhatsApp
-        window.open(`https://wa.me/34667451538?text=${whatsappMessage}`, '_blank');
-
-        // Track conversion
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'generate_lead', {
-                'event_category': 'engagement',
-                'event_label': 'contact_form_submission',
-                'value': tipoInmueble
-            });
-        }
-    });
-}
 
 // Cookie Consent System
 let cookieSettings = {
@@ -1362,5 +1299,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 </script>
+<script defer src="/js/lead-form.js?v=1"></script>
 </body>
 </html>

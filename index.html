@@ -744,13 +744,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 </style>
 
-<!-- EmailJS for automatic email sending -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Placeholder - needs real key
-   })();
-</script>
 
 </head><body class="font-sans text-neutral-900 bg-white overflow-x-hidden"><!-- Header Espectacular de Dos Niveles -->
 <header class="sticky top-0 z-50 transition-all duration-300" id="main-header">
@@ -2897,66 +2890,6 @@ WhatsApp Directo
  });
  });
 
- // Enhanced form submission with lead tracking
- document.getElementById('contact-form').addEventListener('submit', function(e) {
- e.preventDefault();
- 
- const formData = new FormData(this);
- const data = Object.fromEntries(formData);
- 
- // Basic validation
- if (!data.nombre || !data.telefono || !data.municipio) {
- alert('Por favor, completa todos los campos obligatorios.');
- return;
- }
- 
- // Phone validation
- const phoneRegex = /^[6-9]\d{8}$/;
- const cleanPhone = data.telefono.replace(/\s+/g, '');
- if (!phoneRegex.test(cleanPhone)) {
- alert('Por favor, introduce un número de teléfono válido.');
- return;
- }
- 
- // Create WhatsApp message with form data
- const mensaje = `🔥 *NUEVA SOLICITUD CERTIFICADO ENERGÉTICO* 🔥
-
-👤 *Nombre:* ${data.nombre}
-📞 *Teléfono:* ${data.telefono}
-📍 *Municipio:* ${data.municipio}
-
-💬 *Mensaje:* "Hola, he rellenado el formulario en tu web. Quiero que me llames gratis en 30 minutos para mi certificado energético por 75€. ¡Gracias!"
-
-_Solicitud enviada desde el Formulario Rápido de CertiAlmería.es_`;
-
- // Encode message for URL
- const mensajeCodificado = encodeURIComponent(mensaje);
-
- // Create WhatsApp URL
- const whatsappURL = `https://wa.me/34667451538?text=${mensajeCodificado}`;
-
- // Show success message with personalization
- alert(`¡Perfecto ${data.nombre}! Te enviaremos tu solicitud por WhatsApp y te llamaremos en menos de 30 minutos al ${data.telefono}. ¡Gracias por confiar en CertiAlmería!`);
-
- // Small delay for user to see the alert, then redirect to WhatsApp
- setTimeout(() => {
- window.open(whatsappURL, '_blank');
- }, 1500);
-
- // Track conversion for analytics
- if (typeof gtag !== 'undefined') {
- gtag('event', 'form_submit_whatsapp', {
- 'event_category': 'engagement',
- 'event_label': 'formulario_rapido',
- 'municipio': data.municipio,
- 'telefono': data.telefono
- });
- }
-
- // Reset form
- this.reset();
- });
-
  // Enhanced click tracking
  document.querySelectorAll('a[href^="tel:"]').forEach(link =>{
  link.addEventListener('click', () =>{
@@ -3586,9 +3519,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-console.log('<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg> Header Premium JavaScript cargado correctamente');
+// Header Premium JavaScript cargado correctamente
 
 // 📱 PWA Service Worker Registration
 if ('serviceWorker' in navigator) {
@@ -4131,7 +4062,7 @@ PRECIO TOTAL: 75€
     btnSubmit.disabled = true;
     btnSubmit.innerHTML = '<svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Enviando...';
 
-    fetch('https://formsubmit.co/ajax/rcn1440@yahoo.es', {
+    fetch('https://formsubmit.co/ajax/atltecnicosalmeria@gmail.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -4139,6 +4070,8 @@ PRECIO TOTAL: 75€
         },
         body: JSON.stringify({
             _subject: `Nueva solicitud certificado - ${formData.nombre} ${formData.apellidos}`,
+            _template: 'table',
+            _captcha: 'false',
             nombre: formData.nombre,
             apellidos: formData.apellidos,
             telefono: formData.telefono,
