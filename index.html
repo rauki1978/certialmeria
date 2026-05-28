@@ -3880,7 +3880,7 @@ function nextStep() {
                 updateResumen();
             }
             updateStepIndicators();
-            window.scrollTo({ top: document.getElementById('wizard-form').offsetTop - 100, behavior: 'smooth' });
+            window.scrollTo({ top: document.getElementById('wizard-form').getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
         }
     } else {
         alert('Por favor, completa todos los campos obligatorios correctamente.');
@@ -3892,7 +3892,7 @@ function previousStep() {
     if (currentStep > 1) {
         currentStep--;
         updateStepIndicators();
-        window.scrollTo({ top: document.getElementById('wizard-form').offsetTop - 100, behavior: 'smooth' });
+        window.scrollTo({ top: document.getElementById('wizard-form').getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
     }
 }
 
@@ -3913,7 +3913,7 @@ function goToStep(step) {
             updateResumen();
         }
         updateStepIndicators();
-        window.scrollTo({ top: document.getElementById('wizard-form').offsetTop - 100, behavior: 'smooth' });
+        window.scrollTo({ top: document.getElementById('wizard-form').getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
     } else {
         alert('Por favor, completa los pasos anteriores primero.');
     }
