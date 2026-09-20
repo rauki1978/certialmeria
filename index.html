@@ -3815,8 +3815,11 @@ function initializeAnalytics() {
 }
 
 // Add CSS for toggle animation
-const style = document.createElement('style');
-style.textContent = `
+// estiloInterruptor y no `style`: ese nombre ya lo usa otro bloque de la
+// página, y repetirlo tiraba este entero ("Identifier 'style' has already been
+// declared").
+const estiloInterruptor = document.createElement('style');
+estiloInterruptor.textContent = `
     .toggle-dot {
         transition: transform 0.3s ease;
     }
@@ -3824,7 +3827,7 @@ style.textContent = `
         transition: background-color 0.3s ease;
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(estiloInterruptor);
 </script>
 
 <!-- JAVASCRIPT WIZARD FORMULARIO -->
