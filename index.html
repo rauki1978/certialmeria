@@ -1434,6 +1434,10 @@ h1, h2, h3, h4, h5, h6 {
   .form-step-label.done { color: #43A047; }
   .form-steps-line { position: absolute; top: 18px; left: 12%; right: 12%; height: 2px; background: #f0f0f0; z-index: 0; }
   .form-steps-line-fill { height: 100%; background: #111; transition: width 0.4s ease; width: 0%; }
+  /* Días que le vienen bien para la visita: botones, no casillas sueltas. */
+  .dia-visita { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa; font-size: 0.9rem; color: #444; cursor: pointer; user-select: none; }
+  .dia-visita:has(input:checked) { border-color: #111; background: #111; color: #fff; }
+  .dia-visita input { accent-color: #fff; width: 15px; height: 15px; }
   .form-input { width: 100%; padding: 14px 16px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 0.95rem; color: #111; background: #fafafa; transition: all 0.2s; outline: none; font-family: inherit; }
   .form-input:focus { border-color: #111; background: #fff; box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
   .form-input::placeholder { color: #ccc; }
@@ -1671,6 +1675,39 @@ h1, h2, h3, h4, h5, h6 {
             <p style="font-size: 0.85rem; color: #555; line-height: 1.6;">Al confirmar, te llamamos en <strong style="color:#111;">menos de 30 minutos</strong> para coordinar la visita técnica.</p>
           </div>
 
+          <!-- Cuándo le viene bien la visita -->
+          <div style="margin-top: 24px;">
+            <p style="font-size: 0.95rem; font-weight: 800; color: #111; margin-bottom: 4px;">¿Qué días te vienen bien para la visita?</p>
+            <p style="font-size: 0.8rem; color: #999; margin-bottom: 12px;">Orientativo: te confirmamos el día y la hora por teléfono o WhatsApp.</p>
+            <div id="dias-visita" style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <label class="dia-visita"><input type="checkbox" name="dias" value="lunes"> Lunes</label>
+              <label class="dia-visita"><input type="checkbox" name="dias" value="martes"> Martes</label>
+              <label class="dia-visita"><input type="checkbox" name="dias" value="miércoles"> Miércoles</label>
+              <label class="dia-visita"><input type="checkbox" name="dias" value="jueves"> Jueves</label>
+              <label class="dia-visita"><input type="checkbox" name="dias" value="viernes"> Viernes</label>
+              <label class="dia-visita"><input type="checkbox" name="dias" value="sábado"> Sábado</label>
+            </div>
+            <div style="margin-top: 12px;">
+              <label class="form-label">Franja</label>
+              <select id="franja" name="franja" class="form-input">
+                <option value="indiferente">Me da igual</option>
+                <option value="manana">Por la mañana</option>
+                <option value="tarde">Por la tarde</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Aceptación del servicio -->
+          <div style="margin-top: 24px; padding: 18px 20px; background: #fafafa; border-radius: 12px;">
+            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+              <input type="checkbox" id="acepta-servicio" name="acepta_servicio" required style="margin-top: 4px; width: 16px; height: 16px; accent-color: #111;">
+              <span style="font-size: 0.85rem; color: #555; line-height: 1.6;">
+                <strong style="color:#111;">Acepto el servicio por 75 € (IVA incluido)</strong>: visita, toma de datos, certificado firmado por técnico competente, etiqueta energética y registro en la Junta de Andalucía.
+                <span style="display:block;margin-top:6px;">No hay que pagar nada ahora: cuando el certificado esté terminado se manda el enlace de pago y, en cuanto esté pagado, la documentación para descargar.</span>
+              </span>
+            </label>
+          </div>
+
           <!-- Privacy -->
           <div style="margin-top: 20px;">
             <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
@@ -1679,6 +1716,14 @@ h1, h2, h3, h4, h5, h6 {
                 Acepto la <a href="/politica-privacidad/" style="color: #111; font-weight: 600; text-decoration: underline; text-underline-offset: 2px;">política de privacidad</a> y autorizo el tratamiento de mis datos.
               </span>
             </label>
+          </div>
+
+          <!-- Antispam (Cloudflare Turnstile). Se pinta solo si hay clave configurada. -->
+          <div id="turnstile-hueco" style="margin-top: 16px;"></div>
+
+          <!-- Campo trampa: invisible para las personas, lo rellenan los robots. -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;">
+            <label>Empresa<input type="text" id="campo-empresa" name="empresa" tabindex="-1" autocomplete="off"></label>
           </div>
         </div>
 
@@ -3961,6 +4006,93 @@ function updateResumen() {
 }
 
 // Manejar envío del formulario
+// ---------------------------------------------------------------------------
+// Reserva: la solicitud entra directamente en la aplicación de CertiAlmería,
+// que crea el expediente, le manda el correo al cliente con su enlace de
+// seguimiento y avisa al técnico.
+//
+// El aviso por correo de siempre (Web3Forms) SE SIGUE MANDANDO: si la
+// aplicación estuviera caída, la solicitud no se pierde.
+//
+// TURNSTILE_SITE_KEY: la clave pública del widget antispam (Cloudflare →
+// Turnstile). Mientras esté vacía, el formulario no puede enviar a la
+// aplicación y funciona solo el correo.
+// ---------------------------------------------------------------------------
+const API_RESERVAS = 'https://cee.certialmeria.es/api/reservas';
+const TURNSTILE_SITE_KEY = '';
+let turnstileToken = '';
+
+if (TURNSTILE_SITE_KEY) {
+    window.alPintarTurnstile = function () {
+        window.turnstile.render('#turnstile-hueco', {
+            sitekey: TURNSTILE_SITE_KEY,
+            language: 'es',
+            callback: function (token) { turnstileToken = token; },
+            'expired-callback': function () { turnstileToken = ''; }
+        });
+    };
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=alPintarTurnstile&render=explicit';
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+}
+
+function datosParaLaApp(d) {
+    const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(function (c) { return c.value; });
+    return {
+        nombre: (d.nombre + ' ' + d.apellidos).trim(),
+        telefono: d.telefono,
+        email: d.email,
+        direccion: d.direccion,
+        cp: d.codigoPostal || undefined,
+        municipio: d.municipio,
+        ref_catastral: d.refCatastral || undefined,
+        tipo_inmueble: d.tipoInmueble || undefined,
+        metros: d.metros || undefined,
+        anio: d.anioConstruccion || undefined,
+        observaciones: d.observaciones || undefined,
+        dias: dias.length ? dias : undefined,
+        franja: (document.getElementById('franja') || {}).value || undefined,
+        empresa: (document.getElementById('campo-empresa') || {}).value || '',
+        turnstile_token: turnstileToken,
+        acepta_servicio: true,
+        acepta_privacidad: true
+    };
+}
+
+function enviarALaApp(d) {
+    return fetch(API_RESERVAS, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datosParaLaApp(d))
+    }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (j) {
+            if (!res.ok || !j.ok) throw new Error((j && j.error) || 'No se pudo registrar la solicitud');
+            return j;
+        });
+    });
+}
+
+/** Sustituye el formulario por el "gracias", con su referencia y su enlace. */
+function mostrarGracias(j) {
+    const form = document.getElementById('wizard-form');
+    const enlace = j && j.seguimiento
+        ? '<p style="margin:16px 0 0;"><a href="' + j.seguimiento + '" style="display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;">Ver cómo va mi certificado</a></p>'
+        : '';
+    const referencia = j && j.codigo
+        ? '<p style="margin:8px 0 0;font-size:0.95rem;color:#555;">Tu referencia es <strong style="color:#111;">' + j.codigo + '</strong>. Te la hemos mandado también por correo.</p>'
+        : '';
+    form.innerHTML =
+        '<div style="text-align:center;padding:28px 8px;">' +
+        '<div style="width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:28px;color:#2e7d32;">✓</div>' +
+        '<h3 style="font-size:1.4rem;font-weight:900;color:#111;margin-bottom:8px;">Solicitud recibida</h3>' +
+        '<p style="font-size:0.95rem;color:#555;line-height:1.6;">Te llamamos o te escribimos en breve para acordar el día de la visita. No tienes que pagar nada todavía.</p>' +
+        referencia + enlace +
+        '</div>';
+    window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+}
+
 document.getElementById('wizard-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -3968,6 +4100,13 @@ document.getElementById('wizard-form').addEventListener('submit', function(e) {
     const privacyCheckbox = document.querySelector('input[name="privacidad"]');
     if (!privacyCheckbox.checked) {
         alert('Debes aceptar la política de privacidad para continuar.');
+        return;
+    }
+
+    // Y la aceptación del servicio: es lo que convierte esto en un encargo.
+    const aceptaServicio = document.getElementById('acepta-servicio');
+    if (aceptaServicio && !aceptaServicio.checked) {
+        alert('Para reservar, acepta el servicio por 75 € y sus condiciones.');
         return;
     }
 
@@ -4053,36 +4192,41 @@ PRECIO TOTAL: 75€
     const w3fd = new FormData();
     Object.keys(w3payload).forEach(k => w3fd.append(k, w3payload[k]));
 
-    fetch('https://api.web3forms.com/submit', {
+    // El correo de aviso de siempre. Se manda pase lo que pase con la
+    // aplicación: una solicitud perdida es un cliente perdido.
+    const avisoPorCorreo = fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: w3fd
     })
     .then(response => response.json())
     .then(data => {
-        if (!data || !data.success) {
-            throw new Error((data && data.message) || 'Error de envío');
-        }
-
-        // Mostrar mensaje de éxito
-        alert(`¡Solicitud enviada correctamente!\n\nTe contactaremos pronto en el ${formData.telefono}\n\nRevisaremos tu solicitud y te llamaremos en menos de 30 minutos.`);
-
-        // Resetear formulario
-        document.getElementById('wizard-form').reset();
-        currentStep = 1;
-        updateStepIndicators();
-
-        // Scroll al inicio
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Hubo un error al enviar la solicitud. Por favor, llámanos directamente al 667 451 538 o envía un WhatsApp.');
-    })
-    .finally(() => {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = originalText;
+        if (!data || !data.success) throw new Error((data && data.message) || 'Error de envío');
+        return data;
     });
+
+    // La reserva de verdad: entra en la aplicación y el cliente recibe su
+    // referencia y su enlace de seguimiento.
+    enviarALaApp(formData)
+        .then(j => {
+            mostrarGracias(j);
+            avisoPorCorreo.catch(err => console.error('Aviso por correo:', err));
+        })
+        .catch(errorApp => {
+            console.error('Reserva en la aplicación:', errorApp);
+            // Sin aplicación, queda el correo: al cliente se le dice lo mismo,
+            // sin referencia ni seguimiento, y se le llama igual.
+            avisoPorCorreo
+                .then(() => mostrarGracias(null))
+                .catch(errorCorreo => {
+                    console.error('Aviso por correo:', errorCorreo);
+                    alert('No hemos podido registrar tu solicitud. Llámanos al 667 45 15 38 o escríbenos por WhatsApp y lo hacemos al momento.');
+                })
+                .finally(() => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = originalText;
+                });
+        });
 });
 
 // Inicializar wizard al cargar la página
