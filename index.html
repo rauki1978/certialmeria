@@ -1519,6 +1519,15 @@ h1, h2, h3, h4, h5, h6 {
               <input type="email" id="email" name="email" required class="form-input" placeholder="tu@email.com">
             </div>
           </div>
+
+          <!-- Guardamos el teléfono al pasar de este paso, aunque no se termine
+               la reserva, para poder devolver la llamada. Hay que decirlo aquí
+               y no solo en la política de privacidad. -->
+          <p style="margin-top: 18px; font-size: 0.82rem; color: #999; line-height: 1.5;">
+            Al continuar guardamos tu nombre y tu teléfono para poder llamarte si no terminas la solicitud.
+            Puedes pedirnos que los borremos cuando quieras. Más detalles en la
+            <a href="/politica-privacidad/" target="_blank" rel="noopener" style="color:#43A047;text-decoration:underline;">política de privacidad</a>.
+          </p>
         </div>
 
         <!-- Step 2: Dirección -->
@@ -3928,6 +3937,11 @@ function validateStep(step) {
 function nextStep() {
     if (validateStep(currentStep)) {
         if (currentStep < totalSteps) {
+            // Al salir del paso 1 ya hay nombre y teléfono válidos: se guardan
+            // por si no llega a terminar. Ver guardarInteresado(), más abajo.
+            if (currentStep === 1 && typeof guardarInteresado === 'function') {
+                guardarInteresado();
+            }
             currentStep++;
             if (currentStep === 4) {
                 updateResumen();
@@ -3961,6 +3975,11 @@ function goToStep(step) {
     }
 
     if (canGo && step >= 1 && step <= totalSteps) {
+        // Igual que en nextStep: si se salta hacia delante es que el paso 1 ya
+        // está bien relleno, así que el teléfono se guarda también aquí.
+        if (step > 1 && typeof guardarInteresado === 'function') {
+            guardarInteresado();
+        }
         currentStep = step;
         if (currentStep === 4) {
             updateResumen();
@@ -4046,6 +4065,53 @@ if (TURNSTILE_SITE_KEY) {
     document.head.appendChild(s);
 }
 
+// ---------------------------------------------------------------------------
+// Rescate de abandonos.
+//
+// El asistente tiene cuatro pasos y mucha gente se queda por el camino: mira
+// el precio, le surge algo y cierra. Hasta ahora ese cliente desaparecía sin
+// dejar rastro, aunque ya hubiera escrito su nombre y su teléfono en el paso 1.
+//
+// Al pasar del primer paso se guarda en la aplicación como INTERESADO (que no
+// es una reserva: no hay dirección, ni precio aceptado, ni expediente). Queda
+// en una bandeja para llamarle. Si luego termina la reserva, se manda su
+// identificador con ella y la aplicación lo cierra sola: si no, cada reserva
+// completada dejaría además una llamada pendiente falsa.
+//
+// Se avisa de esto en el propio paso 1 y en la política de privacidad: guardar
+// un teléfono para devolver la llamada hay que decirlo, no vale darlo por
+// supuesto.
+// ---------------------------------------------------------------------------
+const API_INTERESADOS = 'https://cee.certialmeria.es/api/interesados';
+let idInteresado = '';
+
+function guardarInteresado() {
+    if (idInteresado) return;  // ya está guardado: no duplicar si vuelve atrás
+    const nombre = ((document.getElementById('nombre') || {}).value || '').trim();
+    const apellidos = ((document.getElementById('apellidos') || {}).value || '').trim();
+    const telefono = ((document.getElementById('telefono') || {}).value || '').trim();
+    if (!nombre || !telefono) return;
+
+    fetch(API_INTERESADOS, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            nombre: (nombre + ' ' + apellidos).trim(),
+            telefono: telefono,
+            email: ((document.getElementById('email') || {}).value || '').trim() || undefined,
+            pagina: location.pathname,
+            origen: 'asistente',
+            empresa: (document.getElementById('campo-empresa') || {}).value || '',
+            // En el paso 1 el reto todavía no está resuelto: va sin testigo y
+            // la aplicación lo guarda sin verificar, sin avisar por correo.
+            turnstile_token: turnstileToken
+        })
+    })
+        .then(function (res) { return res.json(); })
+        .then(function (j) { if (j && j.ok && j.id) idInteresado = j.id; })
+        .catch(function () { /* silencioso: esto no puede estorbar al cliente */ });
+}
+
 function datosParaLaApp(d) {
     const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(function (c) { return c.value; });
     return {
@@ -4064,6 +4130,9 @@ function datosParaLaApp(d) {
         franja: (document.getElementById('franja') || {}).value || undefined,
         empresa: (document.getElementById('campo-empresa') || {}).value || '',
         turnstile_token: turnstileToken,
+        // Si dejó el teléfono en el paso 1, que la aplicación cierre aquel
+        // interesado: ya no hay nadie a quien llamar, ha reservado.
+        interesado_id: idInteresado || undefined,
         acepta_servicio: true,
         acepta_privacidad: true
     };

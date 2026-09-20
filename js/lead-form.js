@@ -1,14 +1,41 @@
 /*
  * CertiAlmería - Formulario de captación unificado.
- * Inyecta un formulario de contacto antes del footer y envía los datos
- * por email vía FormSubmit a atltecnicosalmeria@gmail.com.
- * Único punto de mantenimiento para todas las páginas (la home usa su propio wizard).
+ *
+ * Inyecta el formulario antes del footer en las 156 páginas que no son la
+ * portada: los 103 municipios, los 30 artículos del blog y las de servicio.
+ * Un solo archivo, un solo punto de mantenimiento (la portada tiene su propio
+ * asistente de reserva, que es otra cosa: allí se contrata, aquí se pregunta).
+ *
+ * QUÉ CAMBIA RESPECTO DE LA VERSIÓN ANTERIOR
+ * ------------------------------------------
+ * Antes esto solo mandaba un correo a Gmail vía Web3Forms. El cliente quedaba
+ * registrado en una bandeja de entrada que hay que leer a mano, y nada más:
+ * ni aparecía en la aplicación, ni se sabía desde qué página había escrito, ni
+ * había forma de ver cuántos se quedaban sin llamar.
+ *
+ * Ahora va primero a la aplicación (/api/interesados), que es la que guarda,
+ * ordena y avisa; el correo de Web3Forms se sigue mandando SIEMPRE como
+ * respaldo. Si un día la aplicación no contesta, el aviso llega igual al
+ * correo de siempre y no se pierde ningún cliente. Esa es la única razón de
+ * que sigan conviviendo los dos envíos.
+ *
+ * El antispam (Turnstile) es el mismo que el de la portada y la misma clave
+ * pública. Si por lo que sea no carga, el formulario sigue funcionando: se
+ * manda sin testigo, la aplicación lo guarda marcado como "sin verificar" y
+ * no dispara aviso por correo al técnico. Vale más un cliente sin verificar
+ * que un formulario que no se deja enviar.
  */
 (function () {
   "use strict";
 
   var ACCESS_KEY = "a87c533f-7c8a-4c12-b190-6b68e0e40cec";
   var ENDPOINT = "https://api.web3forms.com/submit";
+
+  // La aplicación de CertiAlmería, donde queda registrado el interesado.
+  var API_INTERESADOS = "https://cee.certialmeria.es/api/interesados";
+  // Clave PÚBLICA del widget antispam (Cloudflare → Turnstile). La secreta
+  // vive en la aplicación y no aparece nunca aquí.
+  var TURNSTILE_SITE_KEY = "0x4AAAAAAE9fVAgw3_uN5eLH";
 
   // Evitar doble inyección.
   if (document.getElementById("cae-lead-form")) return;
@@ -32,6 +59,14 @@
       ".cae-field input:focus,.cae-field select:focus,.cae-field textarea:focus{outline:none;border-color:#43A047;box-shadow:0 0 0 3px rgba(67,160,71,.15)}",
       ".cae-field textarea{min-height:90px;resize:vertical}",
       ".cae-priv{display:flex;align-items:flex-start;gap:9px;font-size:.82rem;color:#6b7280;margin:4px 0 18px}",
+      // El campo trampa no se oculta con display:none: algunos robots lo
+      // detectan. Se saca de la pantalla y se le quita del recorrido del
+      // tabulador y del lector de pantalla.
+      ".cae-trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}",
+      ".cae-turnstile{display:flex;justify-content:center;margin:0 0 16px;min-height:0}",
+      ".cae-reserva{text-align:center;font-size:.85rem;color:#6b7280;margin:16px 0 0;padding-top:16px;border-top:1px solid #e5e7eb}",
+      ".cae-reserva a{color:#43A047;font-weight:700;text-decoration:none}",
+      ".cae-reserva a:hover{text-decoration:underline}",
       ".cae-priv input{margin-top:3px}",
       ".cae-priv a{color:#43A047;text-decoration:underline}",
       ".cae-submit{width:100%;background:#43A047;color:#fff;border:none;border-radius:8px;padding:15px;font-size:1.05rem;font-weight:700;font-family:inherit;cursor:pointer;transition:background .2s}",
@@ -69,9 +104,15 @@
               '<option value="Nave / Otro">Nave / Otro</option>' +
             '</select></div>' +
             '<div class="cae-field"><label for="cae-mensaje">Mensaje (opcional)</label><textarea id="cae-mensaje" name="mensaje" placeholder="Metros, direcci&oacute;n, dudas..."></textarea></div>' +
-            '<label class="cae-priv"><input id="cae-priv" type="checkbox" required><span>He le&iacute;do y acepto la <a href="/politica-privacidad/" target="_blank" rel="noopener">pol&iacute;tica de privacidad</a>.</span></label>' +
+            // Campo trampa: las personas no lo ven, los robots lo rellenan.
+            '<div class="cae-trampa" aria-hidden="true"><label for="cae-empresa">Empresa</label><input id="cae-empresa" name="empresa" type="text" tabindex="-1" autocomplete="off"></div>' +
+            '<label class="cae-priv"><input id="cae-priv" type="checkbox" required><span>He le&iacute;do y acepto la <a href="/politica-privacidad/" target="_blank" rel="noopener">pol&iacute;tica de privacidad</a>. Guardamos tu nombre y tu tel&eacute;fono para llamarte y darte el presupuesto.</span></label>' +
+            '<div class="cae-turnstile" id="cae-turnstile"></div>' +
             '<button type="submit" class="cae-submit" id="cae-submit">Enviar solicitud</button>' +
             '<p class="cae-note">O ll&aacute;manos directamente al <strong>667 45 15 38</strong></p>' +
+            // El siguiente escalón para quien ya lo tiene decidido: no todo el
+            // mundo quiere esperar una llamada.
+            '<p class="cae-reserva">&iquest;Lo tienes claro? <a href="/#wizard-form">Reserva la visita ahora</a> &middot; 75 &euro;, sin pagar nada por adelantado.</p>' +
           '</form>' +
         '</div>' +
       '</div>';
@@ -80,12 +121,82 @@
 
     document.getElementById("cae-municipio").value = guessMunicipio();
     document.getElementById("cae-lead-form").addEventListener("submit", onSubmit);
+    cargarTurnstile();
   }
 
+  var widgetTurnstile = null;
+
+  /*
+   * Carga el antispam. Es deliberadamente silencioso: si el script no carga
+   * (bloqueador, red mala, CSP mal puesta en una página suelta), no se avisa ni
+   * se bloquea nada. El formulario se manda igual sin testigo.
+   */
+  function cargarTurnstile() {
+    if (!TURNSTILE_SITE_KEY) return;
+    var hueco = document.getElementById("cae-turnstile");
+    if (!hueco) return;
+
+    window.caeTurnstileListo = function () {
+      try {
+        widgetTurnstile = window.turnstile.render("#cae-turnstile", {
+          sitekey: TURNSTILE_SITE_KEY,
+          action: "formulario-web"
+        });
+      } catch (e) {
+        /* sin antispam, pero con formulario */
+      }
+    };
+
+    var s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=caeTurnstileListo&render=explicit";
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+
+  function testigoTurnstile() {
+    try {
+      if (window.turnstile && widgetTurnstile !== null) {
+        return window.turnstile.getResponse(widgetTurnstile) || "";
+      }
+    } catch (e) {
+      /* da igual: se manda sin testigo */
+    }
+    return "";
+  }
+
+  function reiniciarTurnstile() {
+    try {
+      if (window.turnstile && widgetTurnstile !== null) window.turnstile.reset(widgetTurnstile);
+    } catch (e) {
+      /* nada que hacer */
+    }
+  }
+
+  /*
+   * De qué municipio es esta página, para dejarlo ya puesto en el formulario.
+   *
+   * La versión anterior buscaba "... en Níjar" al FINAL de un encabezado, y en
+   * las páginas de municipio el encabezado acaba en interrogación ("¿Por qué
+   * somos especialistas en certificados energéticos en Níjar?"), así que no
+   * acertaba ninguna de las 103 y el campo salía vacío.
+   *
+   * Ahora manda la URL, que es inequívoca: /municipios/nijar/. El nombre bien
+   * escrito, con tildes, se saca del <title> ("Certificado Energético Níjar
+   * 75€ | ..."), porque el trozo de la URL viene sin ellas.
+   */
   function guessMunicipio() {
+    var enUrl = location.pathname.match(/\/municipios\/([^/]+)/);
+    if (enUrl) {
+      var delTitulo = document.title.match(/Energ[ée]tico\s+(.+?)\s*(?:\d|€|\||$)/i);
+      if (delTitulo && delTitulo[1].trim()) return delTitulo[1].trim();
+      return enUrl[1].replace(/-/g, " ").replace(/(^|\s)\S/g, function (c) { return c.toUpperCase(); });
+    }
+
+    // Fuera de las páginas de municipio, el encabezado es lo único que hay.
     var h = document.querySelector("h1, h2");
     if (h) {
-      var m = h.textContent.match(/\ben\s+([A-Za-zÁÉÍÓÚáéíóúÑñ.\s-]{2,40})$/);
+      var m = h.textContent.match(/\ben\s+([A-ZÁÉÍÓÚÑ][A-Za-zÁÉÍÓÚáéíóúÑñ.\s-]{1,38}?)\s*[?!.,:;]?\s*$/);
       if (m) return m[1].trim();
     }
     return "";
@@ -131,32 +242,59 @@
       pagina: location.pathname
     };
 
+    // 1) La aplicación: es la que guarda al interesado y avisa al técnico.
+    var enApp = fetch(API_INTERESADOS, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nombre: nombre,
+        telefono: telefono,
+        email: payload.email,
+        municipio: payload.municipio,
+        tipo_inmueble: payload.tipo_inmueble,
+        mensaje: payload.mensaje,
+        pagina: location.pathname,
+        origen: "formulario",
+        empresa: val("cae-empresa"),
+        turnstile_token: testigoTurnstile()
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { return !!(j && j.ok); })
+      .catch(function () { return false; });
+
+    // 2) El correo de respaldo, SIEMPRE, pase lo que pase con la aplicación.
+    //    Mientras esto se mande, ningún cliente se pierde por una caída.
     var fd = new FormData();
     Object.keys(payload).forEach(function (k) { fd.append(k, payload[k]); });
 
-    fetch(ENDPOINT, {
+    var enCorreo = fetch(ENDPOINT, {
       method: "POST",
       headers: { Accept: "application/json" },
       body: fd
     })
       .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (data && data.success) {
-          if (typeof gtag !== "undefined") {
-            gtag("event", "generate_lead", { event_category: "engagement", event_label: "lead_form_web3forms" });
-          }
-          showSuccess(nombre);
-        } else {
-          btn.disabled = false;
-          btn.textContent = "Enviar solicitud";
-          showError(nombre, telefono);
+      .then(function (data) { return !!(data && data.success); })
+      .catch(function () { return false; });
+
+    Promise.all([enApp, enCorreo]).then(function (res) {
+      // Con que haya entrado por una de las dos vías, el cliente está avisado.
+      if (res[0] || res[1]) {
+        if (typeof gtag !== "undefined") {
+          gtag("event", "generate_lead", {
+            event_category: "embudo",
+            event_label: res[0] ? "formulario_app" : "formulario_solo_correo",
+            pagina: location.pathname
+          });
         }
-      })
-      .catch(function () {
+        showSuccess(nombre);
+      } else {
         btn.disabled = false;
         btn.textContent = "Enviar solicitud";
+        reiniciarTurnstile();
         showError(nombre, telefono);
-      });
+      }
+    });
   }
 
   function showSuccess(nombre) {
