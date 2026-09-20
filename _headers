@@ -13,7 +13,14 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
   # Content Security Policy (ajustar según necesidades)
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com;
+  #
+  # El formulario de reserva necesita tres permisos más:
+  #   challenges.cloudflare.com  el antispam Turnstile: su script y su marco
+  #   cee.certialmeria.es        la aplicación, donde entra la reserva
+  # Sin ellos el navegador los bloquea y la reserva solo sale por correo.
+  # X-Frame-Options sigue en DENY: eso impide que nos metan a NOSOTROS en un
+  # marco ajeno, no que nosotros mostremos el marco de Cloudflare.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://cee.certialmeria.es https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com;
 
   # Permissions Policy
   Permissions-Policy: geolocation=(), microphone=(), camera=()

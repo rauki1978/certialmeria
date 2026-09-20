@@ -3458,18 +3458,23 @@ const animateStats = () => {
 };
 
 // Trigger stats animation when header is visible
-const observer = new IntersectionObserver((entries) => {
+// Se llama observadorEstadisticas y no `observer`: ese nombre ya estaba cogido
+// por otro bloque de la página, y al repetirlo el navegador tiraba todo este
+// bloque ("Identifier 'observer' has already been declared"). Con él se caían
+// la animación de las cifras, el comportamiento de la cabecera al hacer scroll
+// y el registro del service worker.
+const observadorEstadisticas = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       animateStats();
-      observer.unobserve(entry.target);
+      observadorEstadisticas.unobserve(entry.target);
     }
   });
 });
 
 const statsContainer = document.querySelector('.max-w-7xl');
 if (statsContainer) {
-  observer.observe(statsContainer);
+  observadorEstadisticas.observe(statsContainer);
 }
 
 // Enhanced scroll performance
