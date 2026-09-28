@@ -196,6 +196,40 @@ Sobre el formato: el AVIF ahorra 9 KB más, pero al ser un fondo CSS haría falt
 
 ---
 
+## 2026-09-28 · D17 · El formulario avisa, no bloquea
+
+**Decisión.** Tres cambios en la validación del asistente, después de que el propietario se quedara atascado en su propio formulario:
+
+1. La **referencia catastral pasa a opcional**. Él la pide para la visita, y puede sacarla del Catastro con la dirección.
+2. Si la **letra del DNI** no cuadra, se avisa en naranja pero **se deja continuar**.
+3. Los mensajes van **por campo**, debajo del campo, y la página lleva al primero que falla. Se elimina el `alert()` genérico.
+
+**Motivo.** Yo había puesto el DNI y la referencia catastral como obligatorios y validaba la letra del DNI bloqueando. El resultado: un aviso que decía «completa todos los campos obligatorios correctamente» **sin decir cuál**, así que era imposible saber qué corregir y el formulario parecía roto. El propietario lo sufrió en primera persona.
+
+Encima el validador rechazaba formatos legítimos: el DNI sin el cero de delante (`1234567A`) y con puntos (`12.345.678-Z`).
+
+El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale más un cliente con un dato por confirmar que un formulario que no se deja enviar**. Un DNI con una errata lo corrige el técnico en la visita; un cliente que se va no vuelve.
+
+**Alternativa descartada.** *Mantener la validación estricta y mejorar solo el mensaje.* Habría arreglado la confusión, pero seguiría bloqueando a quien escribe el DNI de una forma que la ley admite y mi código no.
+
+**Cómo se revisará.** Cuando haya datos de GA4, comparar cuántos empiezan el formulario (`formulario_inicio`) con cuántos lo terminan (`generate_lead`). Si el abandono se concentra en el paso 1, el siguiente candidato a mover es el DNI, al último paso.
+
+---
+
+## 2026-09-28 · D18 · El aviso por WhatsApp lo dispara el cliente, de un clic
+
+**Decisión.** Al terminar la reserva aparece un botón «Avisar por WhatsApp» con el mensaje ya escrito —nombre, DNI, inmueble, día y hora de la visita y la referencia—. El cliente solo pulsa enviar. **No sustituye** a la aplicación ni al correo, que ya han guardado la reserva antes.
+
+**Motivo.** El propietario quería que la reserva le llegara por WhatsApp. El envío automático de verdad exige la WhatsApp Business Platform de Meta: número dedicado (el 667 dejaría de funcionar en su móvil), plantillas aprobadas y coste por mensaje. Ver D13.
+
+Con el botón se consigue casi todo el valor a coste cero, y además una cosa que el envío automático **no** da: queda abierta una conversación de WhatsApp con el cliente, que es el canal por el que prefiere hablar la mayoría, y eso abre la ventana de 24 h para responder sin plantilla.
+
+**Contrapartida asumida.** Depende de que el cliente pulse. Por eso el aviso al técnico por correo sigue siendo el canal fiable y el botón se presenta como opcional.
+
+**Cómo se revisará.** Contando cuántas reservas traen además mensaje de WhatsApp. Si son pocas y el correo no basta en la práctica, se replantea la Cloud API con un número nuevo.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

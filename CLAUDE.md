@@ -39,7 +39,9 @@ La documentación de negocio y marketing vive en `docs/marketing/`:
 - Los interesados van a **dos destinos a la vez**: la app propia (`cee.certialmeria.es/api/interesados`) **y** copia por email vía Web3Forms. Basta que una funcione. Antispam: Cloudflare Turnstile.
 - **Esto funciona bien. No simplificarlo a un solo destino.**
 - El asistente reserva **día y hora de visita**: sólo **martes y jueves por la tarde**, con 24 h de margen. Lo pinta `/js/reserva-visita.js`, que consulta los huecos ocupados en la app y, si no contesta, ofrece todos. Las horas están en **dos sitios que hay que cambiar juntos**: el array `HORAS` de ese JS y el `<select id="hora-visita">` de `index.html`.
-- Campos obligatorios añadidos: **DNI/NIE** (con comprobación de letra, `dniValido()`) y **referencia catastral**. Hacen falta para inscribir el certificado en la Junta. Ver D12.
+- Campo obligatorio añadido: **DNI/NIE**, con comprobación de la letra (`comprobarDni()`). Hace falta para inscribir el certificado en la Junta. ⚠️ Si la letra no cuadra **se avisa pero NO se bloquea**: perder una venta por una errata es peor que un dato por confirmar. Ver D12 y D17.
+- La **referencia catastral es opcional**: el técnico la pide para la visita. No volver a hacerla obligatoria (D17).
+- Los mensajes de validación van **por campo**, debajo del campo. No usar `alert()` genéricos: no dicen cuál falla y el formulario parece roto (D17).
 - Lo que falta está en la aplicación, no aquí: ver `docs/marketing/integracion-app.md`.
 
 ### Segundo dominio
