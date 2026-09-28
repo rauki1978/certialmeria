@@ -1153,7 +1153,7 @@ h1, h2, h3, h4, h5, h6 {
       <div style="text-align: center; padding: 36px 20px; background: white; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
         <div class="stat-number" style="font-size: 2.8rem; font-weight: 900; color: #111; line-height: 1; margin-bottom: 6px;">+2.800</div>
         <div style="font-size: 0.8rem; font-weight: 700; color: #43A047; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Certificados emitidos</div>
-        <p style="font-size: 0.8rem; color: #888; line-height: 1.5;">23 años especializados exclusivamente en la provincia de Almería.</p>
+        <p style="font-size: 0.8rem; color: #888; line-height: 1.5;">Desde 2013, el primer año en que fueron obligatorios. Siempre en la provincia de Almería.</p>
       </div>
 
     </div>
@@ -2080,7 +2080,7 @@ WhatsApp Directo
         <div class="px-6 pb-4 hidden">
           <div class="text-neutral-600 leading-relaxed space-y-3">
             <p><strong>24-48 horas garantizadas</strong> desde la visita técnica al inmueble.</p>
-            <p>Proceso express disponible para casos urgentes (venta, alquiler inminente). Más de <strong>2.800 certificados entregados a tiempo</strong> desde 2013.</p>
+            <p>Proceso express disponible para casos urgentes (venta, alquiler inminente). Más de <strong>2.800 certificados entregados a tiempo</strong> desde 2013, el primer año en que fueron obligatorios.</p>
             <div class="mt-4 bg-secondary/10 border-l-4 border-secondary p-4 rounded-r-lg">
               <p class="text-sm text-neutral-800"><strong>Día 1:</strong> Visita presencial + toma de datos</p>
               <p class="text-sm text-neutral-800"><strong>Día 2:</strong> Elaboración + registro oficial</p>
@@ -2198,7 +2198,7 @@ WhatsApp Directo
               <div class="grid md:grid-cols-2 gap-3 text-sm">
                 <p class="flex items-start">
                   <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span><strong>2.800+ certificados</strong> desde 2013</span>
+                  <span><strong>2.800+ certificados</strong> desde 2013, cuando pasaron a ser obligatorios</span>
                 </p>
                 <p class="flex items-start">
                   <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
@@ -2745,7 +2745,7 @@ WhatsApp Directo
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                        <p class="text-gray-700">+2.800 certificados desde 2013</p>
+                        <p class="text-gray-700">+2.800 certificados desde 2013, el primer año en que fueron obligatorios</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -3279,7 +3279,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "¿Quién realiza el certificado energético?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Raúl Cañadas Navarro, Arquitecto Técnico colegiado COAAT Almería número 1440. Atención directa y personalizada sin intermediarios ni subcontrataciones. Especialista en zonas climáticas A4-D3 de Almería con 23 años de experiencia local. 2.800+ certificados realizados desde 2013, 23 años de experiencia en construcción, cobertura en los 103 municipios de la provincia de Almería, y colegiado verificable en COAAT."
+        "text": "Raúl Cañadas Navarro, Arquitecto Técnico colegiado COAAT Almería número 1440. Atención directa y personalizada sin intermediarios ni subcontrataciones. Especialista en zonas climáticas A4-D3 de Almería con 23 años de experiencia local. 2.800+ certificados desde 2013, cuando pasaron a ser obligatorios, y 23 años de experiencia en construcción, cobertura en los 103 municipios de la provincia de Almería, y colegiado verificable en COAAT."
       }
     },
     {
@@ -3704,15 +3704,59 @@ function updateStepIndicators() {
 }
 
 // Validar paso actual
-/** Comprueba la letra de un DNI (8 cifras + letra) o NIE (X/Y/Z + 7 + letra). */
-function dniValido(valor) {
-    const v = (valor || '').trim().toUpperCase().replace(/[\s-]/g, '');
+/**
+ * Comprueba un DNI (8 cifras + letra) o NIE (X/Y/Z + 7 cifras + letra).
+ *
+ * Se limpian puntos, espacios y guiones, y se admite el DNI sin el cero de
+ * delante, que es como lo escribe medio mundo (1234567A por 01234567A).
+ *
+ * Devuelve dos cosas por separado a propósito:
+ *   formato → si tiene pinta de DNI/NIE. Esto SÍ se exige.
+ *   letra   → si el dígito de control cuadra. Esto solo se AVISA.
+ *
+ * Bloquear por la letra dejaba al cliente con un "completa los campos
+ * correctamente" sin decirle cuál, y perdíamos la venta por una errata en un
+ * dato que el técnico puede corregir en la visita. Mismo criterio que en
+ * lead-form.js: vale más un cliente con un dato a revisar que un formulario
+ * que no se deja enviar.
+ */
+function comprobarDni(valor) {
+    const v = (valor || '').trim().toUpperCase().replace(/[\s.\-]/g, '');
     const m = v.match(/^([XYZ]?)(\d{7,8})([A-Z])$/);
-    if (!m) return false;
+    if (!m) return { formato: false, letra: false, limpio: v };
+
     const prefijo = { X: '0', Y: '1', Z: '2' }[m[1]] || '';
-    const cifras = prefijo + m[2];
-    if (cifras.length !== 8) return false;
-    return 'TRWAGMYFPDXBNJZSQVHLCKE'.charAt(parseInt(cifras, 10) % 23) === m[3];
+    let cifras = prefijo + m[2];
+    // DNI escrito sin el cero inicial.
+    if (!m[1] && cifras.length === 7) cifras = '0' + cifras;
+    if (cifras.length !== 8) return { formato: false, letra: false, limpio: v };
+
+    const esperada = 'TRWAGMYFPDXBNJZSQVHLCKE'.charAt(parseInt(cifras, 10) % 23);
+    return { formato: true, letra: esperada === m[3], limpio: v };
+}
+
+/** Nombre en claro de un campo, para poder decir QUÉ falla. */
+function nombreDelCampo(input) {
+    const etiqueta = input.closest('div')?.querySelector('.form-label');
+    if (etiqueta) return etiqueta.textContent.replace('*', '').trim();
+    return ({ nombre: 'Nombre', apellidos: 'Apellidos', dni: 'DNI / NIE', telefono: 'Teléfono',
+              email: 'Email', municipio: 'Municipio', direccion: 'Dirección',
+              'codigo-postal': 'Código postal', 'ref-catastral': 'Referencia catastral',
+              metros: 'Metros cuadrados', 'fecha-visita': 'Día de la visita',
+              'hora-visita': 'Hora de la visita' })[input.id] || 'un campo';
+}
+
+/** Aviso bajo el campo, en lugar de un alert que no dice cuál es. */
+function avisoEnCampo(input, texto) {
+    let aviso = input.parentElement.querySelector('.aviso-campo');
+    if (!texto) { if (aviso) aviso.remove(); return; }
+    if (!aviso) {
+        aviso = document.createElement('p');
+        aviso.className = 'aviso-campo';
+        aviso.style.cssText = 'font-size:0.78rem;color:#c62828;margin-top:5px;font-weight:600;';
+        input.parentElement.appendChild(aviso);
+    }
+    aviso.textContent = texto;
 }
 
 function validateStep(step) {
@@ -3720,48 +3764,68 @@ function validateStep(step) {
     const inputs = stepDiv.querySelectorAll('input[required], select[required], textarea[required]');
 
     let isValid = true;
+    let primerFallo = null;
+    const marcarMal = (input, texto) => {
+        isValid = false;
+        input.classList.add('border-red-500');
+        avisoEnCampo(input, texto);
+        if (!primerFallo) primerFallo = input;
+    };
+    const marcarBien = (input) => {
+        input.classList.remove('border-red-500');
+        avisoEnCampo(input, null);
+    };
+
     inputs.forEach(input => {
         if (input.type === 'radio') {
             const radioGroup = stepDiv.querySelectorAll(`input[name="${input.name}"]`);
             const isChecked = Array.from(radioGroup).some(radio => radio.checked);
             if (!isChecked) {
                 isValid = false;
+                if (!primerFallo) primerFallo = input;
+            }
+        } else if (input.type === 'checkbox') {
+            if (!input.checked) {
+                isValid = false;
+                if (!primerFallo) primerFallo = input;
             }
         } else if (input.type === 'email') {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(input.value.trim())) {
-                isValid = false;
-                input.classList.add('border-red-500');
-            } else {
-                input.classList.remove('border-red-500');
-            }
+            if (!emailRegex.test(input.value.trim())) marcarMal(input, 'Revisa el email: falta la @ o el dominio.');
+            else marcarBien(input);
         } else if (input.type === 'tel') {
-            const phoneRegex = /^[0-9]{9,15}$/;
-            const cleanPhone = input.value.replace(/\s+/g, '');
-            if (!phoneRegex.test(cleanPhone)) {
-                isValid = false;
-                input.classList.add('border-red-500');
-            } else {
-                input.classList.remove('border-red-500');
-            }
+            const cleanPhone = input.value.replace(/[\s.\-]/g, '');
+            if (!/^(\+?34)?[0-9]{9}$/.test(cleanPhone)) marcarMal(input, 'El teléfono son 9 cifras.');
+            else marcarBien(input);
         } else if (input.id === 'dni') {
-            // Un DNI mal escrito impide inscribir el certificado en el
-            // registro de la Junta, así que se comprueba la letra aquí.
-            if (!dniValido(input.value)) {
-                isValid = false;
-                input.classList.add('border-red-500');
+            const d = comprobarDni(input.value);
+            if (!input.value.trim()) {
+                marcarMal(input, 'Hace falta el DNI para inscribir el certificado a tu nombre.');
+            } else if (!d.formato) {
+                marcarMal(input, 'El DNI son 8 cifras y una letra (o X/Y/Z y 7 cifras si es NIE).');
             } else {
-                input.classList.remove('border-red-500');
+                // La letra no cuadra: se avisa, pero NO se bloquea. Si es una
+                // errata la corrige aquí; si no, lo vemos en la visita. Perder
+                // al cliente por esto sería peor.
+                marcarBien(input);
+                if (!d.letra) {
+                    avisoEnCampo(input, 'Comprueba la letra del DNI, no nos cuadra. Puedes seguir igualmente.');
+                    input.parentElement.querySelector('.aviso-campo').style.color = '#E65100';
+                }
             }
         } else {
-            if (!input.value.trim()) {
-                isValid = false;
-                input.classList.add('border-red-500');
-            } else {
-                input.classList.remove('border-red-500');
-            }
+            if (!input.value.trim()) marcarMal(input, 'Falta ' + nombreDelCampo(input).toLowerCase() + '.');
+            else marcarBien(input);
         }
     });
+
+    // En lugar de un alert que no dice cuál es, se lleva al cliente al campo.
+    if (!isValid && primerFallo) {
+        try {
+            primerFallo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (primerFallo.focus) primerFallo.focus({ preventScroll: true });
+        } catch (e) { /* si el navegador no lo soporta, da igual */ }
+    }
 
     return isValid;
 }
@@ -3782,9 +3846,10 @@ function nextStep() {
             updateStepIndicators();
             window.scrollTo({ top: document.getElementById('wizard-form').getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
         }
-    } else {
-        alert('Por favor, completa todos los campos obligatorios correctamente.');
     }
+    // Si no valida, validateStep ya ha marcado el campo en rojo, ha escrito
+    // debajo qué falla y ha llevado al cliente hasta él. Un alert genérico
+    // sobra y encima tapaba el aviso.
 }
 
 // Retroceder al paso anterior
