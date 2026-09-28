@@ -99,3 +99,6 @@ auditoria*.md
 *.sql
 *.sqlite
 *.db
+
+# Artefacto de redirecciones de PowerShell en Windows
+NUL
