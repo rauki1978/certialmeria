@@ -835,30 +835,68 @@ padding-right: 2rem;
                                             <td class="border border-gray-300 px-4 py-2">2 años</td>
                                         </tr>
                                         <tr class="bg-gray-50">
-                                            <td class="border border-gray-300 px-4 py-2">_gid</td>
+                                            <td class="border border-gray-300 px-4 py-2">_ga_BFM9L1F4CW</td>
                                             <td class="border border-gray-300 px-4 py-2">Google Analytics</td>
-                                            <td class="border border-gray-300 px-4 py-2">Distingue usuarios únicos</td>
-                                            <td class="border border-gray-300 px-4 py-2">24 horas</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="border border-gray-300 px-4 py-2">_gat</td>
-                                            <td class="border border-gray-300 px-4 py-2">Google Analytics</td>
-                                            <td class="border border-gray-300 px-4 py-2">Limita la tasa de peticiones</td>
-                                            <td class="border border-gray-300 px-4 py-2">1 minuto</td>
+                                            <td class="border border-gray-300 px-4 py-2">Mantiene el estado de la sesión</td>
+                                            <td class="border border-gray-300 px-4 py-2">2 años</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <p class="text-sm text-blue-800 mt-4">
-                                <strong>Google Analytics:</strong> Utilizamos Google Analytics para analizar el uso del sitio web con IP anonimizada.
+                                <strong>Google Analytics:</strong> Utilizamos Google Analytics 4 para analizar el uso del sitio web. Solo se activa si acepta las cookies de análisis.
                                 Más información: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline">Política de Privacidad de Google</a>
+                            </p>
+                        </div>
+
+                        <!-- Cookies de Publicidad -->
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded mb-6">
+                            <h3 class="text-xl font-semibold text-neutral-800 mb-3">3.3. Cookies de Publicidad (Opcionales)</h3>
+                            <p class="mb-4">Si llega a esta web desde un anuncio nuestro en Google, estas cookies nos permiten saber si después nos contactó. Sirven para medir qué anuncios funcionan y no gastar en los que no. Requieren su consentimiento y se gestionan aparte de las de análisis.</p>
+
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-white border border-gray-300 text-sm">
+                                    <thead class="bg-neutral-100">
+                                        <tr>
+                                            <th class="border border-gray-300 px-4 py-2 text-left font-bold">Cookie</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left font-bold">Proveedor</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left font-bold">Finalidad</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left font-bold">Duración</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-gray-300 px-4 py-2">_gcl_au</td>
+                                            <td class="border border-gray-300 px-4 py-2">Google Ads</td>
+                                            <td class="border border-gray-300 px-4 py-2">Relaciona la visita con el anuncio del que procede para medir conversiones</td>
+                                            <td class="border border-gray-300 px-4 py-2">90 días</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="border border-gray-300 px-4 py-2">_gcl_aw</td>
+                                            <td class="border border-gray-300 px-4 py-2">Google Ads</td>
+                                            <td class="border border-gray-300 px-4 py-2">Guarda el identificador del clic en el anuncio</td>
+                                            <td class="border border-gray-300 px-4 py-2">90 días</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 px-4 py-2">IDE, test_cookie</td>
+                                            <td class="border border-gray-300 px-4 py-2">Google (doubleclick.net)</td>
+                                            <td class="border border-gray-300 px-4 py-2">Medición de la eficacia de los anuncios</td>
+                                            <td class="border border-gray-300 px-4 py-2">Hasta 13 meses</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-amber-800 mt-4">
+                                <strong>Google Ads:</strong> Utilizamos el modo de consentimiento de Google: si no acepta las cookies de publicidad, no se carga ninguna etiqueta de Google Ads.
+                                Más información: <a href="https://business.safety.google/adscookies/" target="_blank" rel="noopener noreferrer" class="underline">Cookies de publicidad de Google</a>
                             </p>
                         </div>
 
                         <!-- Cookies de Preferencias -->
                         <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded mb-6">
-                            <h3 class="text-xl font-semibold text-neutral-800 mb-3">3.3. Cookies de Preferencias</h3>
+                            <h3 class="text-xl font-semibold text-neutral-800 mb-3">3.4. Cookies de Preferencias</h3>
                             <p class="mb-4">Estas cookies permiten que el sitio web recuerde información que cambia la forma en que se comporta o se ve.</p>
 
                             <div class="overflow-x-auto">
@@ -971,9 +1009,18 @@ padding-right: 2rem;
                         <ul class="list-disc pl-6 mb-4 space-y-2">
                             <li><strong>Finalidad:</strong> Análisis estadístico del tráfico web</li>
                             <li><strong>Datos recopilados:</strong> Páginas visitadas, tiempo de navegación, ubicación aproximada</li>
-                            <li><strong>Anonimización:</strong> IP anonimizada según RGPD</li>
+                            <li><strong>Anonimización:</strong> Google Analytics 4 no registra ni almacena direcciones IP</li>
                             <li><strong>Política de privacidad:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary underline">policies.google.com/privacy</a></li>
                             <li><strong>Desactivación:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-primary underline">Plugin de exclusión de Google Analytics</a></li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold text-neutral-800 mt-6 mb-3">Google Ads</h3>
+                        <ul class="list-disc pl-6 mb-4 space-y-2">
+                            <li><strong>Proveedor:</strong> Google Ireland Limited</li>
+                            <li><strong>Finalidad:</strong> Medir si una visita que llega desde un anuncio nuestro termina en una solicitud de contacto</li>
+                            <li><strong>Datos recopilados:</strong> Identificador del clic en el anuncio, páginas visitadas y si se envió el formulario o se pulsó el teléfono</li>
+                            <li><strong>Cuándo se activa:</strong> Solo si acepta las cookies de publicidad</li>
+                            <li><strong>Más información:</strong> <a href="https://business.safety.google/adscookies/" target="_blank" rel="noopener noreferrer" class="text-primary underline">Cookies de publicidad de Google</a></li>
                         </ul>
 
                         <p class="text-sm text-gray-600 italic mt-4">No controlamos las cookies instaladas por terceros. Le recomendamos revisar sus políticas de privacidad.</p>
@@ -1165,159 +1212,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-
-// Cookie Consent System
-let cookieSettings = {
-    necessary: true,
-    analytics: false
-};
-
-// Check if user has already made a choice
-const savedSettings = localStorage.getItem('certialmeria_cookies');
-if (savedSettings) {
-    cookieSettings = JSON.parse(savedSettings);
-    if (cookieSettings.analytics) {
-        initializeAnalytics();
-    }
-    hideCookieBanner();
-} else {
-    showCookieBanner();
-}
-
-function showCookieBanner() {
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-        banner.classList.remove('hidden');
-    }
-}
-
-function hideCookieBanner() {
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-        banner.classList.add('hidden');
-    }
-}
-
-function acceptAllCookies() {
-    cookieSettings.analytics = true;
-    saveCookies();
-    hideCookieBanner();
-    initializeAnalytics();
-}
-
-function rejectOptionalCookies() {
-    cookieSettings.analytics = false;
-    saveCookies();
-    hideCookieBanner();
-}
-
-function showCookieSettings() {
-    hideCookieBanner();
-    const modal = document.getElementById('cookie-settings-modal');
-    const toggle = document.getElementById('analytics-toggle');
-
-    if (modal && toggle) {
-        // Set current state
-        toggle.checked = cookieSettings.analytics;
-        updateToggleUI(toggle);
-        modal.classList.remove('hidden');
-    }
-}
-
-function closeCookieSettings() {
-    const modal = document.getElementById('cookie-settings-modal');
-    if (modal) {
-        modal.classList.add('hidden');
-    }
-
-    // Show banner again if no choice has been made
-    const cookieChoice = localStorage.getItem('certialmeria_cookies');
-    if (!cookieChoice) {
-        showCookieBanner();
-    }
-}
-
-function toggleAnalytics(checkbox) {
-    updateToggleUI(checkbox);
-}
-
-function updateToggleUI(checkbox) {
-    const toggleBg = checkbox.parentElement.querySelector('.toggle-bg');
-    const toggleDot = checkbox.parentElement.querySelector('.toggle-dot');
-
-    if (checkbox.checked) {
-        toggleBg.classList.remove('bg-gray-300');
-        toggleBg.classList.add('bg-primary');
-        toggleDot.style.transform = 'translateX(24px)';
-    } else {
-        toggleBg.classList.remove('bg-primary');
-        toggleBg.classList.add('bg-gray-300');
-        toggleDot.style.transform = 'translateX(0)';
-    }
-}
-
-function saveCookieSettings() {
-    const toggle = document.getElementById('analytics-toggle');
-    if (toggle) {
-        cookieSettings.analytics = toggle.checked;
-    }
-
-    saveCookies();
-    closeCookieSettings();
-
-    if (cookieSettings.analytics) {
-        initializeAnalytics();
-    }
-}
-
-function saveCookies() {
-    localStorage.setItem('certialmeria_cookies', JSON.stringify(cookieSettings));
-    localStorage.setItem('cookies_accepted', 'true');
-
-    // Track cookie choice
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'cookie_consent', {
-            'event_category': 'privacy',
-            'analytics_enabled': cookieSettings.analytics
-        });
-    }
-}
-
-function initializeAnalytics() {
-    if (cookieSettings.analytics && typeof gtag === 'undefined') {
-        // Load Google Analytics only if user consented
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BFM9L1F4CW';
-        document.head.appendChild(script);
-
-        script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-BFM9L1F4CW', {
-                'anonymize_ip': true,
-                'cookie_expires': 63072000 // 2 years
-            });
-
-            // Make gtag globally available
-            window.gtag = gtag;
-        };
-    }
-}
-
-// Add CSS for toggle animation
-const style = document.createElement('style');
-style.textContent = `
-    .toggle-dot {
-        transition: transform 0.3s ease;
-    }
-    .toggle-bg {
-        transition: background-color 0.3s ease;
-    }
-`;
-document.head.appendChild(style);
 </script>
 
 <!-- JavaScript optimizado -->
@@ -1352,161 +1246,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-
-// Cookie Consent System
-let cookieSettings = {
-    necessary: true,
-    analytics: false
-};
-
-// Check if user has already made a choice
-const savedSettings = localStorage.getItem('certialmeria_cookies');
-if (savedSettings) {
-    cookieSettings = JSON.parse(savedSettings);
-    if (cookieSettings.analytics) {
-        initializeAnalytics();
-    }
-    hideCookieBanner();
-} else {
-    showCookieBanner();
-}
-
-function showCookieBanner() {
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-        banner.classList.remove('hidden');
-    }
-}
-
-function hideCookieBanner() {
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-        banner.classList.add('hidden');
-    }
-}
-
-function acceptAllCookies() {
-    cookieSettings.analytics = true;
-    saveCookies();
-    hideCookieBanner();
-    initializeAnalytics();
-}
-
-function rejectOptionalCookies() {
-    cookieSettings.analytics = false;
-    saveCookies();
-    hideCookieBanner();
-}
-
-function showCookieSettings() {
-    hideCookieBanner();
-    const modal = document.getElementById('cookie-settings-modal');
-    const toggle = document.getElementById('analytics-toggle');
-
-    if (modal && toggle) {
-        // Set current state
-        toggle.checked = cookieSettings.analytics;
-        updateToggleUI(toggle);
-        modal.classList.remove('hidden');
-    }
-}
-
-function closeCookieSettings() {
-    const modal = document.getElementById('cookie-settings-modal');
-    if (modal) {
-        modal.classList.add('hidden');
-    }
-
-    // Show banner again if no choice has been made
-    const cookieChoice = localStorage.getItem('certialmeria_cookies');
-    if (!cookieChoice) {
-        showCookieBanner();
-    }
-}
-
-function toggleAnalytics(checkbox) {
-    updateToggleUI(checkbox);
-}
-
-function updateToggleUI(checkbox) {
-    const toggleBg = checkbox.parentElement.querySelector('.toggle-bg');
-    const toggleDot = checkbox.parentElement.querySelector('.toggle-dot');
-
-    if (checkbox.checked) {
-        toggleBg.classList.remove('bg-gray-300');
-        toggleBg.classList.add('bg-primary');
-        toggleDot.style.transform = 'translateX(24px)';
-    } else {
-        toggleBg.classList.remove('bg-primary');
-        toggleBg.classList.add('bg-gray-300');
-        toggleDot.style.transform = 'translateX(0)';
-    }
-}
-
-function saveCookieSettings() {
-    const toggle = document.getElementById('analytics-toggle');
-    if (toggle) {
-        cookieSettings.analytics = toggle.checked;
-    }
-
-    saveCookies();
-    closeCookieSettings();
-
-    if (cookieSettings.analytics) {
-        initializeAnalytics();
-    }
-}
-
-function saveCookies() {
-    localStorage.setItem('certialmeria_cookies', JSON.stringify(cookieSettings));
-    localStorage.setItem('cookies_accepted', 'true');
-
-    // Track cookie choice
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'cookie_consent', {
-            'event_category': 'privacy',
-            'analytics_enabled': cookieSettings.analytics
-        });
-    }
-}
-
-function initializeAnalytics() {
-    if (cookieSettings.analytics && typeof gtag === 'undefined') {
-        // Load Google Analytics only if user consented
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BFM9L1F4CW';
-        document.head.appendChild(script);
-
-        script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-BFM9L1F4CW', {
-                'anonymize_ip': true,
-                'cookie_expires': 63072000 // 2 years
-            });
-
-            // Make gtag globally available
-            window.gtag = gtag;
-        };
-    }
-}
-
-// Add CSS for toggle animation
-const style = document.createElement('style');
-style.textContent = `
-    .toggle-dot {
-        transition: transform 0.3s ease;
-    }
-    .toggle-bg {
-        transition: background-color 0.3s ease;
-    }
-`;
-document.head.appendChild(style);
 </script>
 <script defer src="/js/lead-form.js?v=4"></script>
+<script defer src="/js/consentimiento.js?v=1"></script>
 <script defer src="/js/medicion.js?v=1"></script>
 </body>
 </html>

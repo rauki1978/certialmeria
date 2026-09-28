@@ -1192,52 +1192,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Cookie Consent System
-let cookieSettings = { necessary: true, analytics: false };
-
-const savedSettings = localStorage.getItem('certialmeria_cookies');
-if (savedSettings) {
-    cookieSettings = JSON.parse(savedSettings);
-    if (cookieSettings.analytics) {
-        initializeAnalytics();
-    }
-}
-
-function acceptAllCookies() {
-    cookieSettings.analytics = true;
-    localStorage.setItem('certialmeria_cookies', JSON.stringify(cookieSettings));
-    localStorage.setItem('cookies_accepted', 'true');
-    initializeAnalytics();
-}
-
-function rejectOptionalCookies() {
-    cookieSettings.analytics = false;
-    localStorage.setItem('certialmeria_cookies', JSON.stringify(cookieSettings));
-    localStorage.setItem('cookies_accepted', 'true');
-}
-
-function initializeAnalytics() {
-    if (cookieSettings.analytics && typeof gtag === 'undefined') {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BFM9L1F4CW';
-        document.head.appendChild(script);
-
-        script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-BFM9L1F4CW', {
-                'anonymize_ip': true,
-                'cookie_expires': 63072000
-            });
-            window.gtag = gtag;
-        };
-    }
-}
 </script>
 <script defer src="/js/lead-form.js?v=4"></script>
+<script defer src="/js/consentimiento.js?v=1"></script>
 <script defer src="/js/medicion.js?v=1"></script>
 </body>
 </html>
