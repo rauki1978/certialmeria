@@ -2684,20 +2684,42 @@ WhatsApp Directo
 
     </div>
 
-    <!-- Enlace a guía técnica completa -->
-    <div class="mt-12 text-center bg-white border-2 border-primary/20 rounded-2xl p-8">
-      <svg class="w-16 h-16 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-      </svg>
-      <h3 class="text-2xl font-bold text-neutral-900 mb-3">¿Necesitas información técnica detallada?</h3>
-      <p class="text-neutral-600 mb-6">Consulta nuestra guía completa con normativa RD 390/2021, software CE3X/CERMA, zonas climáticas de Almería y mucho más</p>
-      <!-- TODO: Crear página de guía técnica o redirigir a blog -->
-      <!-- <a href="/guia-tecnica-certificacion-almeria/" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-bold hover:from-secondary hover:to-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-        </svg>
-        Ver Guía Técnica Completa
-      </a> -->
+    <!-- Últimos artículos del blog.
+         Sustituye a la antigua tarjeta "¿Necesitas información técnica
+         detallada?", que tenía el botón comentado y no llevaba a ninguna
+         parte: ocupaba sitio en la portada sin servir para nada. -->
+    <div class="mt-12">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-7">
+        <div>
+          <p class="text-sm font-semibold text-primary uppercase tracking-wide mb-1">Del blog</p>
+          <h3 class="text-2xl font-bold text-neutral-900">Últimos artículos</h3>
+        </div>
+        <a href="/blog/" class="text-sm font-semibold text-neutral-700 hover:text-primary" style="text-decoration:underline;text-underline-offset:3px;">Ver todos los artículos →</a>
+      </div>
+
+      <!-- Destacado -->
+      <a href="/blog/ce3x-3-1-cambios-certificado-energetico-2026/" class="block bg-white border border-neutral-200 rounded-2xl p-7 mb-5 hover:border-primary transition-colors" style="text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+        <span class="inline-block text-xs font-bold text-white bg-primary rounded-full px-3 py-1 mb-3">Nuevo · Normativa</span>
+        <h4 class="text-xl font-bold text-neutral-900 mb-2 leading-snug">CE3X 3.1: qué cambia en los certificados energéticos desde el 30 de septiembre de 2026</h4>
+        <p class="text-neutral-600 text-sm leading-relaxed">Nuevo modelo de certificado, tres etiquetas energéticas y nuevo XML de registro. Si tu certificado está en vigor, te sigue valiendo: te explico por qué y a quién afecta.</p>
+        <span class="inline-block mt-4 text-sm font-semibold text-primary">Leer el artículo →</span>
+      </a>
+
+      <!-- El resto -->
+      <div class="grid md:grid-cols-3 gap-5">
+        <a href="/blog/cuando-caduca-certificado-energetico/" class="block bg-white border border-neutral-200 rounded-2xl p-6 hover:border-primary transition-colors" style="text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <h4 class="font-bold text-neutral-900 mb-2 leading-snug">¿Cuándo caduca el certificado energético?</h4>
+          <p class="text-neutral-600 text-sm">Validez, cuándo hay que renovarlo y qué pasa si se te ha pasado la fecha.</p>
+        </a>
+        <a href="/blog/precio-certificado-energetico-2025/" class="block bg-white border border-neutral-200 rounded-2xl p-6 hover:border-primary transition-colors" style="text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <h4 class="font-bold text-neutral-900 mb-2 leading-snug">Precio del certificado energético</h4>
+          <p class="text-neutral-600 text-sm">Qué entra en el precio, qué suelen cobrar aparte y cómo comparar sin llevarte sorpresas.</p>
+        </a>
+        <a href="/blog/certificado-energetico-antes-venta/" class="block bg-white border border-neutral-200 rounded-2xl p-6 hover:border-primary transition-colors" style="text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <h4 class="font-bold text-neutral-900 mb-2 leading-snug">Certificado energético antes de vender</h4>
+          <p class="text-neutral-600 text-sm">Por qué conviene tenerlo antes de publicar el anuncio y no cuando ya hay comprador.</p>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -4053,20 +4075,70 @@ function enviarALaApp(d) {
 }
 
 /** Sustituye el formulario por el "gracias", con su referencia y su enlace. */
-function mostrarGracias(j) {
+/** La fecha de la visita en palabras: "el jueves 1 de octubre a las 17:00". */
+function visitaEnPalabras(fecha, hora) {
+    if (!fecha) return '';
+    const DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+    const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    const d = new Date(fecha + 'T12:00:00');
+    if (isNaN(d.getTime())) return fecha + (hora ? ' a las ' + hora : '');
+    return 'el ' + DIAS[d.getDay()] + ' ' + d.getDate() + ' de ' + MESES[d.getMonth()] + (hora ? ' a las ' + hora : '');
+}
+
+/**
+ * Enlace de WhatsApp con la reserva ya escrita.
+ *
+ * El cliente solo tiene que darle a enviar. Esto NO sustituye a la
+ * aplicación ni al correo: la reserva ya está guardada antes de llegar aquí.
+ * Sirve para dos cosas: que el aviso le llegue al técnico al móvil al
+ * instante, y —más importante— que quede abierta una conversación de
+ * WhatsApp con el cliente, que es por donde prefiere hablar la mayoría.
+ *
+ * Un aviso automático sin que nadie toque nada necesitaría la WhatsApp
+ * Business Platform de Meta, con número dedicado y coste por mensaje. Ver
+ * docs/marketing/integracion-app.md.
+ */
+function enlaceWhatsAppReserva(d, codigo) {
+    if (!d) return '';
+    const lineas = [
+        'Hola, acabo de reservar el certificado energético desde la web.',
+        '',
+        'Nombre: ' + [d.nombre, d.apellidos].filter(Boolean).join(' '),
+        d.dni ? 'DNI: ' + d.dni : '',
+        'Teléfono: ' + (d.telefono || ''),
+        d.direccion ? 'Inmueble: ' + d.direccion + (d.municipio ? ' (' + d.municipio + ')' : '') : '',
+        d.refCatastral ? 'Ref. catastral: ' + d.refCatastral : '',
+        d.fechaVisita ? 'Visita reservada: ' + visitaEnPalabras(d.fechaVisita, d.horaVisita) : '',
+        codigo ? 'Referencia: ' + codigo : ''
+    ].filter(Boolean);
+    return 'https://wa.me/34667451538?text=' + encodeURIComponent(lineas.join('\n'));
+}
+
+function mostrarGracias(j, d) {
     const form = document.getElementById('wizard-form');
+    const codigo = j && j.codigo ? j.codigo : '';
+
+    const cita = d && d.fechaVisita
+        ? '<p style="margin:14px 0 0;font-size:0.95rem;color:#111;">Visita reservada <strong>' + visitaEnPalabras(d.fechaVisita, d.horaVisita) + '</strong>.</p>'
+        : '';
+    const referencia = codigo
+        ? '<p style="margin:8px 0 0;font-size:0.95rem;color:#555;">Tu referencia es <strong style="color:#111;">' + codigo + '</strong>. Te la hemos mandado también por correo.</p>'
+        : '';
+    const wa = enlaceWhatsAppReserva(d, codigo);
+    const botonWa = wa
+        ? '<p style="margin:20px 0 0;"><a href="' + wa + '" target="_blank" rel="noopener" data-medicion="whatsapp" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;padding:15px 24px;border-radius:10px;font-weight:700;">Avisar por WhatsApp</a></p>' +
+          '<p style="margin:8px 0 0;font-size:0.82rem;color:#999;">Opcional, pero así te contesto antes y ya tenemos el chat abierto.</p>'
+        : '';
     const enlace = j && j.seguimiento
-        ? '<p style="margin:16px 0 0;"><a href="' + j.seguimiento + '" style="display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;">Ver cómo va mi certificado</a></p>'
+        ? '<p style="margin:14px 0 0;"><a href="' + j.seguimiento + '" style="display:inline-block;background:#fff;border:1px solid #ddd;color:#111;text-decoration:none;padding:13px 22px;border-radius:10px;font-weight:700;">Ver cómo va mi certificado</a></p>'
         : '';
-    const referencia = j && j.codigo
-        ? '<p style="margin:8px 0 0;font-size:0.95rem;color:#555;">Tu referencia es <strong style="color:#111;">' + j.codigo + '</strong>. Te la hemos mandado también por correo.</p>'
-        : '';
+
     form.innerHTML =
         '<div style="text-align:center;padding:28px 8px;">' +
         '<div style="width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:28px;color:#2e7d32;">✓</div>' +
-        '<h3 style="font-size:1.4rem;font-weight:900;color:#111;margin-bottom:8px;">Solicitud recibida</h3>' +
-        '<p style="font-size:0.95rem;color:#555;line-height:1.6;">Te llamamos o te escribimos en breve para acordar el día de la visita. No tienes que pagar nada todavía.</p>' +
-        referencia + enlace +
+        '<h3 style="font-size:1.4rem;font-weight:700;color:#111;margin-bottom:8px;">Solicitud recibida</h3>' +
+        '<p style="font-size:0.95rem;color:#555;line-height:1.6;">Te confirmo la visita en breve. <strong style="color:#111;">No tienes que pagar nada todavía.</strong></p>' +
+        cita + referencia + botonWa + enlace +
         '</div>';
     window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
 }
@@ -4199,7 +4271,7 @@ Incluye la tasa y el registro en la Junta de Andalucía.
     // referencia y su enlace de seguimiento.
     enviarALaApp(formData)
         .then(j => {
-            mostrarGracias(j);
+            mostrarGracias(j, formData);
             avisoPorCorreo.catch(err => console.error('Aviso por correo:', err));
         })
         .catch(errorApp => {
@@ -4207,7 +4279,7 @@ Incluye la tasa y el registro en la Junta de Andalucía.
             // Sin aplicación, queda el correo: al cliente se le dice lo mismo,
             // sin referencia ni seguimiento, y se le llama igual.
             avisoPorCorreo
-                .then(() => mostrarGracias(null))
+                .then(() => mostrarGracias(null, formData))
                 .catch(errorCorreo => {
                     console.error('Aviso por correo:', errorCorreo);
                     alert('No hemos podido registrar tu solicitud. Llámanos al 667 45 15 38 o escríbenos por WhatsApp y lo hacemos al momento.');
