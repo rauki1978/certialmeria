@@ -74,7 +74,7 @@ Ninguna de las cifras de prestigio es consistente. Recuento sobre los 156 HTML p
 
 | Afirmación | Variantes encontradas | Apariciones |
 |---|---|---|
-| Años de experiencia | «20 años» / «22 años» / «más de 10 años» | 611 / 12 / 5 |
+| Años de experiencia | **23 años** (confirmado por el propietario el 2026-09-28) | unificado en 634 sitios |
 | Inicio de actividad | «desde 2013» / «desde 2003» | 411 / 7 |
 | Certificados emitidos | **2.800** (confirmado por el propietario el 2026-09-28) | unificado en 98 sitios |
 
