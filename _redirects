@@ -7,7 +7,25 @@
 
 # Redirecciones específicas del sitio
 /zona-climatica-b3-almeria/ /blog/zona-climatica-a4-que-significa/ 301
-/contacto/ / 301
+
+# /contacto/ ya NO se redirige (2026-09-28). La pagina existe, tiene contenido
+# util (telefono, WhatsApp, email, zona de servicio, formulario) y las 157
+# paginas del sitio la enlazan desde el menu y el pie. Mandar al visitante de
+# vuelta a la portada justo cuando busca como contactar era una fuga: parecia
+# una web rota en el momento de mas intencion de compra.
+
+# Documentacion interna fuera del alcance publico (2026-09-28).
+#
+# Cloudflare Pages sirve TODO lo que hay en el repositorio, asi que
+# https://www.certialmeria.es/docs/marketing/negocio.md se leia desde fuera:
+# la auditoria del negocio, los precios por confirmar y las preguntas
+# pendientes. No habia ninguna credencial, pero tampoco tiene por que leerlo
+# la competencia. robots.txt no sirve para esto: pide que no se indexe, no
+# impide entrar.
+/docs/* / 301
+/CLAUDE.md / 301
+/AGENTS.md / 301
+/README.md / 301
 
 # Remover trailing slash (opcional, si se prefiere)
 # /* /:splat 301!

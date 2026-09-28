@@ -138,19 +138,30 @@ Medir solapamiento entre páginas de municipio: ver el método de 7-gramas en `a
 
 ---
 
-## Estado real (2026-09-22)
-
-No «listo para producción». Lo publicado tiene cuatro problemas graves activos:
+## Estado real (2026-09-28)
 
 | | Estado |
 |---|---|
-| Canonical | 🔴 102 páginas se declaran duplicados de la portada |
-| Analítica | 🔴 nunca ha medido nada (`GA_MEASUREMENT_ID` sin sustituir en 318 sitios) |
-| Reseñas en datos estructurados | 🔴 se declaran 1.000 reseñas no verificables |
-| Precio | 🔴 «+ IVA» y «IVA incluido» en la misma página |
+| Canonical | ✅ cada página con canonical propio (T1) |
+| Analítica | ✅ GA4 `G-BFM9L1F4CW` en `js/consentimiento.js` (T2) |
+| Google Ads | ✅ `AW-11552890951` conectada |
+| Consentimiento | ✅ aviso único con Consent Mode v2 |
+| Reseñas en datos estructurados | ✅ retiradas las 1.000 no verificables (T4) |
+| Enlace de pedir reseña | ✅ sin `TU_GOOGLE_BUSINESS_ID` (T7) |
+| Precio | ✅ 75 € + IVA en las 156 páginas (T5, ver D10) |
+| Reserva de visita | ✅ martes y jueves tarde, coordinada con la agenda de la app |
+| Hero móvil | ✅ 1,6 MB PNG → 25 KB WebP (T8) |
+| `/contacto/` | ✅ ya no redirige a la portada (T6) |
+| Documentación interna | ✅ fuera del alcance público (`_redirects`) |
 | Formularios | ✅ funcionan bien (app + email) |
 | Seguridad | ✅ cabeceras completas |
 
-**Primera tarea de implementación: T1** en `backlog.md` (corregir el canonical).
+**Pendiente en la web:** T14-T16 (canibalización y municipios), que esperan 4-6 semanas de datos de Search Console. T18-T19 (ficha de Google y reseñas) esperan P3.
 
-> El historial de auditorías previas (25 archivos `.md` en la raíz, varios contradictorios entre sí) y los scripts de generación de un solo uso están pendientes de mover a `docs/historico/` (T30). Hasta entonces, **`docs/marketing/` es la única fuente vigente**; los `.md` de la raíz son material histórico y algunas de sus afirmaciones han quedado desmentidas por la auditoría.
+**Pendiente en la aplicación:** ver `docs/marketing/integracion-app.md`.
+
+### Lo que NO se publica
+
+`docs/` no debe ser accesible desde fuera. Cloudflare Pages sirve todo el repositorio, así que `_redirects` manda `/docs/*`, `/CLAUDE.md`, `/AGENTS.md` y `/README.md` a la portada. **Si se añade documentación nueva fuera de `docs/`, hay que añadirle su regla.** robots.txt no vale para esto: pide que no se indexe, no impide entrar.
+
+El material histórico (auditorías previas contradictorias, scripts de un solo uso, copias de seguridad) está en `docs/historico/`. **`docs/marketing/` es la única fuente vigente**; varias afirmaciones del histórico quedaron desmentidas por la auditoría.

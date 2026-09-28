@@ -102,16 +102,34 @@ Sigue pendiente lo de `medicion.md` §4 paso 5: sin el estado de cada interesado
 
 ## Resumen de lo que toca a quién
 
+Actualizado el 2026-09-28, después de implementar el lado de la aplicación.
+
 | Tarea | Dónde | Estado |
 |---|---|---|
 | Campos DNI, referencia catastral y cita en el formulario | esta web | ✅ hecho |
 | Calendario de martes y jueves por la tarde | esta web | ✅ hecho |
-| Consulta de disponibilidad (cliente) | esta web | ✅ hecho, esperando el endpoint |
+| Consulta de disponibilidad (cliente) | esta web | ✅ hecho |
 | Aceptación del encargo sin pago previo, bien visible | esta web | ✅ hecho |
 | Alternativa «llámame o manda un WhatsApp» | esta web | ✅ hecho |
-| Aceptar los campos nuevos sin descartarlos | **aplicación** | ⏳ comprobar |
-| Validar el DNI en servidor | **aplicación** | ⏳ |
-| `GET /api/huecos` | **aplicación** | ⏳ |
-| Comprobar el hueco al reservar | **aplicación** | ⏳ |
-| Aviso de alta del certificado | **aplicación** | ⏳ decidir email o Cloud API |
-| Estados hasta el cobro | **aplicación** | ⏳ |
+| Aceptar los campos nuevos sin descartarlos | aplicación | ✅ hecho |
+| `GET /api/huecos` | aplicación | ✅ hecho |
+| Comprobar el hueco al reservar | aplicación | ✅ hecho |
+| Programar la visita en la agenda | aplicación | ✅ hecho |
+| Confirmar la fecha al cliente y dejarla registrada | aplicación | ✅ hecho (aviso `visita_programada`) |
+| Corregir el precio del texto de consentimiento | aplicación | ✅ hecho (v2) |
+| Validar el DNI en servidor | aplicación | ⏳ solo se normaliza; la letra se comprueba en la web |
+| Aviso automático por WhatsApp | aplicación | ⏳ decisión pendiente (ver D13) |
+| Estados hasta el cobro | aplicación | ⏳ |
+
+### Lo que se hizo en la aplicación (commit `2c3164f`)
+
+- **`lib/reservas.ts`**: el esquema zod aceptaba solo claves conocidas, así que `dni`, `fecha_visita` y `hora_visita` **se descartaban en silencio**. Ya entran. El DNI va a `cliente_nif`, normalizado.
+- **`TEXTO_CONDICIONES`** decía «75 € (IVA incluido)». Es el texto que se guarda como prueba de lo que acepta el cliente, así que pasa a «75 € + IVA (90,75 € en total)» y la versión sube a **v2**. Los consentimientos v1 ya firmados conservan su texto: a quien reclame se le aplica lo que aceptó.
+- **`lib/huecos.ts`** (nuevo): días y horas de visita, y la conversión entre hora de Madrid y UTC en un único sitio. Con pruebas (`lib/huecos.test.ts`, 9 casos) porque equivocar el desfase significa plantarse en casa de alguien a otra hora; cubren los dos lados del cambio de hora de octubre.
+- **`GET /api/huecos`** (nuevo): devuelve solo fecha y hora de las visitas ocupadas. Ningún dato personal, tope de 90 días, y si falla contesta que no hay nada ocupado para que el formulario no se quede sin fechas.
+- **Al reservar** se programa la visita y se avisa al cliente con `visita_programada`, que queda anotado en la tabla `avisos` con canal y fecha.
+- **Si el hueco no vale o estaba cogido**, la reserva NO se tira: se crea el expediente y el correo al técnico avisa en mayúsculas de que hay que llamar. Es lo que promete la web.
+
+### Sobre el DNI en servidor
+
+Hoy la aplicación solo lo normaliza (mayúsculas, sin guiones). La comprobación de la letra está en la web (`dniValido()` en `index.html`), y eso **se lo salta cualquiera** que llame a la API directamente. Conviene mover esa comprobación a `lib/huecos.ts` o a un `lib/dni.ts` y aplicarla en el esquema zod. No es urgente —un DNI mal puesto se ve al registrar—, pero es deuda conocida.

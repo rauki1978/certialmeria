@@ -1,25 +1,20 @@
 User-agent: *
 Allow: /
 
-# Sitemap principal
 Sitemap: https://www.certialmeria.es/sitemap.xml
 
-# Permitir indexación completa de contenido público
-Allow: /blog/
-Allow: /images/
-Allow: /certificado-energetico/
-Allow: /certificado-energetico-barato/
-Allow: /vs-certicalia/
-Allow: /vs-tinsa/
-
-# Prevenir indexación de archivos técnicos
+# Lo unico que se esconde son los archivos de trabajo que no deberian salir en
+# Google. Todo el contenido publico se rastrea sin restricciones.
+#
+# Notas de mantenimiento (2026-09-28):
+#  - Los "Allow:" de cada carpeta sobraban: con "Allow: /" ya esta todo
+#    permitido, y repetirlo solo hacia el archivo mas dificil de leer.
+#  - Se ha quitado "Disallow: /*.json", que bloqueaba TODOS los .json del
+#    sitio, incluido cualquier dato que una pagina necesite cargar. Se bloquea
+#    manifest.json por su nombre y punto.
+#  - Se ha quitado "Crawl-delay: 1": Google lo ignora, y a los demas no hace
+#    falta frenarlos en un sitio estatico de 156 paginas.
 Disallow: /sw.js
 Disallow: /manifest.json
-Disallow: /*.json
-Disallow: /temp*
-Disallow: /*SPECS.md
-Disallow: /*AUDITORIA*
-Disallow: /*ESTADO*
-
-# Crawl-delay para bots agresivos
-Crawl-delay: 1
+Disallow: /temp
+Disallow: /pruebas%20index/

@@ -160,6 +160,42 @@ Además, nada de esto puede vivir en esta web: es HTML estático, el token queda
 
 ---
 
+## 2026-09-28 · D14 · La documentación interna deja de ser pública
+
+**Decisión.** `_redirects` manda `/docs/*`, `/CLAUDE.md`, `/AGENTS.md` y `/README.md` a la portada. El material histórico (32 `.md` y ~30 scripts de un solo uso que estaban en la raíz) se mueve a `docs/historico/`.
+
+**Motivo.** Cloudflare Pages sirve **todo** lo que hay en el repositorio. Comprobado: `https://www.certialmeria.es/docs/marketing/negocio.md` devolvía 200 y se leía entera — la auditoría del negocio, el precio por confirmar, las preguntas pendientes y la estrategia de los dos dominios. También `CLAUDE.md`, `ANALISIS_POSICIONAMIENTO_SEO.md` y hasta los `.py`. **No había ninguna credencial** (lo único que parecía un token era un `TU_TOKEN_AQUI` de ejemplo), así que no es un incidente de seguridad, pero no tiene por qué leerlo la competencia.
+
+**Alternativa descartada.** *Bloquearlo solo en robots.txt.* No sirve: robots pide que no se indexe, no impide entrar. Quien tenga la URL la lee igual.
+
+**Lo que sería más robusto.** Configurar en el panel de Cloudflare Pages un directorio de salida que excluya `docs/`. Es un ajuste del panel, no del repositorio, así que queda para el propietario. Mientras, la redirección cumple.
+
+**Cómo se revisará.** Tras el despliegue, comprobar que `/docs/marketing/negocio.md` devuelve 301. Y **al añadir documentación nueva fuera de `docs/`, añadirle su regla**.
+
+---
+
+## 2026-09-28 · D15 · El hero se sirve en WebP, no en AVIF
+
+**Decisión.** El hero pasa de PNG de 1,6 MB a **WebP de 25 KB** (98,5 % menos). Se genera también AVIF (16 KB) y un JPEG de respaldo con `node optimizar-hero.js`, pero **lo que se sirve es el WebP**.
+
+**Motivo.** El hero es lo que marca el LCP en móvil, que es el dispositivo prioritario, y encima llegaba **sin caché** porque las reglas de `_headers` solo cubrían `/images/*` y las imágenes estaban en la raíz. Moviéndolas a `/images/` heredan la caché de un año ya configurada.
+
+Sobre el formato: el AVIF ahorra 9 KB más, pero al ser un fondo CSS haría falta `image-set()` con negociación de tipo, y un `preload` que acierte con el formato sin descargar los dos. Nueve kilobytes no pagan esa complejidad ni el riesgo de doble descarga. El WebP lo entiende todo lo que importa.
+
+**Cómo se revisará.** Medir el LCP móvil en PageSpeed Insights después del despliegue y anotar el antes y el después.
+
+---
+
+## 2026-09-28 · D16 · `/contacto/` vuelve a existir
+
+**Decisión.** Se quita `/contacto/ / 301` de `_redirects`. La página se queda, con un `<h1>` propio.
+
+**Motivo.** La página ya tenía contenido útil —teléfono, WhatsApp, email, garantía profesional, información práctica, el formulario compartido y los enlaces por municipio— y canonical correcto. Las 157 páginas la enlazan desde el menú y el pie, y estaba en el sitemap. Mandar al visitante de vuelta a la portada justo cuando busca cómo contactar es una fuga en el momento de más intención de compra, y parece una web rota.
+
+**Alternativa descartada.** *Apuntar los 157 enlaces al ancla de la portada.* Más trabajo y peor resultado: una página de contacto propia capta búsquedas de marca y sirve de destino en Ads y en la ficha de Google.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

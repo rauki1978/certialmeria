@@ -16,8 +16,8 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.certialmeria.es/">
 <!-- Preload critical images -->
-<link rel="preload" href="herodesktop.png" as="image" type="image/png" media="(min-width: 768px)">
-<link rel="preload" href="heromobile.png" as="image" type="image/png" media="(max-width: 767px)">
+<link rel="preload" href="/images/hero-escritorio.webp" as="image" type="image/webp" media="(min-width: 768px)">
+<link rel="preload" href="/images/hero-movil.webp" as="image" type="image/webp" media="(max-width: 767px)">
 
 <!-- WebP Detection Script --><script>
 (function() {
@@ -955,7 +955,12 @@ h1, h2, h3, h4, h5, h6 {
 <!-- HERO PRINCIPAL -->
 <style>
   .hero-nuevo {
-    background-image: url('heromobile.png');
+    /* JPEG primero como respaldo para navegadores sin WebP; la segunda
+       declaracion gana en todos los demas. El PNG original pesaba 1,6 MB y
+       era lo que marcaba el LCP en movil: el WebP son 25 KB.
+       Se regeneran con: node optimizar-hero.js */
+    background-image: url('/images/hero-movil.jpg');
+    background-image: url('/images/hero-movil.webp');
     background-size: contain;
     background-position: center -60px;
     background-repeat: no-repeat;
@@ -963,7 +968,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   @media (min-width: 768px) {
     .hero-nuevo {
-      background-image: url('herodesktop.png');
+      background-image: url('/images/hero-escritorio.jpg');
+      background-image: url('/images/hero-escritorio.webp');
       background-size: cover;
       background-position: center 8%;
       min-height: 680px;
@@ -1016,7 +1022,7 @@ h1, h2, h3, h4, h5, h6 {
           <!-- Precio destacado como badge -->
           <div class="animate-fade-in-up" style="animation-delay: 0.1s; margin-bottom: 12px;">
             <span style="display: inline-block; background: white; border: 2px solid #43A047; border-radius: 14px; padding: 8px 22px; font-weight: 800; font-size: 1.15rem; color: #1a1a1a; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
-              24-48h · <span style="color: #43A047;">75€</span>Tasa y registro incluidos</span>
+              24-48h · <span style="color: #43A047;">75€</span><span style="font-size:0.72em;font-weight:600;opacity:0.6;"> + IVA</span> · Tasa y registro incluidos</span>
           </div>
 
           <!-- Credenciales como pills -->
