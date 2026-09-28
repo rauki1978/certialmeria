@@ -3780,17 +3780,16 @@ function saveCookies() {
 function initializeAnalytics() {
     if (cookieSettings.analytics && typeof gtag === 'undefined') {
         // Load Google Analytics only if user consented
-        // TODO: Reemplazar GA_MEASUREMENT_ID con tu ID real de Google Analytics (formato: G-XXXXXXXXXX)
         const script = document.createElement('script');
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BFM9L1F4CW';
         document.head.appendChild(script);
 
         script.onload = function() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID', {
+            gtag('config', 'G-BFM9L1F4CW', {
                 'anonymize_ip': true,
                 'cookie_expires': 63072000 // 2 years
             });
@@ -4288,4 +4287,5 @@ PRECIO TOTAL: 75€
 updateStepIndicators();
 </script>
 
+<script defer src="/js/medicion.js?v=1"></script>
 </body></html>
