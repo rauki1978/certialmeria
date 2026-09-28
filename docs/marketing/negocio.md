@@ -76,7 +76,7 @@ Ninguna de las cifras de prestigio es consistente. Recuento sobre los 156 HTML p
 |---|---|---|
 | Años de experiencia | «20 años» / «22 años» / «más de 10 años» | 611 / 12 / 5 |
 | Inicio de actividad | «desde 2013» / «desde 2003» | 411 / 7 |
-| Certificados emitidos | «2.300» / «1.800» / «800» / «450+» | 94 / 4 / 6 / 1 |
+| Certificados emitidos | **2.800** (confirmado por el propietario el 2026-09-28) | unificado en 98 sitios |
 
 «desde 2013» (13 años a fecha de hoy) es aritméticamente incompatible con «20 años» y con «22 años». Puede tener explicación legítima —carrera profesional de 20+ años, certificación energética desde 2013— pero **la web no lo explica**, así que el visitante ve cifras que se contradicen entre sí.
 
