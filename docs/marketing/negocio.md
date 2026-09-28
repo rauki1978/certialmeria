@@ -80,7 +80,32 @@ Ninguna de las cifras de prestigio es consistente. Recuento sobre los 156 HTML p
 
 «desde 2013» (13 años a fecha de hoy) es aritméticamente incompatible con «20 años» y con «22 años». Puede tener explicación legítima —carrera profesional de 20+ años, certificación energética desde 2013— pero **la web no lo explica**, así que el visitante ve cifras que se contradicen entre sí.
 
-### ⚠️ Riesgo grave: valoraciones no verificables
+### ✅ Ficha de Google Business Profile (verificada el 2026-09-28)
+
+P3 resuelta. La ficha existe y está en buen estado:
+
+| Dato | Valor |
+|---|---|
+| Nombre en la ficha | **Certificado energético Almería** (pendiente de cambiar a CertiAlmería) |
+| Valoración real | **5,0 con 35 opiniones** |
+| Place ID | `ChIJKbf-rq93cA0Rx6lNLrjZdDo` |
+| Dirección | C/ Álvarez de Castro, 34, 04002 Almería |
+| Teléfono | 667 45 15 38 (coincide con la web) |
+| Web enlazada | certialmeria.es (correcto) |
+| Fotos | 9 |
+| Categoría principal | Servicio de asesoría energética |
+
+**La coherencia nombre-dirección-teléfono está bien**: el schema de la web declara la misma dirección y el mismo teléfono que la ficha. (Una versión anterior de esta auditoría dijo que faltaba la dirección; era un error de lectura del JSON-LD.)
+
+**Se mantiene activa**: hay publicaciones recientes (el cambio a CE3X 3.1) y se contesta a las reseñas una por una. Eso es lo que más cuesta sostener y está hecho.
+
+**Palabras que más repiten los clientes en las reseñas**, según la propia agrupación de Google: *eficiente, rapidez, precio, económico, eficaz, gestión*. Es el lenguaje real del cliente y sirve para redactar la web y para elegir términos en Ads.
+
+El 5,0 con 35 opiniones se muestra ya en la portada, enlazado a la ficha, y **no** como `aggregateRating`: Google no admite que un negocio marque en su propia web las reseñas sobre sí mismo.
+
+### ⚠️ Riesgo grave: valoraciones no verificables (RESUELTO)
+
+> Resuelto el 2026-09-28: se retiró el bloque de 159 páginas y se sustituyó por la valoración real. Se deja el texto por si hace falta justificar por qué se quitó.
 
 En **159 páginas** figura este bloque de datos estructurados:
 
