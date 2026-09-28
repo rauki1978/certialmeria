@@ -286,6 +286,12 @@
             event_label: res[0] ? "formulario_app" : "formulario_solo_correo",
             pagina: location.pathname
           });
+          // Conversión principal de Google Ads «CA - Formulario enviado».
+          // Solo llega a Ads si el visitante aceptó las cookies de publicidad
+          // (lo decide el modo de consentimiento de /js/consentimiento.js).
+          gtag("event", "conversion", {
+            send_to: "AW-11552890951/F8jvCIz7ookdEMfA7IQr"
+          });
         }
         showSuccess(nombre);
       } else {
