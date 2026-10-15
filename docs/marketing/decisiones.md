@@ -196,6 +196,38 @@ Sobre el formato: el AVIF ahorra 9 KB más, pero al ser un fondo CSS haría falt
 
 ---
 
+## 2026-09-28 · D17 · El formulario avisa, no bloquea
+
+**Decisión.** Tres cambios en la validación del asistente, después de que el propietario se quedara atascado en su propio formulario:
+
+1. La **referencia catastral pasa a opcional**. Él la pide para la visita, y puede sacarla del Catastro con la dirección.
+2. Si la **letra del DNI** no cuadra, se avisa en naranja pero **se deja continuar**.
+3. Los mensajes van **por campo**, debajo del campo, y la página lleva al primero que falla. Se elimina el `alert()` genérico.
+
+**Motivo.** Yo había puesto el DNI y la referencia catastral como obligatorios y validaba la letra del DNI bloqueando. El resultado: un aviso que decía «completa todos los campos obligatorios correctamente» **sin decir cuál**, así que era imposible saber qué corregir y el formulario parecía roto. El propietario lo sufrió en primera persona.
+
+Encima el validador rechazaba formatos legítimos: el DNI sin el cero de delante (`1234567A`) y con puntos (`12.345.678-Z`).
+
+El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale más un cliente con un dato por confirmar que un formulario que no se deja enviar**. Un DNI con una errata lo corrige el técnico en la visita; un cliente que se va no vuelve.
+
+**Alternativa descartada.** *Mantener la validación estricta y mejorar solo el mensaje.* Habría arreglado la confusión, pero seguiría bloqueando a quien escribe el DNI de una forma que la ley admite y mi código no.
+
+**Cómo se revisará.** Cuando haya datos de GA4, comparar cuántos empiezan el formulario (`formulario_inicio`) con cuántos lo terminan (`generate_lead`). Si el abandono se concentra en el paso 1, el siguiente candidato a mover es el DNI, al último paso.
+
+---
+
+## 2026-10-15 · D19 · Certificados: «más de 3.000» en todos los canales
+
+**Decisión.** La web pasa de «2.800» a «**más de 3.000**» (o «+3.000» donde hay poco sitio) en los 424 sitios donde aparecía, en 158 páginas. Lo mismo deben decir Google Ads, la ficha de Google y el reel.
+
+**Motivo.** El propietario confirma el 15-10-2026 que lleva **3.042** certificados. Se redondea hacia abajo para que la cifra siga siendo cierta aunque se revise contra el registro de la Junta.
+
+**Lo que NO se ha tocado.** `pruebas index/` (copias de prueba, ver trampa 4 de CLAUDE.md); las cifras por municipio («más de 800 / 450+ en Almería capital», «350 / 120 en Roquetas», etc.), que no son el total y quedan pendientes de revisar con el propietario; habitantes, precios y «2.800 horas de sol». Las «1.200 viviendas certificadas» de `/certificado-vivienda/` sí se cambian: eran otra cifra total.
+
+**Cómo se revisará.** `grep -rn "2\.800" --include="*.html" . | grep -v "pruebas index\|horas de sol"` debe devolver 0.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve
