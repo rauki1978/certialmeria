@@ -1,5 +1,5 @@
 /*
- * CertiAlmería - Aviso de cookies y carga de Google (GA4 + Google Ads).
+ * CertiAlmería - Aviso de cookies y carga de Google (GA4 + Google Ads) y Meta.
  *
  * Un solo archivo para las 157 páginas. Sustituye al bloque «Cookie Consent
  * System» que iba copiado (dos veces) dentro de cada HTML y que, fuera de la
@@ -18,9 +18,15 @@
  * ad_personalization, analytics_storage). No se usa el modo avanzado (enviar
  * datos sin cookies antes del consentimiento): la AEPD lo ve arriesgado.
  *
- * La elección se guarda en localStorage «certialmeria_cookies» con v:2. Quien
- * eligió con el aviso antiguo (solo analítica) sigue midiéndose en analítica,
- * pero se le vuelve a preguntar porque ahora hay una finalidad nueva.
+ * Píxel de Meta (Facebook/Instagram, D20, 15/10/2026): va en la misma casilla
+ * de «publicidad» que Google Ads. Sin esa casilla no se descarga nada de Meta
+ * (ni fbevents.js ni la cookie _fbp). Mientras META_PIXEL_ID esté vacío
+ * tampoco se carga: el píxel se crea en el Administrador de eventos de Meta.
+ *
+ * La elección se guarda en localStorage «certialmeria_cookies» con v:3. Quien
+ * eligió con un aviso anterior conserva lo que eligió para Google, pero se le
+ * vuelve a preguntar: aceptó la publicidad cuando no incluía a Meta, así que
+ * Meta no se carga hasta que conteste el aviso nuevo.
  *
  * Funciones globales que usan los botones ya existentes (portada, /cookies/):
  * acceptAllCookies, rejectOptionalCookies, showCookieSettings,
@@ -34,12 +40,16 @@
 
   var GA_ID = "G-BFM9L1F4CW";
   var ADS_ID = "AW-11552890951";
+  // ID del píxel de Meta (Administrador de eventos, Business Manager
+  // 1337898884054955). Vacío = no se carga el píxel aunque se acepte.
+  var META_PIXEL_ID = "";
   var CLAVE = "certialmeria_cookies";
-  var VERSION = 2;
+  var VERSION = 3;
 
   var estado = { necessary: true, analytics: false, ads: false, v: VERSION };
   var decidido = false;
   var cargado = false;
+  var metaCargado = false;
 
   try {
     var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
@@ -69,9 +79,41 @@
     };
   }
 
+  // Píxel de Meta: solo con la casilla de publicidad contestada en este aviso
+  // (decidido) y con ID. Si el visitante la retira en la misma página, se
+  // revoca y el píxel deja de enviar.
+  function aplicarMeta() {
+    if (!META_PIXEL_ID) return;
+    if (!(estado.ads && decidido)) {
+      if (metaCargado) window.fbq("consent", "revoke");
+      return;
+    }
+    if (metaCargado) {
+      window.fbq("consent", "grant");
+      return;
+    }
+    // Código base oficial de Meta, sin la imagen <noscript> (esa no pregunta).
+    var n = window.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!window._fbq) window._fbq = n;
+    n.push = n;
+    n.loaded = true;
+    n.version = "2.0";
+    n.queue = [];
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(s);
+    window.fbq("init", META_PIXEL_ID);
+    window.fbq("track", "PageView");
+    metaCargado = true;
+  }
+
   // Carga gtag.js una sola vez y configura lo consentido. Si el visitante
   // cambia de opinión en la misma página, se actualiza el consentimiento.
   function aplicar() {
+    aplicarMeta();
     if (!estado.analytics && !estado.ads) {
       if (cargado) window.gtag("consent", "update", senales());
       return;
@@ -140,7 +182,7 @@
     d.setAttribute("aria-label", "Aviso de cookies");
     d.innerHTML =
       '<div class="cae-in"><p><strong>Cookies en CertiAlmería.</strong> Usamos cookies técnicas necesarias y, si lo aceptas, ' +
-      "cookies de <strong>análisis</strong> (Google Analytics) para mejorar la web y de <strong>publicidad</strong> (Google Ads) " +
+      "cookies de <strong>análisis</strong> (Google Analytics) para mejorar la web y de <strong>publicidad</strong> (Google Ads y Meta: Facebook e Instagram) " +
       'para saber qué anuncios nos traen clientes. <a href="/cookies/">Política de cookies</a></p>' +
       '<div class="cae-bts"><button type="button" class="cae-b cae-b3" data-cae="config">Configurar</button>' +
       '<button type="button" class="cae-b cae-b2" data-cae="rechazar">Rechazar</button>' +
@@ -167,7 +209,7 @@
       '<p style="margin:0 0 8px;color:#4b5563">Elige qué cookies opcionales aceptas. Puedes cambiarlo cuando quieras desde la <a href="/cookies/">política de cookies</a>.</p>' +
       '<div class="cae-fila"><div><h3>Técnicas</h3><p>Necesarias para que la web funcione. No se pueden desactivar.</p></div><input type="checkbox" checked disabled aria-label="Cookies técnicas (siempre activas)"></div>' +
       '<div class="cae-fila"><div><h3>Análisis</h3><p>Google Analytics: cuántas personas visitan la web y qué páginas usan, para mejorarla.</p></div><input type="checkbox" id="cae-c-analytics" aria-label="Cookies de análisis"' + (estado.analytics ? " checked" : "") + "></div>" +
-      '<div class="cae-fila"><div><h3>Publicidad</h3><p>Google Ads: saber si un contacto llegó desde uno de nuestros anuncios, para no gastar en anuncios que no funcionan.</p></div><input type="checkbox" id="cae-c-ads" aria-label="Cookies de publicidad"' + (estado.ads ? " checked" : "") + "></div>" +
+      '<div class="cae-fila"><div><h3>Publicidad</h3><p>Google Ads y Meta (Facebook, Instagram): saber si un contacto llegó desde uno de nuestros anuncios, para no gastar en anuncios que no funcionan.</p></div><input type="checkbox" id="cae-c-ads" aria-label="Cookies de publicidad"' + (estado.ads ? " checked" : "") + "></div>" +
       '<div class="cae-pie"><button type="button" class="cae-b cae-b3" style="color:#374151" data-cae="cerrar">Cancelar</button>' +
       '<button type="button" class="cae-b cae-b1" data-cae="guardar">Guardar preferencias</button></div></div>';
     m.addEventListener("click", function (e) {

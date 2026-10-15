@@ -4055,6 +4055,8 @@ function enviarALaApp(d) {
 /** Sustituye el formulario por el "gracias", con su referencia y su enlace. */
 function mostrarGracias(j) {
     const form = document.getElementById('wizard-form');
+    // Meta: solicitud enviada = «Lead». fbq solo existe con la publicidad aceptada.
+    if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
     const enlace = j && j.seguimiento
         ? '<p style="margin:16px 0 0;"><a href="' + j.seguimiento + '" style="display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;">Ver cómo va mi certificado</a></p>'
         : '';
@@ -4223,7 +4225,7 @@ Incluye la tasa y el registro en la Junta de Andalucía.
 updateStepIndicators();
 </script>
 
-<script defer src="/js/consentimiento.js?v=1"></script>
-<script defer src="/js/medicion.js?v=1"></script>
+<script defer src="/js/consentimiento.js?v=2"></script>
+<script defer src="/js/medicion.js?v=2"></script>
 <script defer src="/js/reserva-visita.js?v=1"></script>
 </body></html>

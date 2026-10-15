@@ -293,6 +293,11 @@
             send_to: "AW-11552890951/F8jvCIz7ookdEMfA7IQr"
           });
         }
+        // Meta (anuncios de Facebook/Instagram): solo existe fbq si se
+        // aceptaron las cookies de publicidad.
+        if (typeof fbq === "function") {
+          fbq("track", "Lead");
+        }
         showSuccess(nombre);
       } else {
         btn.disabled = false;

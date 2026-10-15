@@ -228,6 +228,18 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
+## 2026-10-15 · D20 · Píxel de Meta, solo con la casilla de publicidad
+
+**Decisión.** Para la campaña de Meta Ads con objetivo WhatsApp (semana del 26-10) se añade el píxel de Meta en `/js/consentimiento.js`, dentro de la **misma casilla de «publicidad»** que Google Ads. Eventos: `PageView`; `Contact` al pulsar teléfono o WhatsApp (`/js/medicion.js`); `Lead` al enviar el formulario (`/js/lead-form.js` y `mostrarGracias()` de la portada). La CSP de `_headers` añade `connect.facebook.net` (script-src y connect-src) y `www.facebook.com` (connect-src); img-src ya admite `https:`.
+
+**Motivo.** Sin píxel, Meta no sabe qué anuncios traen contactos y no puede optimizar. Sin consentimiento no se descarga nada de Meta (comprobado en local). La versión del aviso pasa a `v:3`: quien aceptó la publicidad cuando solo era Google vuelve a ver el aviso y Meta no se carga hasta que conteste. La política de cookies lista `_fbp` y `_fbc`.
+
+**Alternativas descartadas.** Una casilla aparte para Meta: un aviso más largo para la misma finalidad. La imagen `<noscript>` del código oficial: se cargaría sin preguntar. Cargar fbevents.js siempre con `consent revoke`: ya es una petición a Meta sin consentimiento.
+
+**Cómo se revisará.** Mientras `META_PIXEL_ID` esté vacío no se carga nada. Con el ID puesto y publicado: Administrador de eventos → Probar eventos, y en la web sin aceptar cookies la pestaña Red no debe mostrar `facebook`.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

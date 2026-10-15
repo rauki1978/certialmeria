@@ -7,6 +7,10 @@
  *   formulario_inicio  → primer campo del formulario que recibe el foco
  * (el envío real del formulario ya lo registra lead-form.js como generate_lead).
  *
+ * Meta: los clics en teléfono y WhatsApp van también al píxel como «Contact»
+ * (el formulario enviado va como «Lead» desde lead-form.js). window.fbq solo
+ * existe si el visitante aceptó la publicidad (ver consentimiento.js).
+ *
  * Un clic NO es una consulta ni una venta (ver medicion.md): en Google Ads
  * estos eventos van como conversión secundaria, nunca como principal.
  *
@@ -23,6 +27,10 @@
   if (window.__caeMedicion) return;
   window.__caeMedicion = true;
 
+  function meta(evento) {
+    if (typeof window.fbq === "function") window.fbq("track", evento);
+  }
+
   function enviar(evento, datos) {
     if (typeof window.gtag !== "function") return;
     datos = datos || {};
@@ -36,8 +44,10 @@
     var href = a.getAttribute("href") || "";
     if (/^tel:/i.test(href)) {
       enviar("clic_telefono", { enlace: href.replace(/^tel:/i, "") });
+      meta("Contact");
     } else if (/(wa\.me|api\.whatsapp\.com)/i.test(href)) {
       enviar("clic_whatsapp");
+      meta("Contact");
     }
   }, true);
 
