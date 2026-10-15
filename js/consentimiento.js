@@ -40,9 +40,9 @@
 
   var GA_ID = "G-BFM9L1F4CW";
   var ADS_ID = "AW-11552890951";
-  // ID del píxel de Meta (Administrador de eventos, Business Manager
-  // 1337898884054955). Vacío = no se carga el píxel aunque se acepte.
-  var META_PIXEL_ID = "";
+  // ID del píxel de Meta: conjunto de datos «7890» de la cuenta publicitaria
+  // 183245941727444 (Administrador de eventos). Vacío = no se carga nada.
+  var META_PIXEL_ID = "1318327565369417";
   var CLAVE = "certialmeria_cookies";
   var VERSION = 3;
 
