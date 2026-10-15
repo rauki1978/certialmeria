@@ -230,6 +230,18 @@ Con el botón se consigue casi todo el valor a coste cero, y además una cosa qu
 
 ---
 
+## 2026-10-15 · D19 · Certificados: «más de 3.000» en todos los canales
+
+**Decisión.** La web pasa de «2.800» a «**más de 3.000**» (o «+3.000» donde hay poco sitio) en los 424 sitios donde aparecía, en 158 páginas. Lo mismo deben decir Google Ads, la ficha de Google y el reel.
+
+**Motivo.** El propietario confirma el 15-10-2026 que lleva **3.042** certificados. Se redondea hacia abajo para que la cifra siga siendo cierta aunque se revise contra el registro de la Junta.
+
+**Lo que NO se ha tocado.** `pruebas index/` (copias de prueba, ver trampa 4 de CLAUDE.md); las cifras por municipio («más de 800 / 450+ en Almería capital», «350 / 120 en Roquetas», etc.), que no son el total y quedan pendientes de revisar con el propietario; habitantes, precios y «2.800 horas de sol». Las «1.200 viviendas certificadas» de `/certificado-vivienda/` sí se cambian: eran otra cifra total.
+
+**Cómo se revisará.** `grep -rn "2\.800" --include="*.html" . | grep -v "pruebas index\|horas de sol"` debe devolver 0.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve
