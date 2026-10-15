@@ -14,7 +14,6 @@ const STATIC_ASSETS = [
     '/styles.css',
     '/main.js',
     '/manifest.json',
-    '/wp-content/uploads/2025/01/9.jpg', // Imagen de Raúl Cañadas
     // Añadir más recursos estáticos críticos
 ];
 
@@ -50,11 +49,15 @@ self.addEventListener('install', (event) => {
             })
             .then(() => {
                 console.log('✅ Service Worker: Installation complete');
-                return self.skipWaiting(); // Activar inmediatamente
             })
             .catch((error) => {
                 console.error('❌ Service Worker: Installation failed', error);
             })
+            // Activar la versión nueva aunque falle la precarga. Antes, si
+            // un archivo de la lista daba 404 (una imagen de la web antigua),
+            // nunca se llegaba a skipWaiting y la versión nueva se quedaba
+            // esperando hasta que el visitante cerrara todas las pestañas.
+            .then(() => self.skipWaiting())
     );
 });
 
