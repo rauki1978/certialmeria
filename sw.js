@@ -88,7 +88,17 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     const { request } = event;
     const url = new URL(request.url);
-    
+
+    // Solo se gestionan las peticiones GET de la propia web. Las de otros
+    // dominios (Google Ads, Meta, fuentes de Google...) van directas al
+    // navegador: si pasaban por aquí, el service worker las repetía bajo su
+    // propia CSP, fallaban y devolvía «503 sin conexión». Así se perdían el
+    // píxel de Meta, las conversiones de Ads y la fuente Montserrat en todas
+    // las páginas visitadas después de la portada (15/10/2026).
+    if (url.origin !== self.location.origin || request.method !== 'GET') {
+        return;
+    }
+
     // Ignorar requests que no deben cachearse
     if (shouldNeverCache(url)) {
         return;
