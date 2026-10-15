@@ -4115,6 +4115,8 @@ function enlaceWhatsAppReserva(d, codigo) {
 
 function mostrarGracias(j, d) {
     const form = document.getElementById('wizard-form');
+    // Meta: solicitud enviada = «Lead». fbq solo existe con la publicidad aceptada.
+    if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
     const codigo = j && j.codigo ? j.codigo : '';
 
     const cita = d && d.fechaVisita
@@ -4294,7 +4296,7 @@ Incluye la tasa y el registro en la Junta de Andalucía.
 updateStepIndicators();
 </script>
 
-<script defer src="/js/consentimiento.js?v=1"></script>
-<script defer src="/js/medicion.js?v=1"></script>
+<script defer src="/js/consentimiento.js?v=2"></script>
+<script defer src="/js/medicion.js?v=2"></script>
 <script defer src="/js/reserva-visita.js?v=1"></script>
 </body></html>
