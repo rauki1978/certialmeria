@@ -21,13 +21,15 @@
   # Google Analytics 4 y Google Ads necesitan sus dominios en script-src,
   # connect-src y frame-src (lista oficial de Google). Sin ellos GA4 no
   # recibe nada aunque el visitante acepte las cookies.
+  # ad.doubleclick.net en connect-src: Google Ads lo usa en parte de las
+  # llamadas de conversion; si se bloquea, se pierde medicion de la campana.
   # El píxel de Meta necesita connect.facebook.net en script-src (fbevents.js)
   # y www.facebook.com en connect-src (envía los eventos por fetch) y en
   # frame-src (el píxel real abre un marco suyo; con un ID falso no se ve).
   # En img-src ya vale «https:». Solo se carga con la publicidad aceptada.
   # X-Frame-Options sigue en DENY: eso impide que nos metan a NOSOTROS en un
   # marco ajeno, no que nosotros mostremos el marco de Cloudflare.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://*.google.es https://www.googleadservices.com https://pagead2.googlesyndication.com https://cee.certialmeria.es https://challenges.cloudflare.com https://cloudflareinsights.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://challenges.cloudflare.com https://td.doubleclick.net https://www.googletagmanager.com https://www.facebook.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://ad.doubleclick.net https://*.google.com https://*.google.es https://www.googleadservices.com https://pagead2.googlesyndication.com https://cee.certialmeria.es https://challenges.cloudflare.com https://cloudflareinsights.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://challenges.cloudflare.com https://td.doubleclick.net https://www.googletagmanager.com https://www.facebook.com;
 
   # Permissions Policy
   Permissions-Policy: geolocation=(), microphone=(), camera=()
