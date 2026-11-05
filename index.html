@@ -1662,6 +1662,20 @@ h1, h2, h3, h4, h5, h6 {
               <label class="form-label">Observaciones (opcional)</label>
               <textarea id="observaciones" name="observaciones" rows="3" class="form-input" placeholder="Cualquier información adicional que pueda ser útil" style="resize: vertical;"></textarea>
             </div>
+
+            <div>
+              <label class="form-label" for="como-nos-conocio">¿Cómo nos has conocido? (opcional)</label>
+              <select id="como-nos-conocio" name="como_nos_conocio" class="form-input">
+                <option value="">Elige una opción</option>
+                <option>Anuncio en Google</option>
+                <option>Búsqueda en Google</option>
+                <option>Google Maps</option>
+                <option>Recomendación</option>
+                <option>Redes sociales</option>
+                <option>Inmobiliaria o administrador</option>
+                <option>Otro</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -3987,6 +4001,23 @@ if (TURNSTILE_SITE_KEY) {
 const API_INTERESADOS = 'https://cee.certialmeria.es/api/interesados';
 let idInteresado = '';
 
+// De dónde viene el contacto: la página más los parámetros del anuncio que
+// traiga la URL (gclid de Google Ads, UTM). Sin cookies aceptadas, Analytics y
+// Ads no ven a casi nadie, pero la aplicación recibe todas las solicitudes; así
+// el origen viaja dentro de ellas. Solo se lee la URL: no se guarda nada en el
+// navegador. Mismo criterio que origenUrl() de /js/lead-form.js.
+function origenUrl() {
+    const trozos = [];
+    try {
+        const p = new URLSearchParams(location.search);
+        ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+            const v = p.get(k);
+            if (v) trozos.push(k + '=' + encodeURIComponent(v.slice(0, 120)));
+        });
+    } catch (e) { /* navegador antiguo: solo la página */ }
+    return (location.pathname + (trozos.length ? '?' + trozos.join('&') : '')).slice(0, 300);
+}
+
 function guardarInteresado() {
     if (idInteresado) return;  // ya está guardado: no duplicar si vuelve atrás
     const nombre = ((document.getElementById('nombre') || {}).value || '').trim();
@@ -4001,7 +4032,7 @@ function guardarInteresado() {
             nombre: (nombre + ' ' + apellidos).trim(),
             telefono: telefono,
             email: ((document.getElementById('email') || {}).value || '').trim() || undefined,
-            pagina: location.pathname,
+            pagina: origenUrl(),
             origen: 'asistente',
             empresa: (document.getElementById('campo-empresa') || {}).value || '',
             // En el paso 1 el reto todavía no está resuelto: va sin testigo y
@@ -4116,8 +4147,16 @@ document.getElementById('wizard-form').addEventListener('submit', function(e) {
         tipoInmueble: document.querySelector('input[name="tipo-inmueble"]:checked').value,
         metros: document.getElementById('metros').value,
         anioConstruccion: document.getElementById('ano').value,
-        observaciones: document.getElementById('observaciones').value
+        observaciones: document.getElementById('observaciones').value,
+        comoNosConocio: (document.getElementById('como-nos-conocio') || {}).value || '',
+        origenUrl: origenUrl()
     };
+    // La respuesta a «¿Cómo nos has conocido?» va delante de las observaciones,
+    // que es lo que la aplicación guarda en el expediente.
+    if (formData.comoNosConocio) {
+        formData.observaciones = ['Nos conoció por: ' + formData.comoNosConocio, formData.observaciones]
+            .filter(Boolean).join('\n');
+    }
 
     console.log('Enviando datos:', formData);
 
@@ -4154,6 +4193,10 @@ Año construcción: ${formData.anioConstruccion}
 OBSERVACIONES:
 --------------
 ${formData.observaciones || 'Sin observaciones'}
+
+ORIGEN:
+-------
+Página: ${formData.origenUrl}
 
 PRECIO: 75 € + IVA (90,75 € en total)
 Incluye la tasa y el registro en la Junta de Andalucía.

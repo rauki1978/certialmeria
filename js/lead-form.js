@@ -104,6 +104,7 @@
               '<option value="Nave / Otro">Nave / Otro</option>' +
             '</select></div>' +
             '<div class="cae-field"><label for="cae-mensaje">Mensaje (opcional)</label><textarea id="cae-mensaje" name="mensaje" placeholder="Metros, direcci&oacute;n, dudas..."></textarea></div>' +
+            '<div class="cae-field"><label for="cae-conocio">&iquest;C&oacute;mo nos has conocido? (opcional)</label><select id="cae-conocio" name="como_nos_conocio">' + opcionesConocio() + '</select></div>' +
             // Campo trampa: las personas no lo ven, los robots lo rellenan.
             '<div class="cae-trampa" aria-hidden="true"><label for="cae-empresa">Empresa</label><input id="cae-empresa" name="empresa" type="text" tabindex="-1" autocomplete="off"></div>' +
             '<label class="cae-priv"><input id="cae-priv" type="checkbox" required><span>He le&iacute;do y acepto la <a href="/politica-privacidad/" target="_blank" rel="noopener">pol&iacute;tica de privacidad</a>. Guardamos tu nombre y tu tel&eacute;fono para llamarte y darte el presupuesto.</span></label>' +
@@ -202,6 +203,52 @@
     return "";
   }
 
+  /*
+   * De dónde viene el contacto, para saber qué canal trae certificados.
+   *
+   * Sin las cookies aceptadas, Analytics y Google Ads no ven a nadie (acepta
+   * más o menos uno de cada cuatro), pero la aplicación recibe TODAS las
+   * solicitudes. Así que el origen viaja dentro de la propia solicitud:
+   *
+   *   - origenUrl(): la página más los parámetros del anuncio que traiga la
+   *     URL (gclid de Google Ads, UTM). Se lee de la URL actual y nada más:
+   *     no se guarda nada en el navegador, así que no depende del aviso de
+   *     cookies. Si el visitante cambia de página antes de escribir, se pierde,
+   *     y para eso está la pregunta.
+   *   - La pregunta «¿Cómo nos has conocido?», que es opcional y va en el
+   *     mensaje: lo que dice el cliente cuenta aunque no haya parámetros.
+   *
+   * La aplicación guarda «pagina» con un máximo de 300 caracteres.
+   */
+  var PARAMETROS_ORIGEN = ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+
+  function origenUrl() {
+    var trozos = [];
+    try {
+      var p = new URLSearchParams(location.search);
+      PARAMETROS_ORIGEN.forEach(function (k) {
+        var v = p.get(k);
+        if (v) trozos.push(k + "=" + encodeURIComponent(v.slice(0, 120)));
+      });
+    } catch (e) { /* navegador antiguo: solo la página */ }
+    return (location.pathname + (trozos.length ? "?" + trozos.join("&") : "")).slice(0, 300);
+  }
+
+  var OPCIONES_CONOCIO = ["Anuncio en Google", "Búsqueda en Google", "Google Maps", "Recomendación", "Redes sociales", "Inmobiliaria o administrador", "Otro"];
+
+  function opcionesConocio() {
+    return '<option value="">Elige una opción</option>' + OPCIONES_CONOCIO.map(function (o) {
+      return '<option value="' + o + '">' + escapeHtml(o) + "</option>";
+    }).join("");
+  }
+
+  /** El mensaje del cliente con la respuesta a «¿Cómo nos has conocido?» delante. */
+  function mensajeConOrigen() {
+    var conocio = val("cae-conocio");
+    var mensaje = val("cae-mensaje");
+    return [conocio ? "Nos conoció por: " + conocio : "", mensaje].filter(Boolean).join("\n");
+  }
+
   function val(id) {
     var el = document.getElementById(id);
     return el ? el.value.trim() : "";
@@ -238,8 +285,8 @@
       email: val("cae-email"),
       municipio: val("cae-municipio"),
       tipo_inmueble: val("cae-tipo"),
-      mensaje: val("cae-mensaje"),
-      pagina: location.pathname
+      mensaje: mensajeConOrigen(),
+      pagina: origenUrl()
     };
 
     // 1) La aplicación: es la que guarda al interesado y avisa al técnico.
@@ -253,7 +300,7 @@
         municipio: payload.municipio,
         tipo_inmueble: payload.tipo_inmueble,
         mensaje: payload.mensaje,
-        pagina: location.pathname,
+        pagina: payload.pagina,
         origen: "formulario",
         empresa: val("cae-empresa"),
         turnstile_token: testigoTurnstile()
