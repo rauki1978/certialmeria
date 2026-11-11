@@ -240,6 +240,15 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
+## 2026-11-11 · D21 · Modo de consentimiento avanzado de Google
+
+**Decisión.** La etiqueta de Google (GA4 y Ads) se carga siempre, con todo denegado hasta que el visitante acepta. Se activan `ads_data_redaction` y `url_passthrough`. Meta sigue igual: solo con la casilla de publicidad.
+**Motivo.** En el modo básico, en 30 días Ads contó 70 clics y GA4 solo 22 visitas de pago, y ninguna conversión llegó a Ads (11-11). Sin datos, Ads no puede aprender qué anuncios traen contactos. Raúl lo pide «para tener los mejores datos». Cambia la decisión del 28-09.
+**Alternativas descartadas.** Seguir en básico (0 conversiones medibles). Tag Manager (no cambia nada: el freno es el consentimiento).
+**Cómo se revisará.** El 18-11 y el 25-11: en Ads, que «Certialmeria (web) clic_whatsapp», «clic_telefono» y el formulario sumen conversiones (también las modelizadas). En GA4, que las sesiones de pago se acerquen a los clics de Ads.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

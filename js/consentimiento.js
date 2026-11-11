@@ -12,11 +12,13 @@
  *   analytics → Google Analytics 4 (G-BFM9L1F4CW)
  *   ads       → Google Ads (AW-11552890951): medir qué anuncios traen clientes
  *
- * Consent Mode v2 en modo BÁSICO: no se carga nada de Google hasta que el
- * visitante acepta al menos una de las dos. Al cargar, se declara el
- * consentimiento real de cada finalidad (ad_storage, ad_user_data,
- * ad_personalization, analytics_storage). No se usa el modo avanzado (enviar
- * datos sin cookies antes del consentimiento): la AEPD lo ve arriesgado.
+ * Consent Mode v2 en modo AVANZADO desde el 11/11/2026 (antes básico, D del
+ * 28/09): la etiqueta de Google se carga siempre con todo denegado. Sin
+ * consentimiento no hay cookies ni identificadores; Google recibe avisos
+ * anónimos y modeliza. Motivo: en modo básico Ads veía 70 clics y GA4 solo
+ * 22 visitas, y ninguna conversión llegaba a Ads. Riesgo asumido por Raúl:
+ * la AEPD ve dudoso el envío sin consentimiento; la política de cookies lo
+ * explica.
  *
  * Píxel de Meta (Facebook/Instagram, D20, 15/10/2026): va en la misma casilla
  * de «publicidad» que Google Ads. Sin esa casilla no se descarga nada de Meta
@@ -110,34 +112,39 @@
     metaCargado = true;
   }
 
-  // Carga gtag.js una sola vez y configura lo consentido. Si el visitante
-  // cambia de opinión en la misma página, se actualiza el consentimiento.
+  // Carga gtag.js SIEMPRE (modo avanzado, decisión de Raúl 11/11/2026) con
+  // todo denegado por defecto. Sin consentimiento Google no guarda ni lee
+  // cookies: solo recibe avisos anónimos (sin identificador) con los que
+  // estima las visitas y conversiones de quien rechaza el aviso. Al aceptar,
+  // se actualiza el consentimiento y pasa a medir con cookies como antes.
+  // ads_data_redaction quita los identificadores de anuncio mientras la
+  // publicidad esté denegada; url_passthrough mantiene el gclid en la URL al
+  // pasar de página para no perder de qué anuncio llegó.
+  function cargarGoogle() {
+    if (cargado) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("consent", "default", senales());
+    window.gtag("set", "ads_data_redaction", true);
+    window.gtag("set", "url_passthrough", true);
+    window.gtag("js", new Date());
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(s);
+    window.gtag("config", GA_ID);
+    window.gtag("config", ADS_ID);
+    cargado = true;
+  }
+
+  // Aplica lo elegido. La primera vez carga Google con lo que haya guardado;
+  // si el visitante cambia de opinión, se actualiza el consentimiento.
   function aplicar() {
     aplicarMeta();
-    if (!estado.analytics && !estado.ads) {
-      if (cargado) window.gtag("consent", "update", senales());
-      return;
-    }
     if (!cargado) {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { window.dataLayer.push(arguments); };
-      window.gtag("consent", "default", senales());
-      window.gtag("js", new Date());
-      var s = document.createElement("script");
-      s.async = true;
-      s.src = "https://www.googletagmanager.com/gtag/js?id=" + (estado.analytics ? GA_ID : ADS_ID);
-      document.head.appendChild(s);
-      cargado = { ga: false, ads: false };
+      cargarGoogle();
     } else {
       window.gtag("consent", "update", senales());
-    }
-    if (estado.analytics && !cargado.ga) {
-      window.gtag("config", GA_ID);
-      cargado.ga = true;
-    }
-    if (estado.ads && !cargado.ads) {
-      window.gtag("config", ADS_ID);
-      cargado.ads = true;
     }
   }
 
