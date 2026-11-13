@@ -249,15 +249,24 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
-## 2026-10-15 · D19 · Certificados: «más de 3.000» en todos los canales
+## 2026-11-13 · D22 · Datos que leen las IA: schema, COAT, multas y llms.txt
 
-**Decisión.** La web pasa de «2.800» a «**más de 3.000**» (o «+3.000» donde hay poco sitio) en los 424 sitios donde aparecía, en 158 páginas. Lo mismo deben decir Google Ads, la ficha de Google y el reel.
+**Decisión.** Con los datos que confirma el propietario el 13-11-2026:
+- Zona: **toda la provincia de Almería** (103 municipios). El schema añade `AdministrativeArea` «Provincia de Almería».
+- Experiencia: **23 años** (colegiado desde 2003). La tasa y el registro en la Junta van incluidos en los 75 € + IVA.
+- `priceRange` pasa de «75€-150€» a «75 € + IVA (90,75 €)». Horario del schema igual que la ficha: L-V 9:00-20:00, S 9:00-14:00.
+- El Colegio se escribe **«COAT Almería»** (`alternateName` «COAAT Almería» en el schema, `url` coaat-al.es). La URL `/arquitecto-tecnico-coaat-1440/` no cambia.
+- La persona del schema lleva `@id`, colegiado 1.440 como `identifier`, `memberOf` el Colegio, la credencial del **registro de técnicos del MITECO** y `knowsAbout`. `sameAs`: Instagram @certialmeria.es (Facebook sin comprobar, no se pone).
+- La portada **ya no da multas** (300-600 / 601-1.000 / hasta 6.000 €) ni el dato de «1 de cada 15 anuncios», sin norma comprobada. Un solo `FAQPage` en la portada.
+- Nuevo `/llms.txt`, pie con enlaces a `/profesionales/`, al colegiado, a Revisa360 y a aparejadoralmeria.com, y bloque «Lo que no hago desde esta web» en `/arquitecto-tecnico-coaat-1440/`.
+- `/certificado-energetico/` deja de decir «Online · Entrega 48h Toda España».
+- `/guia-tecnica-certificacion-almeria/` sale del sitemap (tiene `noindex`).
 
-**Motivo.** El propietario confirma el 15-10-2026 que lleva **3.042** certificados. Se redondea hacia abajo para que la cifra siga siendo cierta aunque se revise contra el registro de la Junta.
+**Motivo.** Auditoría SEO/AEO del 13-11 (`12-INFORMES/2026-11-13_CERTIALMERIA_seo-aeo.md` de la agencia): las IA copian de la web cifras viejas, la zona y las multas.
 
-**Lo que NO se ha tocado.** `pruebas index/` (copias de prueba, ver trampa 4 de CLAUDE.md); las cifras por municipio («más de 800 / 450+ en Almería capital», «350 / 120 en Roquetas», etc.), que no son el total y quedan pendientes de revisar con el propietario; habitantes, precios y «2.800 horas de sol». Las «1.200 viviendas certificadas» de `/certificado-vivienda/` sí se cambian: eran otra cifra total.
+**Lo que NO se ha tocado.** Las multas de los artículos del blog (`/blog/multas-certificado-energetico-*` y otros), que se revisan aparte con la norma. La opinión de `/vs-tinsa/` que dice «Raúl lleva 20 años en Almería»: es texto de un cliente.
 
-**Cómo se revisará.** `grep -rn "2\.800" --include="*.html" . | grep -v "pruebas index\|horas de sol"` debe devolver 0.
+**Cómo se revisará.** El 2026-12-10, repetir las preguntas a las IA y ver si siguen diciendo 2.300/2.800 o dando multas.
 
 ---
 

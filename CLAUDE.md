@@ -1,6 +1,6 @@
 # CertiAlmería — Instrucciones del proyecto
 
-**Negocio:** certificados de eficiencia energética. Raúl Cañadas Navarro, Arquitecto Técnico, COAAT Almería nº 1.440.
+**Negocio:** certificados de eficiencia energética. Raúl Cañadas Navarro, Arquitecto Técnico, COAT Almería (antes COAAT) nº 1.440.
 **Prioridad comercial:** Almería capital y periferia.
 **Objetivo:** más certificados vendidos y rentables. No más tráfico, no más páginas.
 
@@ -70,7 +70,7 @@ La documentación de negocio y marketing vive en `docs/marketing/`:
 
 ### Contacto (consistente en todo el sitio)
 - Teléfono: **667 451 538** · WhatsApp: `wa.me/34667451538`
-- COAAT Almería nº **1.440**
+- COAT Almería nº **1.440** (en el schema, `alternateName` «COAAT Almería»)
 - Zona climática **A4** (costa) y **B4** (interior)
 
 ---
