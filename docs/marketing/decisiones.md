@@ -270,6 +270,36 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
+## 2026-11-17 · D23 · La web antigua redirige a certialmeria.es (sustituye a D8)
+
+**Decisión.** `certificadoenergeticoalmeria.com` redirige con 301, página a página, a `www.certialmeria.es`. Reglas en el `.htaccess` de la web antigua (hosting de Webempresa, carpeta `public_html/certificadoenergeticoalmeria.com`), entre `# BEGIN 301 certialmeria` y `# END 301 certialmeria`. Quedan fuera `wp-admin`, `wp-login.php`, `.well-known` y el archivo de verificación de Search Console. Copia del `.htaccess` anterior en el mismo sitio (` copy 1.htaccess`).
+
+**Motivo.** Estudio del 17-11 (`12-INFORMES/2026-11-17_CERTIALMERIA_estudio-web-seo-ia-diseno.md` de la agencia): la web antigua era la nº 2 en Google y la nº 1 en Bing para la búsqueda principal, por delante de esta, y las IA la presentaban como otra empresa. Las campañas de Ads ya apuntan a certialmeria.es.
+
+**Alternativas descartadas.** Dejarla y corregir sus datos: seguía repartiendo los clics entre dos webs.
+
+**Cómo se revisará.** Search Console de las dos propiedades durante 1-3 meses: los clics de la antigua deben pasar a esta. Mantener el dominio antiguo renovado (vence el 07-12-2026, con renovación automática).
+
+---
+
+## 2026-11-17 · D24 · Tanda 1 del estudio web: página del IRPF, bloques repetidos y móvil
+
+**Decisión.**
+- Nueva página `/certificado-energetico-deduccion-irpf/` (previo y final), con `Service`, `FAQPage` y fuentes oficiales; enlazada desde el pie de todas las páginas, `/profesionales/`, las dos guías de ayudas, `llms.txt` y el sitemap.
+- Se quita el bloque de texto que estaba repetido 2-4 veces en 25 páginas de municipio.
+- Rioja, Turre y Los Gallardos: fuera la comarca y la altitud equivocadas y las cifras de «he certificado N+ viviendas» sin dato.
+- Blog: bloque «Guías relacionadas» en 30 artículos y arreglado el enlace roto a `/blog/certificado-energetico/`.
+- Portada en móvil: título, precio y botón de WhatsApp en la primera pantalla, sin animación de entrada. Contadores de la cabecera fijos. Aviso de cookies más bajo en móvil (`consentimiento.js?v=4`). Reseñas: 37.
+- `lastmod` real en el sitemap, pie con la fecha actual y títulos sin «2025».
+
+**Motivo.** Search Console: 67 páginas indexadas y 97 descartadas; la pregunta del previo y final no tenía página y el plazo de vivienda cierra el 31-12-2026.
+
+**Lo que NO se ha tocado.** Fusiones y redirecciones de páginas que se pisan, el resto de datos de municipios (zonas climáticas y altitudes por validar con Raúl), las multas del blog, el formulario (D12 y D17 siguen) y la foto de portada.
+
+**Cómo se revisará.** Páginas indexadas y posición de la portada el 2026-12-10.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

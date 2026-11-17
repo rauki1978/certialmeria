@@ -161,6 +161,7 @@
       "#cae-cookies .cae-in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}" +
       "#cae-cookies p{margin:0;flex:1 1 420px;color:#d1d5db}" +
       "#cae-cookies strong{color:#fff}" +
+      "@media (max-width:480px){#cae-cookies{padding:10px 12px;font-size:12.5px;line-height:1.4}#cae-cookies .cae-in{gap:8px}.cae-b{padding:8px 12px;font-size:13px}}" +
       "#cae-cookies a{color:#93c5fd;text-decoration:underline}" +
       ".cae-bts{display:flex;flex-wrap:wrap;gap:8px}" +
       ".cae-b{border:0;border-radius:8px;padding:9px 16px;font:600 14px system-ui,sans-serif;cursor:pointer}" +
