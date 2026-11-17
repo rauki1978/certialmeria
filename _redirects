@@ -27,5 +27,12 @@
 /AGENTS.md / 301
 /README.md / 301
 
+# Fusiones de la tanda 2 (2026-11-17, decision D25): articulos cortos que se
+# pisaban con otro mas completo del mismo tema. Datos de Search Console de
+# 3 meses en docs/marketing/decisiones.md.
+/blog/renovar-certificado-energetico-cuando/ /blog/cuando-caduca-certificado-energetico/ 301
+/blog/multas-certificado-energetico-andalucia/ /blog/multas-certificado-energetico-2025/ 301
+/blog/certificado-energetico-nuevas-ayudas/ /blog/subvenciones-mejoras-energeticas-andalucia/ 301
+
 # Remover trailing slash (opcional, si se prefiere)
 # /* /:splat 301!

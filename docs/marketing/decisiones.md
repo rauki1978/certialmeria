@@ -300,6 +300,23 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
+## 2026-11-17 · D25 · Tanda 2 (primera parte): tres fusiones de artículos y portada en móvil
+
+**Decisión.**
+- Tres artículos cortos pasan a redirigir con 301 (`_redirects`) al artículo completo del mismo tema, y salen del sitemap, del índice del blog y de los bloques «Guías relacionadas»:
+  - `/blog/renovar-certificado-energetico-cuando/` → `/blog/cuando-caduca-certificado-energetico/`
+  - `/blog/multas-certificado-energetico-andalucia/` → `/blog/multas-certificado-energetico-2025/`
+  - `/blog/certificado-energetico-nuevas-ayudas/` → `/blog/subvenciones-mejoras-energeticas-andalucia/`
+- Portada: `html{overflow-x:clip}` para que el menú móvil oculto no ensanche la página (medía 402 px en una pantalla de 375).
+
+**Motivo.** Regla D4 cumplida con datos de Search Console de 3 meses (16-08 → 15-11): caducidad 3.744 impresiones y 8 clics (posición 10,2) frente a renovar 1.755 y 2 (11,4), con 231 palabras; multas 2025 38 impresiones (posición 11,3) frente a multas Andalucía 38 (22,5), con 158 palabras; subvenciones 3.056 impresiones y 29 clics frente a nuevas ayudas 33 y 0. Los tres que se quedan cubren ya el contenido; los que se van llevaban además datos sin verificar («calificación G: 5 años», «Decreto 2/2023», el caso práctico y el «pack 150 €»), que no se han trasladado.
+
+**Lo que NO se ha tocado.** Las páginas de precio (`/certificado-energetico-barato/`, `/certificado-energetico-75-euros/`, la calculadora y los dos artículos de precio), rápido y 24 horas, y las comparativas con Certicalia y Tinsa: esperan decisión de Raúl (páginas de destino de anuncios, tasa, y testimonios y afirmaciones sobre competidores sin verificar). Municipios y comarcas, tampoco.
+
+**Cómo se revisará.** Impresiones y posición de los tres artículos que se quedan el 2026-12-10.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

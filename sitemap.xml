@@ -313,13 +313,6 @@
         <priority>0.6</priority>
     </url>
 
-    <url>
-        <loc>https://www.certialmeria.es/blog/certificado-energetico-nuevas-ayudas/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
     <!-- Blog Articles - Diferencias y Comparaciones -->
     <url>
         <loc>https://www.certialmeria.es/blog/diferencia-certificado-energetico-habitabilidad/</loc>
@@ -364,26 +357,12 @@
         <priority>0.5</priority>
     </url>
 
-    <url>
-        <loc>https://www.certialmeria.es/blog/renovar-certificado-energetico-cuando/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
     <!-- Blog Articles - Local y Profesionales -->
     <url>
         <loc>https://www.certialmeria.es/blog/mejores-tecnico-certificado-energetico-almeria/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/blog/multas-certificado-energetico-andalucia/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
     </url>
 
     <!-- MUNICIPIOS - Hub principal alta prioridad -->
