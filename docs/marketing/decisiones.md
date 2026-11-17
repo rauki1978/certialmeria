@@ -317,6 +317,22 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
+## 2026-11-17 · D26 · Altitud y zona climática de los 103 municipios, corregidas
+
+**Decisión.**
+- La altitud y la zona climática de cada página de `municipios/` pasan a ser las de la tabla que validó Raúl el 2026-11-17 (informe `2026-11-17_CERTIALMERIA_tabla-altitud-zona-municipios.md` de la agencia). 96 páginas cambian.
+- Tramos del Anejo B del CTE DB-HE para Almería: A4 hasta 100 m, B4 de 101 a 250, B3 de 251 a 400, C3 de 401 a 800, D3 desde 801.
+- En las 51 páginas de plantilla, la frase de la zona deja de hablar de «calefacción prioritaria por la altitud» y explica qué significan la letra y el número. En las 31 con texto propio se ha corregido a mano: distintivos, tarjetas por núcleo (Pulpí, Mojácar, Vera, El Ejido) y los municipios que están junto a un cambio de tramo lo dicen.
+- Fuera las frases «He certificado N+ viviendas» (sin dato) y los dos bloques de Ohanes que estaban pegados en la página de Cuevas del Almanzora. En el texto de `municipios/sonontin/` se escribe Somontín; la URL no se toca (D4).
+
+**Motivo.** 39 de 103 páginas daban una zona distinta de la que sale por su altitud y 31 más, una altitud desviada más de 50 m. Regla 1: lo que no está verificado no se publica.
+
+**Lo que NO se ha tocado.** Los distintivos «N+ certificados» de las páginas grandes y otras cifras sin dato, la comarca y la población de cada página, las temperaturas y tipologías descritas, y la estructura de municipios y comarcas (espera decisión de Raúl). Las altitudes son de Wikidata, sin contrastar con el Nomenclátor del IGN; la zona de una vivienda concreta se fija por la altitud de su emplazamiento.
+
+**Cómo se revisará.** Al reordenar municipios y comarcas, cada página nueva sale de la tabla validada.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve

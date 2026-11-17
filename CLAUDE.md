@@ -71,7 +71,7 @@ La documentación de negocio y marketing vive en `docs/marketing/`:
 ### Contacto (consistente en todo el sitio)
 - Teléfono: **667 451 538** · WhatsApp: `wa.me/34667451538`
 - COAT Almería nº **1.440** (en el schema, `alternateName` «COAAT Almería»)
-- Zona climática **A4** (costa) y **B4** (interior)
+- Zona climática por altitud (CTE DB-HE, Anejo B, Almería): **A4** hasta 100 m, **B4** 101-250, **B3** 251-400, **C3** 401-800, **D3** desde 801. Ver D26
 
 ---
 
