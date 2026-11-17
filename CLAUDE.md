@@ -30,7 +30,7 @@ La documentación de negocio y marketing vive en `docs/marketing/`:
 - **Cloudflare Pages**, despliegue automático al hacer push a `main`. Dominio: `www.certialmeria.es`.
 - La configuración real de servidor está en **`_headers`** y **`_redirects`**. ⚠️ `.htaccess` existe pero **Cloudflare Pages no lo lee**: editarlo no surte ningún efecto.
 - Tailwind **precompilado** en `/css/tailwind.min.css`. La `tailwind.config` en línea **no tiene efecto** sin el CDN.
-- Portada: `index.html` (~4.000 líneas, CSS y JS en línea). 19 páginas de municipio en `municipios/` y 7 de comarca en `comarcas/` (los otros 84 municipios redirigen a su comarca, D27), 29 artículos en `blog/`.
+- Portada: `index.html` (~4.000 líneas, CSS y JS en línea). 19 páginas de municipio en `municipios/` y 7 de comarca en `comarcas/` (los otros 84 municipios redirigen a su comarca, D27), 26 artículos en `blog/`.
 - Archivos UTF-8 con final de línea LF.
 
 ### Formularios y datos
