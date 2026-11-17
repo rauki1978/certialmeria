@@ -1763,15 +1763,11 @@ h1, h2, h3, h4, h5, h6 {
         </div>
         <div class="form-step">
           <div class="form-step-num inactive" id="step-indicator-2">2</div>
-          <span class="form-step-label" id="step-label-2">Dirección</span>
+          <span class="form-step-label" id="step-label-2">Inmueble</span>
         </div>
         <div class="form-step">
           <div class="form-step-num inactive" id="step-indicator-3">3</div>
-          <span class="form-step-label" id="step-label-3">Inmueble</span>
-        </div>
-        <div class="form-step">
-          <div class="form-step-num inactive" id="step-indicator-4">4</div>
-          <span class="form-step-label" id="step-label-4">Confirmar</span>
+          <span class="form-step-label" id="step-label-3">Visita</span>
         </div>
       </div>
 
@@ -1782,18 +1778,13 @@ h1, h2, h3, h4, h5, h6 {
         <div id="step-1" class="step-content">
           <div style="margin-bottom: 28px;">
             <h3 style="font-size: 1.4rem; font-weight: 900; color: #111; margin-bottom: 4px;">Datos personales</h3>
-            <p style="font-size: 0.9rem; color: #999;">Necesitamos tus datos para contactarte y coordinar la visita</p>
+            <p style="font-size: 0.9rem; color: #999;">Solo lo justo para llamarte. El resto de datos te los pedimos después.</p>
           </div>
 
           <div class="form-grid">
             <div>
               <label class="form-label">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" required class="form-input" placeholder="Tu nombre">
-            </div>
-
-            <div>
-              <label class="form-label">Apellidos *</label>
-              <input type="text" id="apellidos" name="apellidos" required class="form-input" placeholder="Tus apellidos">
+              <input type="text" id="nombre" name="nombre" required class="form-input" placeholder="Tu nombre" autocomplete="name">
             </div>
 
             <div>
@@ -1806,12 +1797,6 @@ h1, h2, h3, h4, h5, h6 {
               <label class="form-label">Email *</label>
               <input type="email" id="email" name="email" required class="form-input" placeholder="tu@email.com" autocomplete="email" inputmode="email">
               <p style="font-size:0.75rem;color:#aaa;margin-top:5px;">Aquí te llega el certificado y la factura.</p>
-            </div>
-
-            <div style="grid-column: 1 / -1;">
-              <label class="form-label">DNI / NIE *</label>
-              <input type="text" id="dni" name="dni" required class="form-input" placeholder="00000000X" autocomplete="off" maxlength="12" style="text-transform: uppercase;">
-              <p style="font-size:0.75rem;color:#aaa;margin-top:5px;">Obligatorio para inscribir el certificado en el registro de la Junta de Andalucía a tu nombre.</p>
             </div>
           </div>
 
@@ -1828,8 +1813,8 @@ h1, h2, h3, h4, h5, h6 {
         <!-- Step 2: Dirección -->
         <div id="step-2" class="step-content hidden">
           <div style="margin-bottom: 28px;">
-            <h3 style="font-size: 1.4rem; font-weight: 900; color: #111; margin-bottom: 4px;">Dirección del inmueble</h3>
-            <p style="font-size: 0.9rem; color: #999;">¿Dónde está ubicado el inmueble a certificar?</p>
+            <h3 style="font-size: 1.4rem; font-weight: 900; color: #111; margin-bottom: 4px;">El inmueble</h3>
+            <p style="font-size: 0.9rem; color: #999;">¿Dónde está y qué es?</p>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -1856,35 +1841,10 @@ h1, h2, h3, h4, h5, h6 {
             </div>
 
             <div>
-              <label class="form-label">Dirección completa *</label>
+              <label class="form-label">Dirección *</label>
               <input type="text" id="direccion" name="direccion" required class="form-input" placeholder="Calle, número, piso, puerta">
             </div>
 
-            <div class="form-grid">
-              <div>
-                <label class="form-label">Código Postal *</label>
-                <input type="text" id="codigo-postal" name="codigo-postal" required class="form-input" placeholder="04001">
-              </div>
-              <div>
-                <label class="form-label">Referencia catastral *</label>
-                <input type="text" id="ref-catastral" name="ref-catastral" required class="form-input" placeholder="0000000XX0000X" maxlength="20" style="text-transform: uppercase;">
-                <p style="font-size:0.75rem;color:#aaa;margin-top:5px;">
-                  Viene en el recibo del IBI. Si no lo encuentras, búscala gratis en la
-                  <a href="https://www.sedecatastro.gob.es/" target="_blank" rel="noopener nofollow" style="color:#43A047;text-decoration:underline;">Sede del Catastro</a>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3: Tipo Inmueble -->
-        <div id="step-3" class="step-content hidden">
-          <div style="margin-bottom: 28px;">
-            <h3 style="font-size: 1.4rem; font-weight: 900; color: #111; margin-bottom: 4px;">Tipo de inmueble</h3>
-            <p style="font-size: 0.9rem; color: #999;">Selecciona el tipo de inmueble y sus características</p>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 20px;">
             <div>
               <label class="form-label">Tipo de inmueble *</label>
               <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
@@ -1914,15 +1874,9 @@ h1, h2, h3, h4, h5, h6 {
               </div>
             </div>
 
-            <div class="form-grid">
-              <div>
-                <label class="form-label">Metros cuadrados (aprox.) *</label>
-                <input type="number" id="metros" name="metros" required class="form-input" placeholder="80">
-              </div>
-              <div>
-                <label class="form-label">Año de construcción (aprox.)</label>
-                <input type="number" id="ano" name="ano" class="form-input" placeholder="2000">
-              </div>
+            <div>
+              <label class="form-label">Metros cuadrados (aprox.)</label>
+              <input type="number" id="metros" name="metros" class="form-input" placeholder="80">
             </div>
 
             <div>
@@ -1946,8 +1900,8 @@ h1, h2, h3, h4, h5, h6 {
           </div>
         </div>
 
-        <!-- Step 4: Confirmar -->
-        <div id="step-4" class="step-content hidden">
+        <!-- Step 3: Visita y confirmar -->
+        <div id="step-3" class="step-content hidden">
           <div style="margin-bottom: 28px;">
             <h3 style="font-size: 1.4rem; font-weight: 900; color: #111; margin-bottom: 4px;">Confirma tu solicitud</h3>
             <p style="font-size: 0.9rem; color: #999;">Revisa los datos antes de confirmar</p>
@@ -1978,7 +1932,7 @@ h1, h2, h3, h4, h5, h6 {
                 <p style="font-weight: 800; color: #111; font-size: 0.95rem;" id="resumen-tipo">-</p>
                 <p style="font-size: 0.85rem; color: #888;" id="resumen-metros">-</p>
               </div>
-              <button type="button" onclick="goToStep(3)" style="font-size: 0.8rem; font-weight: 600; color: #111; background: none; border: none; cursor: pointer; text-decoration: underline; text-underline-offset: 3px;">Editar</button>
+              <button type="button" onclick="goToStep(2)" style="font-size: 0.8rem; font-weight: 600; color: #111; background: none; border: none; cursor: pointer; text-decoration: underline; text-underline-offset: 3px;">Editar</button>
             </div>
           </div>
 
@@ -2370,7 +2324,7 @@ WhatsApp Directo
               <p class="text-sm text-neutral-800"><strong>Día 2:</strong> Elaboración + registro oficial</p>
               <p class="text-sm text-neutral-800"><strong>Entrega:</strong> Certificado PDF + etiqueta energética</p>
             </div>
-            <a href="/certificado-energetico-rapido/" class="inline-block mt-4 text-primary hover:text-secondary font-semibold">Solicitar ahora →</a>
+            <a href="/certificado-energetico-24-horas/" class="inline-block mt-4 text-primary hover:text-secondary font-semibold">Solicitar ahora →</a>
           </div>
         </div>
       </div>
@@ -3703,7 +3657,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 // Estado del wizard
 let currentStep = 1;
-const totalSteps = 4;
+const totalSteps = 3;
 
 // Actualizar indicadores visuales de pasos
 function updateStepIndicators() {
@@ -3887,7 +3841,7 @@ function nextStep() {
                 guardarInteresado();
             }
             currentStep++;
-            if (currentStep === 4) {
+            if (currentStep === totalSteps) {
                 updateResumen();
             }
             updateStepIndicators();
@@ -3926,7 +3880,7 @@ function goToStep(step) {
             guardarInteresado();
         }
         currentStep = step;
-        if (currentStep === 4) {
+        if (currentStep === totalSteps) {
             updateResumen();
         }
         updateStepIndicators();
@@ -3936,46 +3890,30 @@ function goToStep(step) {
     }
 }
 
-// Actualizar resumen en paso 4
+// Valor de un campo que puede no existir: el asistente se simplificó el
+// 2026-11-17 (D27) y ya no pide apellidos, DNI, código postal, referencia
+// catastral ni año. La app y el correo los aceptan vacíos.
+function valorCampo(id) {
+    return ((document.getElementById(id) || {}).value || '').trim();
+}
+
+// Actualizar resumen en el último paso
 function updateResumen() {
-    // Datos personales
-    const nombre = document.getElementById('nombre').value;
-    const apellidos = document.getElementById('apellidos').value;
-    const telefono = document.getElementById('telefono').value;
-    const email = document.getElementById('email').value;
+    const nombre = valorCampo('nombre');
+    const telefono = valorCampo('telefono');
+    const email = valorCampo('email');
+    document.getElementById('resumen-nombre').textContent = nombre;
+    document.getElementById('resumen-contacto').textContent = '📞 ' + telefono + (email ? '  ·  📧 ' + email : '');
 
-    const dni = (document.getElementById('dni').value || '').trim().toUpperCase();
-    document.getElementById('resumen-nombre').textContent = `${nombre} ${apellidos}`;
-    document.getElementById('resumen-contacto').innerHTML = `
-        📞 ${telefono}<br>
-        📧 ${email}${dni ? `<br><span class="text-sm text-neutral-500">DNI: ${dni}</span>` : ''}
-    `;
+    document.getElementById('resumen-direccion').textContent = valorCampo('direccion');
+    document.getElementById('resumen-municipio').textContent = valorCampo('municipio');
 
-    // Dirección
-    const municipio = document.getElementById('municipio').value;
-    const direccion = document.getElementById('direccion').value;
-    const cp = document.getElementById('codigo-postal').value;
-    const refCatastral = document.getElementById('ref-catastral').value || 'No proporcionada';
-
-    document.getElementById('resumen-direccion').textContent = direccion;
-    document.getElementById('resumen-municipio').innerHTML = `
-        ${cp}, ${municipio}<br>
-        <span class="text-sm text-neutral-500">Ref. Catastral: ${refCatastral}</span>
-    `;
-
-    // Inmueble
     const tipoInmueble = document.querySelector('input[name="tipo-inmueble"]:checked');
-    const metros = document.getElementById('metros').value;
-    const anio = document.getElementById('ano').value;
-
+    const metros = valorCampo('metros');
     if (tipoInmueble) {
-        const tipoTexto = tipoInmueble.value.charAt(0).toUpperCase() + tipoInmueble.value.slice(1);
-        document.getElementById('resumen-tipo').textContent = tipoTexto;
-        document.getElementById('resumen-metros').innerHTML = `
-            ${metros} m²<br>
-            <span class="text-sm text-neutral-500">Año construcción: ${anio}</span>
-        `;
+        document.getElementById('resumen-tipo').textContent = tipoInmueble.value.charAt(0).toUpperCase() + tipoInmueble.value.slice(1);
     }
+    document.getElementById('resumen-metros').textContent = metros ? metros + ' m²' : '';
 }
 
 // Manejar envío del formulario
@@ -4014,7 +3952,7 @@ if (TURNSTILE_SITE_KEY) {
 // ---------------------------------------------------------------------------
 // Rescate de abandonos.
 //
-// El asistente tiene cuatro pasos y mucha gente se queda por el camino: mira
+// El asistente tiene tres pasos y mucha gente se queda por el camino: mira
 // el precio, le surge algo y cierra. Hasta ahora ese cliente desaparecía sin
 // dejar rastro, aunque ya hubiera escrito su nombre y su teléfono en el paso 1.
 //
@@ -4158,10 +4096,10 @@ document.getElementById('wizard-form').addEventListener('submit', function(e) {
     const formData = {
         // Datos personales
         nombre: document.getElementById('nombre').value,
-        apellidos: document.getElementById('apellidos').value,
-        dni: (document.getElementById('dni').value || '').trim().toUpperCase(),
+        apellidos: valorCampo('apellidos'),
+        dni: valorCampo('dni').toUpperCase(),
         telefono: document.getElementById('telefono').value,
-        email: document.getElementById('email').value,
+        email: valorCampo('email'),
 
         // Visita reservada (martes o jueves por la tarde)
         fechaVisita: (document.getElementById('fecha-visita') || {}).value || '',
@@ -4169,14 +4107,14 @@ document.getElementById('wizard-form').addEventListener('submit', function(e) {
 
         // Dirección
         municipio: document.getElementById('municipio').value,
-        direccion: document.getElementById('direccion').value,
-        codigoPostal: document.getElementById('codigo-postal').value,
-        refCatastral: document.getElementById('ref-catastral').value,
+        direccion: valorCampo('direccion'),
+        codigoPostal: valorCampo('codigo-postal'),
+        refCatastral: valorCampo('ref-catastral'),
 
         // Inmueble
         tipoInmueble: document.querySelector('input[name="tipo-inmueble"]:checked').value,
-        metros: document.getElementById('metros').value,
-        anioConstruccion: document.getElementById('ano').value,
+        metros: valorCampo('metros'),
+        anioConstruccion: valorCampo('ano'),
         observaciones: document.getElementById('observaciones').value,
         comoNosConocio: (document.getElementById('como-nos-conocio') || {}).value || '',
         origenUrl: origenUrl()

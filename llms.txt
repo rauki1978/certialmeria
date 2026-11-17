@@ -24,7 +24,14 @@
 - [Profesionales: instaladores, inmobiliarias y administradores de fincas](https://www.certialmeria.es/profesionales/)
 - [Registro en la Junta de Andalucía](https://www.certialmeria.es/registro-junta-andalucia/)
 - [Quién firma: Raúl Cañadas, colegiado 1.440](https://www.certialmeria.es/arquitecto-tecnico-coaat-1440/)
-- [Municipios de la provincia](https://www.certialmeria.es/municipios/)
+- [Municipios de la provincia](https://www.certialmeria.es/municipios/): las localidades principales y las 7 comarcas, con la zona climática de cada municipio
+  - [Comarca Metropolitana de Almería](https://www.certialmeria.es/comarcas/metropolitana-de-almeria/)
+  - [Poniente Almeriense](https://www.certialmeria.es/comarcas/poniente-almeriense/)
+  - [Levante Almeriense](https://www.certialmeria.es/comarcas/levante-almeriense/)
+  - [Valle del Almanzora](https://www.certialmeria.es/comarcas/valle-del-almanzora/)
+  - [Alpujarra Almeriense](https://www.certialmeria.es/comarcas/alpujarra-almeriense/)
+  - [Los Filabres-Tabernas](https://www.certialmeria.es/comarcas/filabres-tabernas/)
+  - [Los Vélez](https://www.certialmeria.es/comarcas/los-velez/)
 - [Contacto](https://www.certialmeria.es/contacto/)
 
 ## Guías

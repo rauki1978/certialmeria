@@ -40,13 +40,6 @@
 
 
     <!-- Páginas temáticas específicas -->
-    <url>
-        <loc>https://www.certialmeria.es/certificado-energetico-rapido/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
     <!-- Long-tail pages -->
     <url>
         <loc>https://www.certialmeria.es/certificado-energetico-75-euros/</loc>
@@ -184,13 +177,6 @@
     <!-- Blog Articles - Precios y Servicios -->
     <url>
         <loc>https://www.certialmeria.es/blog/precio-certificado-energetico-2025/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/blog/mejores-precios-certificado-energetico/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -453,13 +439,6 @@
     </url>
 
     <url>
-        <loc>https://www.certialmeria.es/municipios/garrucha/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
         <loc>https://www.certialmeria.es/municipios/pulpi/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
@@ -481,263 +460,11 @@
         <priority>0.6</priority>
     </url>
 
-    <url>
-        <loc>https://www.certialmeria.es/municipios/cantoria/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/arboleas/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/armuna-de-almanzora/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/olula-del-rio/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/purchena/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/macael/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
     <!-- MUNICIPIOS ÁREA METROPOLITANA - Media prioridad -->
-    <url>
-        <loc>https://www.certialmeria.es/municipios/benahadux/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/enix/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/dalias/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/la-mojonera/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/tabernas/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
     <!-- MUNICIPIOS COSTA ESTE - Media prioridad -->
-    <url>
-        <loc>https://www.certialmeria.es/municipios/antas/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/bedar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
     <!-- MUNICIPIOS ALPUJARRA - Media prioridad -->
-    <url>
-        <loc>https://www.certialmeria.es/municipios/canjayar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/bayarcal/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/beires/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alboloduy/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
     <!-- MUNICIPIOS SIERRA DE FILABRES - Media-baja prioridad -->
-    <url>
-        <loc>https://www.certialmeria.es/municipios/castro-de-filabres/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/bacares/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/abrucena/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
     <!-- MUNICIPIOS MENORES - Prioridad estándar para long-tail SEO -->
-    <url>
-        <loc>https://www.certialmeria.es/municipios/abla/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alcolea/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alcontar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alcudia-de-monteagud/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alhabia/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alhama-de-almeria/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alicun/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/almocita/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/alsodux/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/bayarque/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/benitagla/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/benizalon/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/chercos/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/chirivel/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/cobdar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/felix/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
     <!-- Paginas que faltaban en el sitemap (revision 2026-09-20) -->
 
     <url>
@@ -750,98 +477,7 @@
     <!-- Municipios que faltaban: 52 de los 103 no estaban declarados -->
 
     <url>
-        <loc>https://www.certialmeria.es/municipios/albanchez/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/balanegra/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/bentarique/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/finana/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/fines/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/fondon/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/gador/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/gallardos-los/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/gergal/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/huecija/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
         <loc>https://www.certialmeria.es/municipios/huercal-de-almeria/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/illar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/instincion/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/laroya/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
@@ -855,196 +491,7 @@
     </url>
 
     <url>
-        <loc>https://www.certialmeria.es/municipios/lijar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/lubrin/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/lucainena-de-las-torres/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/lucar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/maria/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/nacimiento/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/ohanes/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/olula-de-castro/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/oria/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/padules/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/partaloa/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/paterna-del-rio/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
         <loc>https://www.certialmeria.es/municipios/pechina/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/ragol/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/rioja/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/santa-cruz-de-marchena/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/santa-fe-de-mondujar/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/senes/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/seron/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/sierro/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/sonontin/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/sorbas/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/sufli/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/taberno/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/tahal/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/terque/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/tijola/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/tres-villas-las/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
@@ -1058,58 +505,53 @@
     </url>
 
     <url>
-        <loc>https://www.certialmeria.es/municipios/turrillas/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/uleila-del-campo/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/urracal/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/velefique/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/velez-blanco/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://www.certialmeria.es/municipios/velez-rubio/</loc>
-        <lastmod>2026-11-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
         <loc>https://www.certialmeria.es/municipios/viator/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
 
+    <!-- Comarcas (D27) -->
     <url>
-        <loc>https://www.certialmeria.es/municipios/zurgena/</loc>
+        <loc>https://www.certialmeria.es/comarcas/metropolitana-de-almeria/</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.3</priority>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.certialmeria.es/comarcas/poniente-almeriense/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.certialmeria.es/comarcas/levante-almeriense/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.certialmeria.es/comarcas/valle-del-almanzora/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.certialmeria.es/comarcas/alpujarra-almeriense/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.certialmeria.es/comarcas/filabres-tabernas/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.certialmeria.es/comarcas/los-velez/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
 </urlset>

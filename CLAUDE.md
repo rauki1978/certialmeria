@@ -30,16 +30,16 @@ La documentación de negocio y marketing vive en `docs/marketing/`:
 - **Cloudflare Pages**, despliegue automático al hacer push a `main`. Dominio: `www.certialmeria.es`.
 - La configuración real de servidor está en **`_headers`** y **`_redirects`**. ⚠️ `.htaccess` existe pero **Cloudflare Pages no lo lee**: editarlo no surte ningún efecto.
 - Tailwind **precompilado** en `/css/tailwind.min.css`. La `tailwind.config` en línea **no tiene efecto** sin el CDN.
-- Portada: `index.html` (~4.000 líneas, CSS y JS en línea). 103 páginas de municipio en `municipios/`, 31 artículos en `blog/`.
+- Portada: `index.html` (~4.000 líneas, CSS y JS en línea). 19 páginas de municipio en `municipios/` y 7 de comarca en `comarcas/` (los otros 84 municipios redirigen a su comarca, D27), 29 artículos en `blog/`.
 - Archivos UTF-8 con final de línea LF.
 
 ### Formularios y datos
-- Portada: formulario asistido con id **`#wizard-form`**, 4 pasos (`totalSteps = 4`). El JS busca ese id exacto.
+- Portada: formulario asistido con id **`#wizard-form`**, 3 pasos (`totalSteps = 3`). El JS busca ese id exacto.
 - Las otras 155 páginas: formulario compartido inyectado por **`/js/lead-form.js`**.
 - Los interesados van a **dos destinos a la vez**: la app propia (`cee.certialmeria.es/api/interesados`) **y** copia por email vía Web3Forms. Basta que una funcione. Antispam: Cloudflare Turnstile.
 - **Esto funciona bien. No simplificarlo a un solo destino.**
 - El asistente reserva **día y hora de visita**: sólo **martes y jueves por la tarde**, con 24 h de margen. Lo pinta `/js/reserva-visita.js`, que consulta los huecos ocupados en la app y, si no contesta, ofrece todos. Las horas están en **dos sitios que hay que cambiar juntos**: el array `HORAS` de ese JS y el `<select id="hora-visita">` de `index.html`.
-- Campos obligatorios añadidos: **DNI/NIE** (con comprobación de letra, `dniValido()`) y **referencia catastral**. Hacen falta para inscribir el certificado en la Junta. Ver D12.
+- Desde el 2026-11-17 (D27) el asistente pide solo nombre, teléfono, email, municipio, dirección y tipo de inmueble: es lo que exige `cee.certialmeria.es/api/reservas`. El DNI y la referencia catastral los pide Raúl después. El JS lee los campos con `valorCampo(id)`, que tolera que un campo no exista.
 - Lo que falta está en la aplicación, no aquí: ver `docs/marketing/integracion-app.md`.
 
 ### Segundo dominio

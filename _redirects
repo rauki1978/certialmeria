@@ -34,5 +34,98 @@
 /blog/multas-certificado-energetico-andalucia/ /blog/multas-certificado-energetico-2025/ 301
 /blog/certificado-energetico-nuevas-ayudas/ /blog/subvenciones-mejoras-energeticas-andalucia/ 301
 
+# Fusiones de la tanda 2b (2026-11-17, decision D27): paginas que se pisaban.
+# /certificado-energetico-24-horas/ es destino de Google Ads; /certificado-energetico-rapido/ no.
+/certificado-energetico-rapido/ /certificado-energetico-24-horas/ 301
+/blog/mejores-precios-certificado-energetico/ /blog/precio-certificado-energetico-2025/ 301
+
+# Municipios agrupados en comarcas (2026-11-17, decision D27). Se quedan con
+# pagina propia los 19 con trabajo real (app) o impresiones en Search Console;
+# el resto redirige a la pagina de su comarca.
+/municipios/benahadux/ /comarcas/metropolitana-de-almeria/ 301
+/municipios/gador/ /comarcas/metropolitana-de-almeria/ 301
+/municipios/rioja/ /comarcas/metropolitana-de-almeria/ 301
+/municipios/santa-fe-de-mondujar/ /comarcas/metropolitana-de-almeria/ 301
+/municipios/balanegra/ /comarcas/poniente-almeriense/ 301
+/municipios/dalias/ /comarcas/poniente-almeriense/ 301
+/municipios/enix/ /comarcas/poniente-almeriense/ 301
+/municipios/felix/ /comarcas/poniente-almeriense/ 301
+/municipios/la-mojonera/ /comarcas/poniente-almeriense/ 301
+/municipios/antas/ /comarcas/levante-almeriense/ 301
+/municipios/bedar/ /comarcas/levante-almeriense/ 301
+/municipios/gallardos-los/ /comarcas/levante-almeriense/ 301
+/municipios/garrucha/ /comarcas/levante-almeriense/ 301
+/municipios/lubrin/ /comarcas/levante-almeriense/ 301
+/municipios/sorbas/ /comarcas/levante-almeriense/ 301
+/municipios/albanchez/ /comarcas/valle-del-almanzora/ 301
+/municipios/alcontar/ /comarcas/valle-del-almanzora/ 301
+/municipios/arboleas/ /comarcas/valle-del-almanzora/ 301
+/municipios/armuna-de-almanzora/ /comarcas/valle-del-almanzora/ 301
+/municipios/bacares/ /comarcas/valle-del-almanzora/ 301
+/municipios/bayarque/ /comarcas/valle-del-almanzora/ 301
+/municipios/cantoria/ /comarcas/valle-del-almanzora/ 301
+/municipios/chercos/ /comarcas/valle-del-almanzora/ 301
+/municipios/cobdar/ /comarcas/valle-del-almanzora/ 301
+/municipios/fines/ /comarcas/valle-del-almanzora/ 301
+/municipios/laroya/ /comarcas/valle-del-almanzora/ 301
+/municipios/lijar/ /comarcas/valle-del-almanzora/ 301
+/municipios/lucar/ /comarcas/valle-del-almanzora/ 301
+/municipios/macael/ /comarcas/valle-del-almanzora/ 301
+/municipios/olula-del-rio/ /comarcas/valle-del-almanzora/ 301
+/municipios/oria/ /comarcas/valle-del-almanzora/ 301
+/municipios/partaloa/ /comarcas/valle-del-almanzora/ 301
+/municipios/purchena/ /comarcas/valle-del-almanzora/ 301
+/municipios/seron/ /comarcas/valle-del-almanzora/ 301
+/municipios/sierro/ /comarcas/valle-del-almanzora/ 301
+/municipios/sonontin/ /comarcas/valle-del-almanzora/ 301
+/municipios/sufli/ /comarcas/valle-del-almanzora/ 301
+/municipios/taberno/ /comarcas/valle-del-almanzora/ 301
+/municipios/tijola/ /comarcas/valle-del-almanzora/ 301
+/municipios/urracal/ /comarcas/valle-del-almanzora/ 301
+/municipios/zurgena/ /comarcas/valle-del-almanzora/ 301
+/municipios/alboloduy/ /comarcas/alpujarra-almeriense/ 301
+/municipios/alcolea/ /comarcas/alpujarra-almeriense/ 301
+/municipios/alhabia/ /comarcas/alpujarra-almeriense/ 301
+/municipios/alhama-de-almeria/ /comarcas/alpujarra-almeriense/ 301
+/municipios/alicun/ /comarcas/alpujarra-almeriense/ 301
+/municipios/almocita/ /comarcas/alpujarra-almeriense/ 301
+/municipios/alsodux/ /comarcas/alpujarra-almeriense/ 301
+/municipios/bayarcal/ /comarcas/alpujarra-almeriense/ 301
+/municipios/beires/ /comarcas/alpujarra-almeriense/ 301
+/municipios/bentarique/ /comarcas/alpujarra-almeriense/ 301
+/municipios/canjayar/ /comarcas/alpujarra-almeriense/ 301
+/municipios/fondon/ /comarcas/alpujarra-almeriense/ 301
+/municipios/huecija/ /comarcas/alpujarra-almeriense/ 301
+/municipios/illar/ /comarcas/alpujarra-almeriense/ 301
+/municipios/instincion/ /comarcas/alpujarra-almeriense/ 301
+/municipios/ohanes/ /comarcas/alpujarra-almeriense/ 301
+/municipios/padules/ /comarcas/alpujarra-almeriense/ 301
+/municipios/paterna-del-rio/ /comarcas/alpujarra-almeriense/ 301
+/municipios/ragol/ /comarcas/alpujarra-almeriense/ 301
+/municipios/santa-cruz-de-marchena/ /comarcas/alpujarra-almeriense/ 301
+/municipios/terque/ /comarcas/alpujarra-almeriense/ 301
+/municipios/abla/ /comarcas/filabres-tabernas/ 301
+/municipios/abrucena/ /comarcas/filabres-tabernas/ 301
+/municipios/alcudia-de-monteagud/ /comarcas/filabres-tabernas/ 301
+/municipios/benitagla/ /comarcas/filabres-tabernas/ 301
+/municipios/benizalon/ /comarcas/filabres-tabernas/ 301
+/municipios/castro-de-filabres/ /comarcas/filabres-tabernas/ 301
+/municipios/finana/ /comarcas/filabres-tabernas/ 301
+/municipios/gergal/ /comarcas/filabres-tabernas/ 301
+/municipios/lucainena-de-las-torres/ /comarcas/filabres-tabernas/ 301
+/municipios/nacimiento/ /comarcas/filabres-tabernas/ 301
+/municipios/olula-de-castro/ /comarcas/filabres-tabernas/ 301
+/municipios/senes/ /comarcas/filabres-tabernas/ 301
+/municipios/tabernas/ /comarcas/filabres-tabernas/ 301
+/municipios/tahal/ /comarcas/filabres-tabernas/ 301
+/municipios/tres-villas-las/ /comarcas/filabres-tabernas/ 301
+/municipios/turrillas/ /comarcas/filabres-tabernas/ 301
+/municipios/uleila-del-campo/ /comarcas/filabres-tabernas/ 301
+/municipios/velefique/ /comarcas/filabres-tabernas/ 301
+/municipios/chirivel/ /comarcas/los-velez/ 301
+/municipios/maria/ /comarcas/los-velez/ 301
+/municipios/velez-blanco/ /comarcas/los-velez/ 301
+/municipios/velez-rubio/ /comarcas/los-velez/ 301
+
 # Remover trailing slash (opcional, si se prefiere)
 # /* /:splat 301!

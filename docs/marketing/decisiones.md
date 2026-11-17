@@ -333,6 +333,22 @@ El criterio de fondo es el que ya estaba escrito en `js/lead-form.js`: **vale m�
 
 ---
 
+## 2026-11-17 · D27 · Municipios en comarcas, formulario más sencillo, fusiones y cifras fuera
+
+**Decisión (Raúl: «reagrupa si lo ves conveniente», «formulario más sencillo, yo pido después más datos», «busca los datos en la app»).**
+- **Municipios:** se quedan con página propia 19 (Almería, Roquetas de Mar, El Ejido, Vícar, Adra, Berja, Níjar, Huércal de Almería, Pechina, Viator, Vera, Mojácar, Carboneras, Turre, Pulpí, Cuevas del Almanzora, Huércal-Overa, Albox y Laujar de Andarax). Los otros 84 redirigen con 301 a una de las 7 páginas nuevas de comarca (`/comarcas/…/`), que llevan la tabla validada de altitud y zona (D26) de todos sus municipios. Comarcas según Wikidata (Balanegra, sin dato, al Poniente). `/municipios/` se rehace: municipios con página propia y todos los municipios por comarca.
+- **Formulario de la portada:** 3 pasos (Datos, Inmueble, Visita). Fuera apellidos, DNI, código postal, referencia catastral y año; metros opcional. Se mantienen nombre, teléfono, email, municipio, dirección y tipo, porque `cee.certialmeria.es/api/reservas` exige nombre, teléfono, email, dirección y municipio (`lib/reservas.ts` de la app). El DNI y la referencia catastral los pide Raúl después. Deja sin efecto D12 y D17 en el primer contacto.
+- **Fusiones con 301:** `/certificado-energetico-rapido/` → `/certificado-energetico-24-horas/` y `/blog/mejores-precios-certificado-energetico/` → `/blog/precio-certificado-energetico-2025/`.
+- **Cifras sin dato:** fuera los «N+ certificados», «más de N viviendas», «más de N clientes satisfechos» y «45+ VFT» de las páginas de municipio. La app solo guarda expedientes desde el 2026-02-08 (409) y no puede respaldarlas.
+
+**Motivo.** Search Console (16-08 → 15-11): 66 de las 103 páginas de municipio no tuvieron ninguna impresión; las 19 que se quedan concentran casi todo el tráfico y los expedientes de la app. Ads (30 días) aterriza en la portada, `/certificado-energetico-75-euros/`, la calculadora, `/certificado-energetico-24-horas/`, `/contacto/`, `/certificado-vivienda/`, `/profesionales/` y las páginas de Almería y Roquetas; la campaña del Levante (en pausa), en `/municipios/vera/`: ninguna se redirige. `/certificado-energetico-rapido/` estaba en la posición 66 con 1 clic en 3 meses. `/certificado-energetico-barato/` se queda (156 enlaces internos y 9 clics orgánicos).
+
+**Lo que NO se ha tocado.** Las comparativas con Certicalia y Tinsa (Raúl: «déjalo»), la foto de portada (no hay foto de una visita), el formulario compartido de las demás páginas (`lead-form.js`, ya era corto) y la app.
+
+**Cómo se revisará.** Páginas indexadas, impresiones de las comarcas y solicitudes del formulario el 2026-12-10.
+
+---
+
 ## Plantilla para las próximas entradas
 
     ## AAAA-MM-DD · Dn · Título breve
